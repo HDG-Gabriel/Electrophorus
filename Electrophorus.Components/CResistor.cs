@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Electrophorus.Rendering;
 
 namespace Electrophorus.Components
 {
@@ -47,7 +42,7 @@ namespace Electrophorus.Components
         {
             if (canMove && e.Button == MouseButtons.Left)
             {
-                Location = new Point(e.X + Location.X - Width / 2, e.Y + Location.Y - Height / 2);
+                Location = new Point(e.X + Location.X - Width / 2, e.Y + Location.Y - Height / 2 - 10);
             }
         }
 
@@ -55,6 +50,7 @@ namespace Electrophorus.Components
         {
             canMove = false;
             lblResistencia.Cursor = Cursors.SizeAll;
+            Location = LayoutManager.AdjustPosition(Location, 40);
         }
 
         private void CResistor_MouseDown(object sender, MouseEventArgs e)

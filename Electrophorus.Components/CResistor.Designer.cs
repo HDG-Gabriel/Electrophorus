@@ -40,7 +40,7 @@ namespace Electrophorus.Components
             this.lblResistencia.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.lblResistencia.Location = new System.Drawing.Point(0, 0);
             this.lblResistencia.Name = "lblResistencia";
-            this.lblResistencia.Padding = new System.Windows.Forms.Padding(0, 8, 0, 5);
+            this.lblResistencia.Padding = new System.Windows.Forms.Padding(0, 8, 0, 7);
             this.lblResistencia.Size = new System.Drawing.Size(64, 64);
             this.lblResistencia.TabIndex = 1;
             this.lblResistencia.Text = "1 Ω";
