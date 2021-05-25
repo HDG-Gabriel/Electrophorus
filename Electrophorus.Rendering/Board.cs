@@ -1,6 +1,5 @@
 ﻿using System;
 using SkiaSharp;
-using SkiaSharp.Views.Desktop;
 
 namespace Electrophorus.Rendering
 {
@@ -10,33 +9,36 @@ namespace Electrophorus.Rendering
         public int Rows { get; private set; }
         public int Width { get; private set; }
         public int Height { get; private set; }
-        private const int cellSize = 40;
+        private readonly int _cellSize;
 
-        public void DrawGrid(SKSurface surface, int width, int height)
+        public Board(int cellSize = 40)
         {
-            SetSize(width, height);
+            _cellSize = cellSize;
+        }
 
+        public void DrawGrid(SKSurface surface)
+        {
             var canvas = surface.Canvas;
     
             var paint = new SKPaint() { StrokeWidth = 1, Color = SKColors.Black };
 
             for (var i = 0; i <= Columns; i ++)
             {
-                canvas.DrawLine(i * cellSize, 0, i * cellSize, Height, paint);
+                canvas.DrawLine(i * _cellSize, 0, i * _cellSize, Height, paint);
             }
             for (var i = 0; i <= Rows; i ++)
             {
-                canvas.DrawLine(0, i * cellSize, Width, i * cellSize, paint);
+                canvas.DrawLine(0, i * _cellSize, Width, i * _cellSize, paint);
             }
         }
 
-        private void SetSize(int width, int height)
+        public void SetSize(int width, int height)
         {
-            Columns = width / cellSize;
-            Rows = height / cellSize;
+            Columns = width / _cellSize;
+            Rows = height / _cellSize;
 
-            Width = Columns * cellSize;
-            Height = Rows * cellSize;
+            Width = Columns * _cellSize;
+            Height = Rows * _cellSize;
         }
     }
 }
