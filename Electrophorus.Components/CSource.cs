@@ -4,7 +4,16 @@ namespace Electrophorus.Components
 {
     public partial class CSource : CircuitComponent
     {
-        public Source Source { get; set; }
+        private Source _source;
+        public Source Source
+        {
+            get => _source;
+            set
+            {
+                _source = value;
+                lblValor.Text = $"{value.Tensao} V";
+            }
+        }
         public CSource()
         {
             InitializeComponent();
@@ -16,7 +25,7 @@ namespace Electrophorus.Components
         protected override void CircuitComponent_MouseUp(object sender, MouseEventArgs e)
         {
             base.CircuitComponent_MouseUp(sender, e);
-            Location = new System.Drawing.Point(Location.X, Location.Y + 4);
+            Location = new System.Drawing.Point(Location.X, Location.Y - 10);
         }
     }
 }

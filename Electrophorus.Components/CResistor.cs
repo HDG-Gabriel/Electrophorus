@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace Electrophorus.Components
 {
@@ -17,13 +18,14 @@ namespace Electrophorus.Components
         public CResistor()
         {
             InitializeComponent();
-        }
-
-        protected override void CircuitComponent_Load(object sender, EventArgs e)
-        {
-            base.CircuitComponent_Load(sender, e);
             Resistor = new Resistor(1);
             _displacementY = -10;
+        }
+
+        protected override void CircuitComponent_MouseUp(object sender, MouseEventArgs e)
+        {
+            base.CircuitComponent_MouseUp(sender, e);
+            Location = new System.Drawing.Point(Location.X, Location.Y - 8);
         }
     }
 }
