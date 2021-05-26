@@ -30,27 +30,29 @@ namespace Electrophorus.Components
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CircuitComponent));
-            this.lblResistencia = new System.Windows.Forms.Label();
+            this.lblValor = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lblResistencia
+            // lblValor
             // 
-            this.lblResistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblResistencia.Image = ((System.Drawing.Image)(resources.GetObject("lblResistencia.Image")));
-            this.lblResistencia.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lblResistencia.Location = new System.Drawing.Point(0, 0);
-            this.lblResistencia.Name = "lblResistencia";
-            this.lblResistencia.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
-            this.lblResistencia.Size = new System.Drawing.Size(64, 96);
-            this.lblResistencia.TabIndex = 0;
-            this.lblResistencia.Text = "1 U";
-            this.lblResistencia.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblValor.BackColor = System.Drawing.Color.Transparent;
+            this.lblValor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblValor.Image = ((System.Drawing.Image)(resources.GetObject("lblValor.Image")));
+            this.lblValor.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblValor.Location = new System.Drawing.Point(0, 0);
+            this.lblValor.Name = "lblValor";
+            this.lblValor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lblValor.Size = new System.Drawing.Size(64, 92);
+            this.lblValor.TabIndex = 0;
+            this.lblValor.Text = "1 U";
+            this.lblValor.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // CircuitComponent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lblResistencia);
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.lblValor);
             this.Name = "CircuitComponent";
             this.Size = new System.Drawing.Size(64, 92);
             this.ResumeLayout(false);
@@ -59,6 +61,6 @@ namespace Electrophorus.Components
 
         #endregion
 
-        protected System.Windows.Forms.Label lblResistencia;
+        protected System.Windows.Forms.Label lblValor;
     }
 }

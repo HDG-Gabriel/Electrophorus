@@ -1,49 +1,70 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Electrophorus.Components
 {
     public partial class CircuitComponent : UserControl
     {
-        private bool canMove;
+        // Allows whether the control can be moved
+        protected bool _canMove;
+        /*
+         * Pointer displacement when placing a component on the screen.
+         * This will be used by your children to position the pointer in the center of the image.
+         */
+        protected int _displacementX;
+        protected int _displacementY;
+
         public CircuitComponent()
         {
             InitializeComponent();
 
             Load += CircuitComponent_Load;
+            _displacementX = _displacementY = 0;
         }
 
-        private void CircuitComponent_Load(object sender, System.EventArgs e)
+        protected virtual void CircuitComponent_Load(object sender, System.EventArgs e)
         {
-            Size = lblResistencia.Size;
-            canMove = false;
-            lblResistencia.Cursor = Cursors.SizeAll;
+            Size = lblValor.Size;
+            _canMove = false;
+            lblValor.Cursor = Cursors.SizeAll;
 
-            lblResistencia.MouseDown += CircuitComponent_MouseDown;
-
-            lblResistencia.MouseUp += CircuitComponent_MouseUp;
-
-            lblResistencia.MouseMove += CircuitComponent_MouseMove;
+            lblValor.MouseDown += CircuitComponent_MouseDown;
+            lblValor.MouseUp += CircuitComponent_MouseUp;
+            lblValor.MouseMove += CircuitComponent_MouseMove;
         }
 
-        private void CircuitComponent_MouseUp(object sender, MouseEventArgs e)
+        protected virtual void CircuitComponent_MouseUp(object sender, MouseEventArgs e)
         {
-            canMove = false;
-            lblResistencia.Cursor = Cursors.SizeAll;
+            _canMove = false;
+            lblValor.Cursor = Cursors.SizeAll;
+            AdjustLocation();
         }
 
-        private void CircuitComponent_MouseDown(object sender, MouseEventArgs e)
+        protected virtual void CircuitComponent_MouseDown(object sender, MouseEventArgs e)
         {
-            canMove = true;
-            lblResistencia.Cursor = Cursors.Default;
+            _canMove = true;
+            lblValor.Cursor = Cursors.Default;
         }
 
-        private void CircuitComponent_MouseMove(object sender, MouseEventArgs e)
+        protected virtual void CircuitComponent_MouseMove(object sender, MouseEventArgs e)
         {
-            if (canMove && e.Button == MouseButtons.Left)
+            if (_canMove && e.Button == MouseButtons.Left)
             {
-                Location = new Point(e.X + Location.X - Width / 2, e.Y + Location.Y - Height / 2);
+                Location = new Point(e.X + Location.X - Width / 2 + _displacementX, e.Y + Location.Y - Height / 2 + _displacementY);
             }
+        }
+
+        private void AdjustLocation()
+        {
+            int cellSize = 40;
+            int x = Location.X;
+            int y = Location.Y;
+
+            x = (int)Math.Round((double)x / cellSize) * cellSize;
+            y = (int)Math.Round((double)y / cellSize) * cellSize;
+
+            Location = new Point(x, y);
         }
     }
 }
