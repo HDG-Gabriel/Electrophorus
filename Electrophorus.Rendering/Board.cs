@@ -1,5 +1,4 @@
-﻿using System;
-using SkiaSharp;
+﻿using SkiaSharp;
 
 namespace Electrophorus.Rendering
 {
@@ -11,7 +10,7 @@ namespace Electrophorus.Rendering
         public int Height { get; private set; }
         private readonly int _cellSize;
 
-        public Board(int cellSize = 40)
+        public Board(int cellSize = 32)
         {
             _cellSize = cellSize;
         }
@@ -20,7 +19,7 @@ namespace Electrophorus.Rendering
         {
             var canvas = surface.Canvas;
     
-            var paint = new SKPaint() { StrokeWidth = 1, Color = SKColors.Black };
+            var paint = new SKPaint() { StrokeWidth = 1, Color = SKColors.Blue };
 
             for (var i = 0; i <= Columns; i ++)
             {
