@@ -1,62 +1,29 @@
 ﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-using Electrophorus.Rendering;
 
 namespace Electrophorus.Components
 {
-    public partial class CResistor : UserControl
+    public partial class CResistor : CircuitComponent
     {
-        private bool canMove;
-        public Resistor Resistor { get; }
-        public string LabelResistencia
+        private Resistor _resistor;
+        public Resistor Resistor
         {
-            get => Resistor.Resistencia.ToString();
+            get => _resistor;
             set
             {
-                Resistor.Resistencia = int.Parse(value);
-                lblResistencia.Text = $"{value} Ω";
+                _resistor = value;
+                lblValor.Text = $"{value.Resistencia} Ω";
             }
         }
-
         public CResistor()
         {
             InitializeComponent();
+        }
 
+        protected override void CircuitComponent_Load(object sender, EventArgs e)
+        {
+            base.CircuitComponent_Load(sender, e);
             Resistor = new Resistor(1);
-        }
-
-        private void CResistor_Load(object sender, EventArgs e)
-        {
-            canMove = false;
-            lblResistencia.Cursor = Cursors.SizeAll;
-
-            lblResistencia.MouseDown += CResistor_MouseDown;
-
-            lblResistencia.MouseUp += CResistor_MouseUp;
-
-            lblResistencia.MouseMove += CResistor_MouseMove;
-        }
-
-        private void CResistor_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (canMove && e.Button == MouseButtons.Left)
-            {
-                Location = new Point(e.X + Location.X - Width / 2, e.Y + Location.Y - Height / 2 - 10);
-            }
-        }
-
-        private void CResistor_MouseUp(object sender, MouseEventArgs e)
-        {
-            canMove = false;
-            lblResistencia.Cursor = Cursors.SizeAll;
-            Location = LayoutManager.AdjustPosition(Location, 40);
-        }
-
-        private void CResistor_MouseDown(object sender, MouseEventArgs e)
-        {
-            canMove = true;
-            lblResistencia.Cursor = Cursors.Default;
+            _displacementY = -10;
         }
     }
 }
