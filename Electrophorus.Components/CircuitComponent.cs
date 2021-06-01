@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Electrophorus.Rendering;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -23,7 +24,7 @@ namespace Electrophorus.Components
             _displacementX = _displacementY = 0;
         }
 
-        protected virtual void CircuitComponent_Load(object sender, System.EventArgs e)
+        protected virtual void CircuitComponent_Load(object sender, EventArgs e)
         {
             Size = lblValor.Size;
             _canMove = false;
@@ -68,12 +69,11 @@ namespace Electrophorus.Components
             /*
              * Alterar essa linha depois, para que pegue o valor do tamanho da célula automaticamente
              */
-            int cellSize = 32;
             int x = Location.X;
             int y = Location.Y;
 
-            x = (int)Math.Round((double)x / cellSize) * cellSize;
-            y = (int)Math.Round((double)(y + 8) / cellSize) * cellSize;
+            x = (int)Math.Round((double)x / Board.CellSize) * Board.CellSize;
+            y = (int)Math.Round((double)(y + 8) / Board.CellSize) * Board.CellSize;
 
             Location = new Point(x, y);
         }
