@@ -16,8 +16,7 @@ namespace Electrophorus.Components
         protected int _displacementX;
         protected int _displacementY;
 
-        private bool _isOnArea;
-        private Rectangle area;
+        private Area _area;
 
         public CircuitComponent()
         {
@@ -32,15 +31,16 @@ namespace Electrophorus.Components
             lblValor.Cursor = Cursors.SizeAll;
             Size = lblValor.Size;
             _canMove = false;
-            // Area para desenhar um conector de linhas
-            _isOnArea = false;
-            // Area para desenho do controle
-            const int side = 14;
-            area = new Rectangle(0, side + Height / 2, side, side);
+            _area = new Area(2, Height / 2, 10, 10);
 
             lblValor.MouseDown += CircuitComponent_MouseDown;
             lblValor.MouseUp += CircuitComponent_MouseUp;
             lblValor.MouseMove += CircuitComponent_MouseMove;
+            lblValor.MouseLeave += (s, e) =>
+            {
+                _area.IsOnArea = false;
+                Refresh();
+            };
 
             lblValor.Paint += LblValor_Paint;
         }
@@ -48,12 +48,9 @@ namespace Electrophorus.Components
         // Pinta o controle
         private void LblValor_Paint(object sender, PaintEventArgs e)
         {
-            if (_isOnArea)
+            if (_area.IsOnArea)
             {
-                var g = e.Graphics;
-                var pen = new Pen(Color.FromArgb(0, 255, 0), 3);
-
-                g.DrawRectangle(pen, area);
+                _area.DrawArea(e);
             }
         }
 
@@ -83,15 +80,9 @@ namespace Electrophorus.Components
             if (_canMove)
             {
                 Location = new Point(e.X + Location.X - Width / 2 + _displacementX, e.Y + Location.Y - Height / 2 + _displacementY);
-            }
-
-            if (e.X >= area.X && e.X <= (area.X + area.Width) && e.Y >= area.Y && e.Y <= (area.Y + area.Height) )
-            {
-                _isOnArea = true;
-                Refresh();
             } else
             {
-                _isOnArea = false;
+                _area.VerifyPosition(e);
                 Refresh();
             }
         }
