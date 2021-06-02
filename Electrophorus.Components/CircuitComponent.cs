@@ -1,8 +1,10 @@
-﻿using Electrophorus.Rendering;
+﻿using Electrophorus.Components.Enums;
+using Electrophorus.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Electrophorus.Components
 {
@@ -16,15 +18,8 @@ namespace Electrophorus.Components
          */
         protected int _displacementX;
         protected int _displacementY;
-
-        /*
-         * A variável 'cont' é temporária, depois irei mudar. Ela armazena o numero de vezes que o mouse 
-         * esteve em uma area especial, se sim ela incrementa. Sua importância é para quando trocar o cursor do mouse,
-         * tentei com outras lógicas mas n funcionou...
-         */
-        private int cont = 0;
-
         protected List<Area> Areas;
+        private ControlState _atualState;
 
         public CircuitComponent()
         {
@@ -44,18 +39,32 @@ namespace Electrophorus.Components
             lblValor.MouseDown += CircuitComponent_MouseDown;
             lblValor.MouseUp += CircuitComponent_MouseUp;
             lblValor.MouseMove += CircuitComponent_MouseMove;
-            lblValor.MouseLeave += (s, e) =>
+            lblValor.MouseLeave += LblValor_MouseLeave;
+            lblValor.MouseClick += (s, e) =>
             {
-                foreach(var area in Areas)
-                {
-                    area.IsOnArea = false;
-                    area.IsDraw = false;
-                }
+                _atualState = ControlState.JoinLines;
 
-                Refresh();
+                if (Areas.Any(n => n.IsOnArea))
+                {
+                    MessageBox.Show("Foi :D");
+                }
             };
 
             lblValor.Paint += LblValor_Paint;
+        }
+
+        // Quando o mouse sair do do controle, as áreas especiais também será fechadas
+        private void LblValor_MouseLeave(object sender, EventArgs e)
+        {
+            _atualState = ControlState.Wait;
+
+            foreach (var area in Areas)
+            {
+                area.IsOnArea = false;
+                area.IsDraw = false;
+            }
+
+            Refresh();
         }
 
         // Pinta o controle
@@ -63,21 +72,21 @@ namespace Electrophorus.Components
         {
             if (Areas.Count == 0) return;
 
-            if (!_canMove)
+            if (!_canMove && _atualState == ControlState.DrawSpecialArea)
             {
                 // Se o mouse estiver em uma área especial, então ela será pintada
                 foreach (var area in Areas)
                 {
                     if (area.IsOnArea) area.DrawArea(e);
                 }
-
-                lblValor.Cursor = (cont != 0) ? Cursors.Cross : Cursors.SizeAll;
             }
         }
 
         // Acontece quando o usuário solta o botão esquerdo
         protected virtual void CircuitComponent_MouseUp(object sender, MouseEventArgs e)
         {
+            _atualState = ControlState.Wait;
+
             if (e.Button == MouseButtons.Left)
             {
                 _canMove = false;
@@ -88,6 +97,8 @@ namespace Electrophorus.Components
 
         protected virtual void CircuitComponent_MouseDown(object sender, MouseEventArgs e)
         {
+            _atualState = ControlState.ToMove;
+
             if (e.Button == MouseButtons.Left)
             {
                 _canMove = true;
@@ -98,22 +109,23 @@ namespace Electrophorus.Components
 
         protected virtual void CircuitComponent_MouseMove(object sender, MouseEventArgs e)
         {
-            if (_canMove)
+            if (_canMove && _atualState == ControlState.ToMove)
             {
                 Location = new Point(e.X + Location.X - Width / 2 + _displacementX, e.Y + Location.Y - Height / 2 + _displacementY);
             } else
             {
-                cont = 0;
-
                 // Verifica se o mouse está em cima de alguma área especial
                 foreach(var area in Areas)
                 {
                     area.VerifyPosition(e);
 
-                    if (area.IsOnArea) cont++;
+                    if (Areas.Any(n => n.IsOnArea))
+                        _atualState = ControlState.DrawSpecialArea;
                 }
                 Refresh();
             }
+
+            lblValor.Cursor = (_atualState == ControlState.DrawSpecialArea) ? Cursors.Cross : Cursors.Default;
         }
 
         private void AdjustLocation()
