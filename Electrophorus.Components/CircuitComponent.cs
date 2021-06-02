@@ -1,5 +1,6 @@
 ﻿using Electrophorus.Rendering;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -16,7 +17,14 @@ namespace Electrophorus.Components
         protected int _displacementX;
         protected int _displacementY;
 
-        private Area _area;
+        /*
+         * A variável 'cont' é temporária, depois irei mudar. Ela armazena o numero de vezes que o mouse 
+         * esteve em uma area especial, se sim ela incrementa. Sua importância é para quando trocar o cursor do mouse,
+         * tentei com outras lógicas mas n funcionou...
+         */
+        private int cont = 0;
+
+        protected List<Area> Areas;
 
         public CircuitComponent()
         {
@@ -24,21 +32,26 @@ namespace Electrophorus.Components
 
             Load += CircuitComponent_Load;
             _displacementX = _displacementY = 0;
+            _canMove = false;
+            Areas = new List<Area>();
         }
 
         protected virtual void CircuitComponent_Load(object sender, EventArgs e)
         {
             lblValor.Cursor = Cursors.SizeAll;
             Size = lblValor.Size;
-            _canMove = false;
-            _area = new Area(2, Height / 2, 10, 10);
 
             lblValor.MouseDown += CircuitComponent_MouseDown;
             lblValor.MouseUp += CircuitComponent_MouseUp;
             lblValor.MouseMove += CircuitComponent_MouseMove;
             lblValor.MouseLeave += (s, e) =>
             {
-                _area.IsOnArea = false;
+                foreach(var area in Areas)
+                {
+                    area.IsOnArea = false;
+                    area.IsDraw = false;
+                }
+
                 Refresh();
             };
 
@@ -48,9 +61,17 @@ namespace Electrophorus.Components
         // Pinta o controle
         private void LblValor_Paint(object sender, PaintEventArgs e)
         {
-            if (_area.IsOnArea)
+            if (Areas.Count == 0) return;
+
+            if (!_canMove)
             {
-                _area.DrawArea(e);
+                // Se o mouse estiver em uma área especial, então ela será pintada
+                foreach (var area in Areas)
+                {
+                    if (area.IsOnArea) area.DrawArea(e);
+                }
+
+                lblValor.Cursor = (cont != 0) ? Cursors.Cross : Cursors.SizeAll;
             }
         }
 
@@ -82,7 +103,15 @@ namespace Electrophorus.Components
                 Location = new Point(e.X + Location.X - Width / 2 + _displacementX, e.Y + Location.Y - Height / 2 + _displacementY);
             } else
             {
-                _area.VerifyPosition(e);
+                cont = 0;
+
+                // Verifica se o mouse está em cima de alguma área especial
+                foreach(var area in Areas)
+                {
+                    area.VerifyPosition(e);
+
+                    if (area.IsOnArea) cont++;
+                }
                 Refresh();
             }
         }

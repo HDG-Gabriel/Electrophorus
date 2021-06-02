@@ -1,4 +1,6 @@
 ﻿using System.Windows.Forms;
+using System.Collections.Generic;
+using Electrophorus.Rendering;
 
 namespace Electrophorus.Components
 {
@@ -20,6 +22,12 @@ namespace Electrophorus.Components
 
             Source = new Source(10);
             _displacementY = -13;
+
+            Areas = new List<Area>
+            {
+                new Area(2, 22),
+                new Area(lblValor.Width - Area.Side - 2, 22),
+            };
         }
 
         protected override void CircuitComponent_MouseUp(object sender, MouseEventArgs e)
