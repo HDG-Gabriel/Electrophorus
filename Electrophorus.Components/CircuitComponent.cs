@@ -10,12 +10,6 @@ namespace Electrophorus.Components
 {
     public partial class CircuitComponent : UserControl
     {
-        // Allows whether the control can be moved
-        protected bool _canMove;
-        /*
-         * Pointer displacement when placing a component on the screen.
-         * This will be used by your children to position the pointer in the center of the image.
-         */
         protected int _displacementX;
         protected int _displacementY;
         protected List<Area> Areas;
@@ -27,7 +21,6 @@ namespace Electrophorus.Components
 
             Load += CircuitComponent_Load;
             _displacementX = _displacementY = 0;
-            _canMove = false;
             Areas = new List<Area>();
         }
 
@@ -40,15 +33,6 @@ namespace Electrophorus.Components
             lblValor.MouseUp += CircuitComponent_MouseUp;
             lblValor.MouseMove += CircuitComponent_MouseMove;
             lblValor.MouseLeave += LblValor_MouseLeave;
-            lblValor.MouseClick += (s, e) =>
-            {
-                _atualState = ControlState.JoinLines;
-
-                if (Areas.Any(n => n.IsOnArea))
-                {
-                    MessageBox.Show("Foi :D");
-                }
-            };
 
             lblValor.Paint += LblValor_Paint;
         }
@@ -72,7 +56,7 @@ namespace Electrophorus.Components
         {
             if (Areas.Count == 0) return;
 
-            if (!_canMove && _atualState == ControlState.DrawSpecialArea)
+            if (_atualState == ControlState.DrawSpecialArea)
             {
                 // Se o mouse estiver em uma área especial, então ela será pintada
                 foreach (var area in Areas)
@@ -85,31 +69,29 @@ namespace Electrophorus.Components
         // Acontece quando o usuário solta o botão esquerdo
         protected virtual void CircuitComponent_MouseUp(object sender, MouseEventArgs e)
         {
-            _atualState = ControlState.Wait;
-
             if (e.Button == MouseButtons.Left)
             {
-                _canMove = false;
+                _atualState = ControlState.Wait;
                 lblValor.Cursor = Cursors.SizeAll;
                 AdjustLocation();
             }
         }
 
+        // Acontece quando o usuário clica e segura o botão esquerdo
         protected virtual void CircuitComponent_MouseDown(object sender, MouseEventArgs e)
         {
-            _atualState = ControlState.ToMove;
-
             if (e.Button == MouseButtons.Left)
             {
-                _canMove = true;
+                _atualState = ControlState.ToMove;
                 lblValor.Cursor = Cursors.Default;
                 BringToFront();
             }
         }
 
+        // Acontece quando o usuário movimenta o mouse sobre o controle
         protected virtual void CircuitComponent_MouseMove(object sender, MouseEventArgs e)
         {
-            if (_canMove && _atualState == ControlState.ToMove)
+            if (_atualState == ControlState.ToMove)
             {
                 Location = new Point(e.X + Location.X - Width / 2 + _displacementX, e.Y + Location.Y - Height / 2 + _displacementY);
             } else
@@ -118,14 +100,17 @@ namespace Electrophorus.Components
                 foreach(var area in Areas)
                 {
                     area.VerifyPosition(e);
-
-                    if (Areas.Any(n => n.IsOnArea))
-                        _atualState = ControlState.DrawSpecialArea;
                 }
+
+                if (Areas.Any(n => n.IsOnArea))
+                    _atualState = ControlState.DrawSpecialArea;
+                else
+                    _atualState = ControlState.Wait;
+
                 Refresh();
             }
 
-            lblValor.Cursor = (_atualState == ControlState.DrawSpecialArea) ? Cursors.Cross : Cursors.Default;
+            lblValor.Cursor = (_atualState == ControlState.DrawSpecialArea) ? Cursors.Cross : Cursors.SizeAll;
         }
 
         private void AdjustLocation()
