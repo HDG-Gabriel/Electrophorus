@@ -15,21 +15,17 @@ namespace Electrophorus
         public TelaInicial()
         {
             InitializeComponent();
+
+            btnSimulador.Click += BtnSimulador_Click;
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        // Abre a janela do simulador e oculta essa janela
+        private void BtnSimulador_Click(object sender, EventArgs e)
         {
+            var janela = new JanelaSimulador(this);
+            janela.Show();
 
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            WindowState = FormWindowState.Minimized;
         }
 
         private void button2_Click(object sender, EventArgs e)

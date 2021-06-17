@@ -61,7 +61,7 @@
   <data name="button1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAjYAAAI2CAYAAABDtsI1AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAhWtJREFUeF7t3X30ZVV95/n6Y9aK1elmaqAz3a4pO9WTIY5xmgGne0kYHSnDKL1w
+        DgAACw4BQL7hQQAAhWtJREFUeF7t3X30ZVV95/n6Y9aK1elmaqAz3a4pO9WTIY5xmgGne0kYHSnDKL1w
         6LKlI4kZgnRCrbR0d2UNYIsayoAxgATE+BjF4sEoKlIEBR8CVigMpgxYWAryVBahEEEsCqIhGl139ufW
         7xTnd37ve+85+zzth+9e65XIrqp9z7m/c/b+/vbjqslkYowxxhiTBMw0xuTHpXXOsUs2OJtLtjjbKnY6
         +od9UNnVz9M1lK9J11hc7zq6J2NMfjDTGJMONfpLjX85WCmChT1OOaBIge6puL/ifk91LAAyJgOYaYyJ
@@ -678,10 +678,10 @@
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="button2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnSimulador.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAjYAAAI2CAYAAABDtsI1AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAcG9JREFUeF7t3W+sHtd9J/ZbJLXMxJFoah25WspinCgOJC9NpY5W0doOaWi1Wqhh
+        DgAACw4BQL7hQQAAcG9JREFUeF7t3W+sHtd9J/ZbJLXMxJFoah25WspinCgOJC9NpY5W0doOaWi1Wqhh
         iUSxtEYgs8pa3CzkLNVa3FixK1pU4bUTVYSMrBujwVJoC7RAAPFdsWhgE4IBA26EEjBgdGvDVQADBtIX
         1fu+uD3fh3d4587znZlzfnNm5vz5HuCTWIf3nmeemTNnfvf8m53d3V0RERGRItBMEamPS8eck3vOOBdb
         rjjXOq47+MU5oOzu5+EY2seEY2yO9xj7TiJSH5opIuXAQ3/v4d8OVppg4W2nHVCUAN+p+X7N9z3rKAAS
@@ -1164,52 +1164,52 @@
         qDeLnsUAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+  <data name="btnSimulador.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="button2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnSimulador.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button2.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnSimulador.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
-  <data name="button2.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnSimulador.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>BottomCenter</value>
   </data>
-  <data name="button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnSimulador.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnSimulador.Location" type="System.Drawing.Point, System.Drawing">
     <value>316, 337</value>
   </data>
-  <data name="button2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="btnSimulador.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnSimulador.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 150</value>
   </data>
-  <data name="button2.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnSimulador.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="button2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnSimulador.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>BottomCenter</value>
   </data>
-  <data name="&gt;&gt;button2.Name" xml:space="preserve">
-    <value>button2</value>
+  <data name="&gt;&gt;btnSimulador.Name" xml:space="preserve">
+    <value>btnSimulador</value>
   </data>
-  <data name="&gt;&gt;button2.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnSimulador.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnSimulador.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnSimulador.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="button3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAjYAAAI2CAYAAABDtsI1AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAjlhJREFUeF7t3X/sL1d93/kvEGIcwDGmBlIu6aXUIQJyY7fb2KXNct0gh9SL47JO
+        DgAACw4BQL7hQQAAjlhJREFUeF7t3X/sL1d93/kvEGIcwDGmBlIu6aXUIQJyY7fb2KXNct0gh9SL47JO
         IS1yveDggtzmNgUTbFrbsVU2BAdjRBF0oxg1art0JdxG2qraCCyExMLK0pVQo80GISOhsso/tdQ/9s/v
         ntf3fud6vvN9zudzznvOmTln5j3Sow3H33s+M+czc+b9OT8PDg8PnXPOOedWAROdc9sTjrPB+WO3Bw/1
         PBk8PXAx0D8sQXkPP0/n0D8nnWN3vmfpmpxz24OJzrn10Ev/+OXfD1a6YOHZoB9QrIGuqbu+7nrvCjwA
@@ -1864,7 +1864,7 @@
   <data name="button4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABKQAAABkCAYAAAC4hOh3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAM+9JREFUeF7tncGrdU121r9BQCQQYiY9kdATJxk4E5yagRNxplMHmThto/loG4MR
+        DwAACw8BkvkDpQAAM+9JREFUeF7tncGrdU121r9BQCQQYiY9kdATJxk4E5yagRNxplMHmThto/loG4MR
         RUXsFgwqCEL+EBPTtkEiCoogmIggCIKj/Aef3+9cq2+95z6ndlWtVbXPPvcJ/NK397vPql1Vq571VO1z
         b3/1zTff/JRv/++73/Jb3/JH38IFY4wxxhhjjDHGGGNm4YyJs6bvfnEGVR1G/ca31B8wxhhjjDHGGGOM
         MSaL731xIMWF6h+NMcYYY4wxxhhjjFnB7VCK/+PX9O7/0RhjjDHGGGOMMcaYFXAWdfs9PvWPxhhjjDHG
@@ -2125,7 +2125,7 @@
   <data name="button5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABKQAAABkCAYAAAC4hOh3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAOnhJREFUeF7tne+rdcmV1x9kSGwinRjBDJgMAQ0DcUxPXgw28cWTSTBkCKZHSTMB
+        DwAACw8BkvkDpQAAOnhJREFUeF7tne+rdcmV1x9kSGwinRjBDJgMAQ0DcUxPXgw28cWTSTBkCKZHSTMB
         oXvMgCEQtR3tJhMcujWDmsFOh4w/YEA6EXFedt75xskP4yAjho4IgjNiRxAGfNP5D673s+9Tufvs8z21
         q2qtqn32OevAp5/b++6zalfVqu9atfY+5z64ubn5Mbev997y9Vt+dAsHgiAIgiAIgiAIgiAIgqAVakzU
         mt57UIOaFaNeumX+hiAIgiAIgiAIgiAIgiDw4rmDghQHZr8MgiAIgiAIgiAIgiAIgh5MRSlefExv+csg

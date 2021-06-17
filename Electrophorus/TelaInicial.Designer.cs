@@ -31,7 +31,7 @@ namespace Electrophorus
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaInicial));
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSimulador = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -52,17 +52,17 @@ namespace Electrophorus
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // button2
+            // btnSimulador
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnSimulador.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnSimulador, "btnSimulador");
+            this.btnSimulador.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSimulador.FlatAppearance.BorderSize = 0;
+            this.btnSimulador.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSimulador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSimulador.Name = "btnSimulador";
+            this.btnSimulador.UseVisualStyleBackColor = false;
+            this.btnSimulador.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -114,7 +114,7 @@ namespace Electrophorus
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnSimulador);
             this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
             this.Name = "TelaInicial";
@@ -126,7 +126,7 @@ namespace Electrophorus
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSimulador;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
