@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Electrophorus.Components;
 using Electrophorus.Rendering;
+using SkiaSharp;
+using SkiaSharp.Views.Desktop;
 
 namespace Electrophorus
 {
@@ -20,12 +16,28 @@ namespace Electrophorus
         {
             InitializeComponent();
 
-            WindowState = FormWindowState.Maximized;
-            FormClosed += JanelaSimulador_FormClosed;
             _telaPai = tela;
+            WindowState = FormWindowState.Maximized;
+
+            // Controle da tela principal
+            var view = new SKControl()
+            {
+                Dock = DockStyle.Fill,
+            };
+
+            // Malha do circuito
+            var board = new Board();
+
+            // Eventos
+            view.PaintSurface += (s, e) => board.DrawGrid(e.Surface);
+            view.Resize += (s, e) => board.SetSize(view.Width, view.Height);
+            FormClosed += JanelaSimulador_FormClosed;
+
+            view.Controls.Add(new CResistor());
+            Controls.Add(view);
         }
 
-        // Quando estiver fechando a janela do simulador, a janela principal exibirá automaticamente
+        // Quando estiver fechado a janela do simulador, a janela principal exibirá automaticamente
         private void JanelaSimulador_FormClosed(object sender, FormClosedEventArgs e)
         {
             _telaPai.WindowState = FormWindowState.Normal;
