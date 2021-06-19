@@ -12,6 +12,7 @@ namespace Electrophorus
 {
     public partial class TelaInicial : Form
     {
+        public Form TelaInicial1 { get; set; }
         public TelaInicial()
         {
             InitializeComponent();
@@ -40,6 +41,12 @@ namespace Electrophorus
 
         private void button3_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            TelaInicial1 = new TelaResistor()
+            {
+                TelaResistor1 = this,
+            };
+            TelaInicial1.Show();
 
         }
     }
