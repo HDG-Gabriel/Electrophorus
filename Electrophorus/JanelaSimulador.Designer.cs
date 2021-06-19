@@ -38,7 +38,7 @@ namespace Electrophorus
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Name = "JanelaSimulador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "JanelaSimulador";
+            this.Text = "Simulador";
             this.ResumeLayout(false);
 
         }

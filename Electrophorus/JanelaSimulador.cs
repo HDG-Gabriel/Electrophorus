@@ -12,12 +12,16 @@ namespace Electrophorus
     {
         // Janela Principal
         private readonly TelaInicial _telaPai;
+        private readonly Button _btnVoltar;
+        private bool _isClicked;
 
         public JanelaSimulador(TelaInicial tela)
         {
             InitializeComponent();
 
             _telaPai = tela;
+
+            Size = new Size(800 - 8, Board.CellSize * 18 + 10);
 
             // Espaço principal onde ficarão organizados os controles
             var viewManager = new SKControl()
@@ -40,6 +44,11 @@ namespace Electrophorus
             viewManager.Controls.Add(view);
             viewManager.Controls.Add(viewOptions);
             view.Controls.Add(new CResistor());
+            viewOptions.Controls.Add(_btnVoltar = new Button()
+            {
+                FlatStyle = FlatStyle.Flat,
+                Text = "Voltar",
+            });
 
             // Malha do circuito
             var board = new Board();
@@ -48,6 +57,12 @@ namespace Electrophorus
             view.PaintSurface += (s, e) => board.DrawGrid(e.Surface);
             view.Resize += (s, e) => board.SetSize(view.Width, view.Height);
             FormClosed += JanelaSimulador_FormClosed;
+            // Volta a janela principal
+            _btnVoltar.Click += (s, e) =>
+            {
+                _isClicked = true;
+                Close();
+            };
             
             Controls.Add(viewManager);
         }
@@ -55,7 +70,11 @@ namespace Electrophorus
         // Quando estiver fechado a janela do simulador, a janela principal exibirá automaticamente
         private void JanelaSimulador_FormClosed(object sender, FormClosedEventArgs e)
         {
-            // Fecha todo o programa
+            if (_isClicked)
+            {
+                _telaPai.Show();
+                return;
+            }
             Application.Exit();
         }
     }

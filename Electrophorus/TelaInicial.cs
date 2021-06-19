@@ -13,30 +13,26 @@ namespace Electrophorus
     public partial class TelaInicial : Form
     {
         public Form TelaInicial1 { get; set; }
+        public Form JanelaSimulador { get; set; }
+
         public TelaInicial()
         {
             InitializeComponent();
 
+            JanelaSimulador = new JanelaSimulador(this);
+
             btnSimulador.Click += BtnSimulador_Click;
         }
 
-        // Abre a janela do simulador e oculta essa janela
+        // Abre a janela do simulador e oculta a janela principal
         private void BtnSimulador_Click(object sender, EventArgs e)
         {
-            var janela = new JanelaSimulador(this);
-            janela.Show();
+            if (JanelaSimulador == null || JanelaSimulador.IsDisposed)
+                JanelaSimulador = new JanelaSimulador(this);
 
-            WindowState = FormWindowState.Minimized;
-        }
+            JanelaSimulador.Show();
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
+            Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)

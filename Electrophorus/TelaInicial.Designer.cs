@@ -30,7 +30,7 @@ namespace Electrophorus
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaInicial));
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnQuiz = new System.Windows.Forms.Button();
             this.btnSimulador = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -40,17 +40,16 @@ namespace Electrophorus
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnQuiz
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnQuiz.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnQuiz, "btnQuiz");
+            this.btnQuiz.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQuiz.FlatAppearance.BorderSize = 0;
+            this.btnQuiz.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnQuiz.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnQuiz.Name = "btnQuiz";
+            this.btnQuiz.UseVisualStyleBackColor = false;
             // 
             // btnSimulador
             // 
@@ -62,7 +61,7 @@ namespace Electrophorus
             this.btnSimulador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnSimulador.Name = "btnSimulador";
             this.btnSimulador.UseVisualStyleBackColor = false;
-            this.btnSimulador.Click += new System.EventHandler(this.button2_Click);
+            this.btnSimulador.Click += new System.EventHandler(this.BtnSimulador_Click);
             // 
             // button3
             // 
@@ -115,7 +114,7 @@ namespace Electrophorus
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnSimulador);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnQuiz);
             this.DoubleBuffered = true;
             this.Name = "TelaInicial";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -125,7 +124,7 @@ namespace Electrophorus
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnQuiz;
         private System.Windows.Forms.Button btnSimulador;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;

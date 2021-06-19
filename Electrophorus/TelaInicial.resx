@@ -58,10 +58,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnQuiz.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAjYAAAI2CAYAAABDtsI1AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAhWtJREFUeF7t3X30ZVV95/n6Y9aK1elmaqAz3a4pO9WTIY5xmgGne0kYHSnDKL1w
+        DAAACwwBP0AiyAAAhWtJREFUeF7t3X30ZVV95/n6Y9aK1elmaqAz3a4pO9WTIY5xmgGne0kYHSnDKL1w
         6LKlI4kZgnRCrbR0d2UNYIsayoAxgATE+BjF4sEoKlIEBR8CVigMpgxYWAryVBahEEEsCqIhGl139ufW
         7xTnd37ve+85+zzth+9e65XIrqp9z7m/c/b+/vbjqslkYowxxhiTBMw0xuTHpXXOsUs2OJtLtjjbKnY6
         +od9UNnVz9M1lK9J11hc7zq6J2NMfjDTGJMONfpLjX85WCmChT1OOaBIge6puL/ifk91LAAyJgOYaYyJ
@@ -634,54 +634,54 @@
 </value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="button1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+  <data name="btnQuiz.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="button1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnQuiz.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button1.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnQuiz.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
-  <data name="button1.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnQuiz.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>BottomCenter</value>
   </data>
-  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnQuiz.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnQuiz.Location" type="System.Drawing.Point, System.Drawing">
     <value>66, 337</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="button1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="btnQuiz.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnQuiz.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 150</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnQuiz.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="button1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnQuiz.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>BottomCenter</value>
   </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
+  <data name="&gt;&gt;btnQuiz.Name" xml:space="preserve">
+    <value>btnQuiz</value>
   </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnQuiz.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnQuiz.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnQuiz.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
   <data name="btnSimulador.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAjYAAAI2CAYAAABDtsI1AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAcG9JREFUeF7t3W+sHtd9J/ZbJLXMxJFoah25WspinCgOJC9NpY5W0doOaWi1Wqhh
+        DAAACwwBP0AiyAAAcG9JREFUeF7t3W+sHtd9J/ZbJLXMxJFoah25WspinCgOJC9NpY5W0doOaWi1Wqhh
         iUSxtEYgs8pa3CzkLNVa3FixK1pU4bUTVYSMrBujwVJoC7RAAPFdsWhgE4IBA26EEjBgdGvDVQADBtIX
         1fu+uD3fh3d4587znZlzfnNm5vz5HuCTWIf3nmeemTNnfvf8m53d3V0RERGRItBMEamPS8eck3vOOBdb
         rjjXOq47+MU5oOzu5+EY2seEY2yO9xj7TiJSH5opIuXAQ3/v4d8OVppg4W2nHVCUAN+p+X7N9z3rKAAS
@@ -1209,7 +1209,7 @@
   <data name="button3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAjYAAAI2CAYAAABDtsI1AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAjlhJREFUeF7t3X/sL1d93/kvEGIcwDGmBlIu6aXUIQJyY7fb2KXNct0gh9SL47JO
+        DAAACwwBP0AiyAAAjlhJREFUeF7t3X/sL1d93/kvEGIcwDGmBlIu6aXUIQJyY7fb2KXNct0gh9SL47JO
         IS1yveDggtzmNgUTbFrbsVU2BAdjRBF0oxg1art0JdxG2qraCCyExMLK0pVQo80GISOhsso/tdQ/9s/v
         ntf3fud6vvN9zudzznvOmTln5j3Sow3H33s+M+czc+b9OT8PDg8PnXPOOedWAROdc9sTjrPB+WO3Bw/1
         PBk8PXAx0D8sQXkPP0/n0D8nnWN3vmfpmpxz24OJzrn10Ev/+OXfD1a6YOHZoB9QrIGuqbu+7nrvCjwA
@@ -1864,7 +1864,7 @@
   <data name="button4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABKQAAABkCAYAAAC4hOh3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAM+9JREFUeF7tncGrdU121r9BQCQQYiY9kdATJxk4E5yagRNxplMHmThto/loG4MR
+        DAAACwwBP0AiyAAAM+9JREFUeF7tncGrdU121r9BQCQQYiY9kdATJxk4E5yagRNxplMHmThto/loG4MR
         RUXsFgwqCEL+EBPTtkEiCoogmIggCIKj/Aef3+9cq2+95z6ndlWtVbXPPvcJ/NK397vPql1Vq571VO1z
         b3/1zTff/JRv/++73/Jb3/JH38IFY4wxxhhjjDHGGGNm4YyJs6bvfnEGVR1G/ca31B8wxhhjjDHGGGOM
         MSaL731xIMWF6h+NMcYYY4wxxhhjjFnB7VCK/+PX9O7/0RhjjDHGGGOMMcaYFXAWdfs9PvWPxhhjjDHG
@@ -2125,7 +2125,7 @@
   <data name="button5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABKQAAABkCAYAAAC4hOh3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAOnhJREFUeF7tne+rdcmV1x9kSGwinRjBDJgMAQ0DcUxPXgw28cWTSTBkCKZHSTMB
+        DAAACwwBP0AiyAAAOnhJREFUeF7tne+rdcmV1x9kSGwinRjBDJgMAQ0DcUxPXgw28cWTSTBkCKZHSTMB
         oXvMgCEQtR3tJhMcujWDmsFOh4w/YEA6EXFedt75xskP4yAjho4IgjNiRxAGfNP5D673s+9Tufvs8z21
         q2qtqn32OevAp5/b++6zalfVqu9atfY+5z64ubn5Mbev997y9Vt+dAsHgiAIgiAIgiAIgiAIgqAVakzU
         mt57UIOaFaNeumX+hiAIgiAIgiAIgiAIgiDw4rmDghQHZr8MgiAIgiAIgiAIgiAIgh5MRSlefExv+csg
