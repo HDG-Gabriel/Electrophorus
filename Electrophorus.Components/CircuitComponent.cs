@@ -13,7 +13,7 @@ namespace Electrophorus.Components
         protected int _displacementX;
         protected int _displacementY;
         protected List<Area> Areas;
-        private ControlState _atualState;
+        public ControlState ActualState { get; set; }
 
         public CircuitComponent()
         {
@@ -40,7 +40,7 @@ namespace Electrophorus.Components
         // Quando o mouse sair do do controle, as áreas especiais também será fechadas
         private void LblValor_MouseLeave(object sender, EventArgs e)
         {
-            _atualState = ControlState.Wait;
+            ActualState = ControlState.Wait;
 
             foreach (var area in Areas)
             {
@@ -56,7 +56,7 @@ namespace Electrophorus.Components
         {
             if (Areas.Count == 0) return;
 
-            if (_atualState == ControlState.DrawSpecialArea)
+            if (ActualState == ControlState.DrawSpecialArea)
             {
                 // Se o mouse estiver em uma área especial, então ela será pintada
                 foreach (var area in Areas)
@@ -71,7 +71,7 @@ namespace Electrophorus.Components
         {
             if (e.Button == MouseButtons.Left)
             {
-                _atualState = ControlState.Wait;
+                ActualState = ControlState.Wait;
                 lblValor.Cursor = Cursors.SizeAll;
                 AdjustLocation();
             }
@@ -82,7 +82,7 @@ namespace Electrophorus.Components
         {
             if (e.Button == MouseButtons.Left)
             {
-                _atualState = ControlState.ToMove;
+                ActualState = ControlState.ToMove;
                 lblValor.Cursor = Cursors.Default;
                 BringToFront();
             }
@@ -91,7 +91,7 @@ namespace Electrophorus.Components
         // Acontece quando o usuário movimenta o mouse sobre o controle
         protected virtual void CircuitComponent_MouseMove(object sender, MouseEventArgs e)
         {
-            if (_atualState == ControlState.ToMove)
+            if (ActualState == ControlState.ToMove)
             {
                 Location = new Point(e.X + Location.X - Width / 2 + _displacementX, e.Y + Location.Y - Height / 2 + _displacementY);
             } else
@@ -103,14 +103,14 @@ namespace Electrophorus.Components
                 }
 
                 if (Areas.Any(n => n.IsOnArea))
-                    _atualState = ControlState.DrawSpecialArea;
+                    ActualState = ControlState.DrawSpecialArea;
                 else
-                    _atualState = ControlState.Wait;
+                    ActualState = ControlState.Wait;
 
                 Refresh();
             }
 
-            lblValor.Cursor = (_atualState == ControlState.DrawSpecialArea) ? Cursors.Cross : Cursors.SizeAll;
+            lblValor.Cursor = (ActualState == ControlState.DrawSpecialArea) ? Cursors.Cross : Cursors.SizeAll;
         }
 
         private void AdjustLocation()

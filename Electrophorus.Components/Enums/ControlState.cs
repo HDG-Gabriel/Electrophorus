@@ -1,6 +1,6 @@
 ﻿namespace Electrophorus.Components.Enums
 {
-    enum ControlState
+    public enum ControlState
     {
         DrawSpecialArea,
         ToMove,

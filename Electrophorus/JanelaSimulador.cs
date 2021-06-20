@@ -11,15 +11,23 @@ namespace Electrophorus
     public partial class JanelaSimulador : Form
     {
         // Janela Principal
-        private readonly TelaInicial _telaPai;
-        private readonly Button _btnVoltar;
+        private readonly TelaInicial _dadScreen;
+        // Propriedades
+        public SKControl BottomPanel { get; set; }
+        public SKControl ViewBoard { get; set; }
+        public Button BtnReturn { get; set; }
+        public Button BtnAddResistor { get; set; }
+        public Button BtnAddSource { get; set; }
+        // Campos privados
+        // Campo privado para botão de retorno
         private bool _isClicked;
+        
 
         public JanelaSimulador(TelaInicial tela)
         {
             InitializeComponent();
 
-            _telaPai = tela;
+            _dadScreen = tela;
 
             Size = new Size(800 - 8, Board.CellSize * 18 + 10);
 
@@ -30,10 +38,10 @@ namespace Electrophorus
             };
 
             // Espaço onde ficará a malha do circuito
-            var view = new SKControl() { Dock = DockStyle.Fill };
+            ViewBoard = new SKControl() { Dock = DockStyle.Fill };
 
             // Espaço onde estará disponível opções para retornar e outras coisas
-            var viewOptions = new SKControl()
+            BottomPanel = new SKControl()
             {
                 Dock = DockStyle.Bottom,
                 Size = new Size(viewManager.Size.Width, 30),
@@ -41,24 +49,21 @@ namespace Electrophorus
             };
 
             // Adição de controles
-            viewManager.Controls.Add(view);
-            viewManager.Controls.Add(viewOptions);
-            view.Controls.Add(new CResistor());
-            viewOptions.Controls.Add(_btnVoltar = new Button()
-            {
-                FlatStyle = FlatStyle.Flat,
-                Text = "Voltar",
-            });
+            viewManager.Controls.Add(ViewBoard);
+            viewManager.Controls.Add(BottomPanel);
+            AddButtonBottomPanel();
 
             // Malha do circuito
             var board = new Board();
 
             // Eventos
-            view.PaintSurface += (s, e) => board.DrawGrid(e.Surface);
-            view.Resize += (s, e) => board.SetSize(view.Width, view.Height);
+            ViewBoard.PaintSurface += (s, e) => board.DrawGrid(e.Surface);
+            ViewBoard.Resize += (s, e) => board.SetSize(ViewBoard.Width, ViewBoard.Height);
             FormClosed += JanelaSimulador_FormClosed;
+            BtnAddResistor.Click += (s, e) => ViewBoard.Controls.Add(new CResistor());
+            BtnAddSource.Click += (s, e) => ViewBoard.Controls.Add(new CSource());
             // Volta a janela principal
-            _btnVoltar.Click += (s, e) =>
+            BtnReturn.Click += (s, e) =>
             {
                 _isClicked = true;
                 Close();
@@ -72,10 +77,32 @@ namespace Electrophorus
         {
             if (_isClicked)
             {
-                _telaPai.Show();
+                _dadScreen.Show();
                 return;
             }
             Application.Exit();
+        }
+
+
+        private Button CreateButton(string text, Point point = new Point())
+        {
+            const int width = 100;
+            var button = new Button()
+            {
+                Text = text,
+                FlatStyle = FlatStyle.Flat,
+                Location = point,
+                Size = new Size(width, BottomPanel.Size.Height),
+            };
+            return button;
+        }
+
+        // Adiciona controles a parte inferior da tela
+        private void AddButtonBottomPanel()
+        {
+            BottomPanel.Controls.Add(BtnReturn = CreateButton("Voltar"));
+            BottomPanel.Controls.Add(BtnAddResistor = CreateButton("Resistor", new Point(BtnReturn.Width, 0)));
+            BottomPanel.Controls.Add(BtnAddSource = CreateButton("Source", new Point(BtnReturn.Width * 2, 0)));
         }
     }
 }
