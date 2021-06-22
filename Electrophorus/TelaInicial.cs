@@ -45,5 +45,15 @@ namespace Electrophorus
             TelaInicial1.Show();
 
         }
+
+        private void btnQuiz_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            TelaInicial1 = new JanelaQuiz()
+            {
+                JanelaQuiz1 = this,
+            };
+            TelaInicial1.Show();
+        }
     }
 }

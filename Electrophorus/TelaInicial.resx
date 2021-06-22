@@ -57,8 +57,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnQuiz.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+  <data name="btnQuiz.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAjYAAAI2CAYAAABDtsI1AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAhWtJREFUeF7t3X30ZVV95/n6Y9aK1elmaqAz3a4pO9WTIY5xmgGne0kYHSnDKL1w
@@ -633,44 +633,45 @@
         MoWZxhgzTymAmKUYHpunGPaZiT7bGGNmm6z6/wHKiCsTloiOWgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=5.0.5.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnQuiz.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
   <data name="btnQuiz.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnQuiz.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnQuiz.Font" type="System.Drawing.Font, System.Drawing.Common">
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
-  <data name="btnQuiz.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnQuiz.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing.Common">
     <value>BottomCenter</value>
   </data>
   <data name="btnQuiz.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnQuiz.Location" type="System.Drawing.Point, System.Drawing">
+  <assembly alias="System.Drawing.Primitives" name="System.Drawing.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnQuiz.Location" type="System.Drawing.Point, System.Drawing.Primitives">
     <value>66, 337</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnQuiz.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <assembly alias="System.Windows.Forms.Primitives" name="System.Windows.Forms.Primitives, Version=5.0.5.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnQuiz.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="btnQuiz.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnQuiz.Size" type="System.Drawing.Size, System.Drawing.Primitives">
     <value>150, 150</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnQuiz.TabIndex" type="System.Int32, mscorlib">
+  <assembly alias="System.Private.CoreLib" name="System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e" />
+  <data name="btnQuiz.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>0</value>
   </data>
-  <data name="btnQuiz.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnQuiz.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing.Common">
     <value>BottomCenter</value>
   </data>
   <data name="&gt;&gt;btnQuiz.Name" xml:space="preserve">
     <value>btnQuiz</value>
   </data>
   <data name="&gt;&gt;btnQuiz.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.5.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnQuiz.Parent" xml:space="preserve">
     <value>$this</value>
@@ -678,7 +679,7 @@
   <data name="&gt;&gt;btnQuiz.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="btnSimulador.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnSimulador.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAjYAAAI2CAYAAABDtsI1AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAcG9JREFUeF7t3W+sHtd9J/ZbJLXMxJFoah25WspinCgOJC9NpY5W0doOaWi1Wqhh
@@ -1170,35 +1171,35 @@
   <data name="btnSimulador.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnSimulador.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnSimulador.Font" type="System.Drawing.Font, System.Drawing.Common">
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
-  <data name="btnSimulador.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnSimulador.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing.Common">
     <value>BottomCenter</value>
   </data>
   <data name="btnSimulador.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnSimulador.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnSimulador.Location" type="System.Drawing.Point, System.Drawing.Primitives">
     <value>316, 337</value>
   </data>
-  <data name="btnSimulador.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="btnSimulador.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="btnSimulador.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnSimulador.Size" type="System.Drawing.Size, System.Drawing.Primitives">
     <value>150, 150</value>
   </data>
-  <data name="btnSimulador.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnSimulador.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>1</value>
   </data>
-  <data name="btnSimulador.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnSimulador.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing.Common">
     <value>BottomCenter</value>
   </data>
   <data name="&gt;&gt;btnSimulador.Name" xml:space="preserve">
     <value>btnSimulador</value>
   </data>
   <data name="&gt;&gt;btnSimulador.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.5.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSimulador.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1206,7 +1207,7 @@
   <data name="&gt;&gt;btnSimulador.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="button3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAjYAAAI2CAYAAABDtsI1AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAjlhJREFUeF7t3X/sL1d93/kvEGIcwDGmBlIu6aXUIQJyY7fb2KXNct0gh9SL47JO
@@ -1825,35 +1826,35 @@
   <data name="button3.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button3.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="button3.Font" type="System.Drawing.Font, System.Drawing.Common">
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
-  <data name="button3.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="button3.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing.Common">
     <value>BottomCenter</value>
   </data>
   <data name="button3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button3.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="button3.Location" type="System.Drawing.Point, System.Drawing.Primitives">
     <value>569, 337</value>
   </data>
-  <data name="button3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="button3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="button3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="button3.Size" type="System.Drawing.Size, System.Drawing.Primitives">
     <value>150, 150</value>
   </data>
-  <data name="button3.TabIndex" type="System.Int32, mscorlib">
+  <data name="button3.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>2</value>
   </data>
-  <data name="button3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="button3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing.Common">
     <value>BottomCenter</value>
   </data>
   <data name="&gt;&gt;button3.Name" xml:space="preserve">
     <value>button3</value>
   </data>
   <data name="&gt;&gt;button3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.5.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;button3.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1861,7 +1862,7 @@
   <data name="&gt;&gt;button3.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="button4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABKQAAABkCAYAAAC4hOh3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAM+9JREFUeF7tncGrdU121r9BQCQQYiY9kdATJxk4E5yagRNxplMHmThto/loG4MR
@@ -2095,16 +2096,16 @@
   <data name="button4.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
   </data>
-  <data name="button4.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="button4.Font" type="System.Drawing.Font, System.Drawing.Common">
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
-  <data name="button4.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="button4.Location" type="System.Drawing.Point, System.Drawing.Primitives">
     <value>1, 528</value>
   </data>
-  <data name="button4.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="button4.Size" type="System.Drawing.Size, System.Drawing.Primitives">
     <value>391, 33</value>
   </data>
-  <data name="button4.TabIndex" type="System.Int32, mscorlib">
+  <data name="button4.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>3</value>
   </data>
   <data name="button4.Text" xml:space="preserve">
@@ -2114,7 +2115,7 @@
     <value>button4</value>
   </data>
   <data name="&gt;&gt;button4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.5.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;button4.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2122,7 +2123,7 @@
   <data name="&gt;&gt;button4.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="button5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABKQAAABkCAYAAAC4hOh3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAOnhJREFUeF7tne+rdcmV1x9kSGwinRjBDJgMAQ0DcUxPXgw28cWTSTBkCKZHSTMB
@@ -2384,19 +2385,19 @@
   <data name="button5.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
   </data>
-  <data name="button5.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="button5.Font" type="System.Drawing.Font, System.Drawing.Common">
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="button5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button5.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="button5.Location" type="System.Drawing.Point, System.Drawing.Primitives">
     <value>392, 528</value>
   </data>
-  <data name="button5.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="button5.Size" type="System.Drawing.Size, System.Drawing.Primitives">
     <value>391, 33</value>
   </data>
-  <data name="button5.TabIndex" type="System.Int32, mscorlib">
+  <data name="button5.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>4</value>
   </data>
   <data name="button5.Text" xml:space="preserve">
@@ -2406,7 +2407,7 @@
     <value>button5</value>
   </data>
   <data name="&gt;&gt;button5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.5.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;button5.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2414,20 +2415,20 @@
   <data name="&gt;&gt;button5.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
     <value>263, 11</value>
   </data>
-  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
     <value>482, 268</value>
   </data>
-  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="pictureBox1.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>5</value>
   </data>
   <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
     <value>pictureBox1</value>
   </data>
   <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=5.0.5.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2441,16 +2442,16 @@
   <data name="button6.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
   </data>
-  <data name="button6.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="button6.Font" type="System.Drawing.Font, System.Drawing.Common">
     <value>Microsoft Sans Serif, 26.25pt</value>
   </data>
-  <data name="button6.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="button6.Location" type="System.Drawing.Point, System.Drawing.Primitives">
     <value>757, 103</value>
   </data>
-  <data name="button6.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="button6.Size" type="System.Drawing.Size, System.Drawing.Primitives">
     <value>25, 59</value>
   </data>
-  <data name="button6.TabIndex" type="System.Int32, mscorlib">
+  <data name="button6.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>6</value>
   </data>
   <data name="button6.Text" xml:space="preserve">
@@ -2460,7 +2461,7 @@
     <value>button6</value>
   </data>
   <data name="&gt;&gt;button6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.5.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;button6.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2468,13 +2469,13 @@
   <data name="&gt;&gt;button6.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="$this.Localizable" type="System.Boolean, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
     <value>True</value>
   </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing.Primitives">
     <value>7, 15</value>
   </data>
-  <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAyAAAAJYCAYAAACadoJwAAAABGdBTUEAALGPC/xhBQAAZaJJREFUeF7t
         3emSLEl6n/e+TmEWAYOZ6emeHkKXpwUwmWhG0SgQhAgQBEBypnUlrXzC81/xppdHZuTmJ6vO8+Fnsfny
@@ -2913,7 +2914,7 @@
         uACRJEnS0/grWOq5AJEkSZI0jQsQSZIkSZP8zU//P6VSBe9zFdUIAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing.Primitives">
     <value>784, 561</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
@@ -2926,6 +2927,6 @@
     <value>TelaInicial</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=5.0.5.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
