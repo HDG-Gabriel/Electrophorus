@@ -115,6 +115,17 @@ namespace Electrophorus
             // 
             this.comboBox5.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Items.AddRange(new object[] {
+            "Preto",
+            "Marrom",
+            "Vermelho",
+            "Laranja",
+            "Amarelo",
+            "Verde",
+            "Azul",
+            "Violeta",
+            "Cinza",
+            "Branco"});
             this.comboBox5.Location = new System.Drawing.Point(12, 136);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(323, 31);
@@ -136,6 +147,17 @@ namespace Electrophorus
             // 
             this.comboBox3.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Preto",
+            "Marrom",
+            "Vermelho",
+            "Laranja",
+            "Amarelo",
+            "Verde",
+            "Azul",
+            "Violeta",
+            "Dourado",
+            "Prateado"});
             this.comboBox3.Location = new System.Drawing.Point(12, 229);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(323, 31);
@@ -146,6 +168,17 @@ namespace Electrophorus
             // 
             this.comboBox1.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Preto",
+            "Marrom",
+            "Vermelho",
+            "Laranja",
+            "Amarelo",
+            "Verde",
+            "Azul",
+            "Violeta",
+            "Cinza",
+            "Branco"});
             this.comboBox1.Location = new System.Drawing.Point(12, 47);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(323, 31);
@@ -222,6 +255,17 @@ namespace Electrophorus
             // 
             this.comboBox8.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Items.AddRange(new object[] {
+            "Preto",
+            "Marrom",
+            "Vermelho",
+            "Laranja",
+            "Amarelo",
+            "Verde",
+            "Azul",
+            "Violeta",
+            "Dourado",
+            "Prateado"});
             this.comboBox8.Location = new System.Drawing.Point(9, 47);
             this.comboBox8.Name = "comboBox8";
             this.comboBox8.Size = new System.Drawing.Size(323, 31);
@@ -232,6 +276,15 @@ namespace Electrophorus
             // 
             this.comboBox9.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox9.FormattingEnabled = true;
+            this.comboBox9.Items.AddRange(new object[] {
+            "Marrom",
+            "Vermelho",
+            "Verde",
+            "Azul",
+            "Violeta",
+            "Cinza",
+            "Dourado ",
+            "Prateado"});
             this.comboBox9.Location = new System.Drawing.Point(9, 136);
             this.comboBox9.Name = "comboBox9";
             this.comboBox9.Size = new System.Drawing.Size(323, 31);
