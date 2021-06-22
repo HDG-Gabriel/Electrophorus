@@ -35,24 +35,24 @@ namespace Electrophorus
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.CbFaixa2 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CbFaixa3 = new System.Windows.Forms.ComboBox();
+            this.CbFaixa1 = new System.Windows.Forms.ComboBox();
             this.BtnBackTelaInicial = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.BtnReset = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.CbValorResistor = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.CbFaixa4 = new System.Windows.Forms.ComboBox();
+            this.CbFaixa5 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnBackTelaInicial)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnReset)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,10 +80,10 @@ namespace Electrophorus
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(105)))), ((int)(((byte)(219)))));
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.comboBox5);
+            this.panel2.Controls.Add(this.CbFaixa2);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.comboBox3);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.CbFaixa3);
+            this.panel2.Controls.Add(this.CbFaixa1);
             this.panel2.Location = new System.Drawing.Point(0, 286);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(344, 275);
@@ -111,11 +111,11 @@ namespace Electrophorus
             this.label1.TabIndex = 2;
             this.label1.Text = "Faixa 1";
             // 
-            // comboBox5
+            // CbFaixa2
             // 
-            this.comboBox5.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
+            this.CbFaixa2.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CbFaixa2.FormattingEnabled = true;
+            this.CbFaixa2.Items.AddRange(new object[] {
             "Preto",
             "Marrom",
             "Vermelho",
@@ -126,11 +126,11 @@ namespace Electrophorus
             "Violeta",
             "Cinza",
             "Branco"});
-            this.comboBox5.Location = new System.Drawing.Point(12, 136);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(323, 31);
-            this.comboBox5.TabIndex = 5;
-            this.comboBox5.Text = "Selecione uma cor";
+            this.CbFaixa2.Location = new System.Drawing.Point(12, 136);
+            this.CbFaixa2.Name = "CbFaixa2";
+            this.CbFaixa2.Size = new System.Drawing.Size(323, 31);
+            this.CbFaixa2.TabIndex = 5;
+            this.CbFaixa2.Text = "Selecione uma cor";
             // 
             // label5
             // 
@@ -143,11 +143,11 @@ namespace Electrophorus
             this.label5.TabIndex = 10;
             this.label5.Text = "Faixa 2";
             // 
-            // comboBox3
+            // CbFaixa3
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.CbFaixa3.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CbFaixa3.FormattingEnabled = true;
+            this.CbFaixa3.Items.AddRange(new object[] {
             "Preto",
             "Marrom",
             "Vermelho",
@@ -158,17 +158,17 @@ namespace Electrophorus
             "Violeta",
             "Dourado",
             "Prateado"});
-            this.comboBox3.Location = new System.Drawing.Point(12, 229);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(323, 31);
-            this.comboBox3.TabIndex = 3;
-            this.comboBox3.Text = "Selecione uma cor";
+            this.CbFaixa3.Location = new System.Drawing.Point(12, 229);
+            this.CbFaixa3.Name = "CbFaixa3";
+            this.CbFaixa3.Size = new System.Drawing.Size(323, 31);
+            this.CbFaixa3.TabIndex = 3;
+            this.CbFaixa3.Text = "Selecione uma cor";
             // 
-            // comboBox1
+            // CbFaixa1
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.CbFaixa1.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CbFaixa1.FormattingEnabled = true;
+            this.CbFaixa1.Items.AddRange(new object[] {
             "Preto",
             "Marrom",
             "Vermelho",
@@ -179,12 +179,12 @@ namespace Electrophorus
             "Violeta",
             "Cinza",
             "Branco"});
-            this.comboBox1.Location = new System.Drawing.Point(12, 47);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(323, 31);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.Text = "Selecione uma cor";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.CbFaixa1.Location = new System.Drawing.Point(12, 47);
+            this.CbFaixa1.Name = "CbFaixa1";
+            this.CbFaixa1.Size = new System.Drawing.Size(323, 31);
+            this.CbFaixa1.TabIndex = 1;
+            this.CbFaixa1.Text = "Selecione uma cor";
+            this.CbFaixa1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // BtnBackTelaInicial
             // 
@@ -197,38 +197,39 @@ namespace Electrophorus
             this.BtnBackTelaInicial.TabStop = false;
             this.BtnBackTelaInicial.Click += new System.EventHandler(this.BtnBackTelaInicial_Click);
             // 
-            // pictureBox3
+            // BtnReset
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(396, 518);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(38, 44);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 4;
-            this.pictureBox3.TabStop = false;
+            this.BtnReset.Image = ((System.Drawing.Image)(resources.GetObject("BtnReset.Image")));
+            this.BtnReset.Location = new System.Drawing.Point(396, 518);
+            this.BtnReset.Name = "BtnReset";
+            this.BtnReset.Size = new System.Drawing.Size(38, 44);
+            this.BtnReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BtnReset.TabIndex = 4;
+            this.BtnReset.TabStop = false;
+            this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(105)))), ((int)(((byte)(219)))));
-            this.panel3.Controls.Add(this.comboBox7);
+            this.panel3.Controls.Add(this.CbValorResistor);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.comboBox8);
-            this.panel3.Controls.Add(this.comboBox9);
+            this.panel3.Controls.Add(this.CbFaixa4);
+            this.panel3.Controls.Add(this.CbFaixa5);
             this.panel3.Controls.Add(this.label12);
             this.panel3.Location = new System.Drawing.Point(440, 286);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(344, 275);
             this.panel3.TabIndex = 14;
             // 
-            // comboBox7
+            // CbValorResistor
             // 
-            this.comboBox7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(9, 227);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(323, 33);
-            this.comboBox7.TabIndex = 2;
+            this.CbValorResistor.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CbValorResistor.FormattingEnabled = true;
+            this.CbValorResistor.Location = new System.Drawing.Point(9, 227);
+            this.CbValorResistor.Name = "CbValorResistor";
+            this.CbValorResistor.Size = new System.Drawing.Size(323, 33);
+            this.CbValorResistor.TabIndex = 2;
             // 
             // label7
             // 
@@ -252,11 +253,11 @@ namespace Electrophorus
             this.label8.TabIndex = 11;
             this.label8.Text = "Multiplicador               (faixa 4)";
             // 
-            // comboBox8
+            // CbFaixa4
             // 
-            this.comboBox8.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Items.AddRange(new object[] {
+            this.CbFaixa4.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CbFaixa4.FormattingEnabled = true;
+            this.CbFaixa4.Items.AddRange(new object[] {
             "Preto",
             "Marrom",
             "Vermelho",
@@ -267,17 +268,17 @@ namespace Electrophorus
             "Violeta",
             "Dourado",
             "Prateado"});
-            this.comboBox8.Location = new System.Drawing.Point(9, 47);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(323, 31);
-            this.comboBox8.TabIndex = 6;
-            this.comboBox8.Text = "Selecione uma cor";
+            this.CbFaixa4.Location = new System.Drawing.Point(9, 47);
+            this.CbFaixa4.Name = "CbFaixa4";
+            this.CbFaixa4.Size = new System.Drawing.Size(323, 31);
+            this.CbFaixa4.TabIndex = 6;
+            this.CbFaixa4.Text = "Selecione uma cor";
             // 
-            // comboBox9
+            // CbFaixa5
             // 
-            this.comboBox9.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Items.AddRange(new object[] {
+            this.CbFaixa5.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CbFaixa5.FormattingEnabled = true;
+            this.CbFaixa5.Items.AddRange(new object[] {
             "Marrom",
             "Vermelho",
             "Verde",
@@ -286,11 +287,11 @@ namespace Electrophorus
             "Cinza",
             "Dourado ",
             "Prateado"});
-            this.comboBox9.Location = new System.Drawing.Point(9, 136);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(323, 31);
-            this.comboBox9.TabIndex = 4;
-            this.comboBox9.Text = "Selecione uma cor";
+            this.CbFaixa5.Location = new System.Drawing.Point(9, 136);
+            this.CbFaixa5.Name = "CbFaixa5";
+            this.CbFaixa5.Size = new System.Drawing.Size(323, 31);
+            this.CbFaixa5.TabIndex = 4;
+            this.CbFaixa5.Text = "Selecione uma cor";
             // 
             // label12
             // 
@@ -311,7 +312,7 @@ namespace Electrophorus
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.BtnReset);
             this.Controls.Add(this.BtnBackTelaInicial);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -324,7 +325,7 @@ namespace Electrophorus
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnBackTelaInicial)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnReset)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -339,17 +340,17 @@ namespace Electrophorus
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CbFaixa1;
         private System.Windows.Forms.PictureBox BtnBackTelaInicial;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.PictureBox BtnReset;
+        private System.Windows.Forms.ComboBox CbFaixa2;
+        private System.Windows.Forms.ComboBox CbFaixa3;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox CbValorResistor;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox8;
-        private System.Windows.Forms.ComboBox comboBox9;
+        private System.Windows.Forms.ComboBox CbFaixa4;
+        private System.Windows.Forms.ComboBox CbFaixa5;
         private System.Windows.Forms.Label label12;
     }
 }

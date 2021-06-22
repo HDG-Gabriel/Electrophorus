@@ -17,6 +17,7 @@ namespace Electrophorus
         {
             InitializeComponent();
             BtnBackTelaInicial.Cursor = Cursors.Hand;
+
         }
 
         private void BtnBackTelaInicial_Click(object sender, EventArgs e)
@@ -27,6 +28,18 @@ namespace Electrophorus
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void BtnReset_Click(object sender, EventArgs e)
+        {
+
+            CbFaixa1.ResetText();
+            CbFaixa2.ResetText();
+            CbFaixa3.ResetText();
+            CbFaixa4.ResetText();
+            CbFaixa5.ResetText();
+            CbValorResistor.ResetText();
 
         }
     }
