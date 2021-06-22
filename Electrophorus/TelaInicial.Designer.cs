@@ -50,6 +50,7 @@ namespace Electrophorus
             this.btnQuiz.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnQuiz.Name = "btnQuiz";
             this.btnQuiz.UseVisualStyleBackColor = false;
+            this.btnQuiz.Click += new System.EventHandler(this.btnQuiz_Click);
             // 
             // btnSimulador
             // 

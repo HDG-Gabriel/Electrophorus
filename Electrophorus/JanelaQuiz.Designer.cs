@@ -39,8 +39,10 @@ namespace Electrophorus
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnVoltarQ = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVoltarQ)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -163,6 +165,17 @@ namespace Electrophorus
             this.label1.TabIndex = 8;
             this.label1.Text = "QUIZ";
             // 
+            // btnVoltarQ
+            // 
+            this.btnVoltarQ.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltarQ.Image")));
+            this.btnVoltarQ.Location = new System.Drawing.Point(802, 4);
+            this.btnVoltarQ.Name = "btnVoltarQ";
+            this.btnVoltarQ.Size = new System.Drawing.Size(69, 44);
+            this.btnVoltarQ.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnVoltarQ.TabIndex = 9;
+            this.btnVoltarQ.TabStop = false;
+            this.btnVoltarQ.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
             // JanelaQuiz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -170,6 +183,7 @@ namespace Electrophorus
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(872, 455);
+            this.Controls.Add(this.btnVoltarQ);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -183,6 +197,7 @@ namespace Electrophorus
             this.Text = "JanelaQuiz";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVoltarQ)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,5 +214,6 @@ namespace Electrophorus
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox btnVoltarQ;
     }
 }
