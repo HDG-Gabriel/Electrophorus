@@ -79,7 +79,7 @@ namespace Electrophorus
 
             
         }
-
+        // Botão de Reset
         private void BtnReset_Click(object sender, EventArgs e)
         {
 
@@ -91,7 +91,7 @@ namespace Electrophorus
             CbValorResistor.ResetText();
 
         }
-
+        // Cores Faixa 2
         private void CbFaixa2_SelectedIndexChanged(object sender, EventArgs e)
         {
             var NomeCor = CbFaixa2.SelectedItem.ToString();
@@ -142,7 +142,7 @@ namespace Electrophorus
             a.FillRectangle(brush, 168, 29, 32, 112);
             a.Dispose();
         }
-
+        // Cores Faixa 3
         private void CbFaixa3_SelectedIndexChanged(object sender, EventArgs e)
         {
             var NomeCor = CbFaixa3.SelectedItem.ToString();
@@ -180,6 +180,65 @@ namespace Electrophorus
             {
                 cor = Color.Violet;
             }
+            else if (NomeCor == "Cinza")
+            {
+                cor = Color.Gray;
+            }
+            else if (NomeCor == "Branco")
+            {
+                cor = Color.White;
+            }
+            var brush = new SolidBrush(cor);
+
+            a.FillRectangle(brush, 240, 29, 32, 112);
+            a.Dispose();
+        }
+        // Cores Faixa 4
+        private void CbFaixa4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var NomeCor = CbFaixa4.SelectedItem.ToString();
+            var a = ImgResistor.CreateGraphics();
+
+            if (NomeCor == "Preto")
+            {
+                cor = Color.Black;
+            }
+            else if (NomeCor == "Marrom")
+            {
+                cor = Color.Brown;
+            }
+            else if (NomeCor == "Vermelho")
+            {
+                cor = Color.Red;
+            }
+            else if (NomeCor == "Laranja")
+            {
+                cor = Color.Orange;
+            }
+            else if (NomeCor == "Amarelo")
+            {
+                cor = Color.Yellow;
+            }
+            else if (NomeCor == "Verde")
+            {
+                cor = Color.Green;
+            }
+            else if (NomeCor == "Azul")
+            {
+                cor = Color.Blue;
+            }
+            else if (NomeCor == "Violeta")
+            {
+                cor = Color.Violet;
+            }
+            else if (NomeCor == "Cinza")
+            {
+                cor = Color.Gray;
+            }
+            else if (NomeCor == "Branco")
+            {
+                cor = Color.White;
+            }
             else if (NomeCor == "Ouro")
             {
                 cor = Color.Gold;
@@ -190,7 +249,50 @@ namespace Electrophorus
             }
             var brush = new SolidBrush(cor);
 
-            a.FillRectangle(brush, 240, 29, 32, 112);
+            a.FillRectangle(brush, 312, 29, 32, 112);
+            a.Dispose();
+        }
+        // Cores Faixa 5
+        private void CbFaixa5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var NomeCor = CbFaixa5.SelectedItem.ToString();
+            var a = ImgResistor.CreateGraphics();
+
+            if (NomeCor == "Marrom")
+            {
+                cor = Color.Brown;
+            }
+            else if (NomeCor == "Vermelho")
+            {
+                cor = Color.Red;
+            }
+            else if (NomeCor == "Verde")
+            {
+                cor = Color.Green;
+            }
+            else if (NomeCor == "Azul")
+            {
+                cor = Color.Blue;
+            }
+            else if (NomeCor == "Violeta")
+            {
+                cor = Color.Violet;
+            }
+            else if (NomeCor == "Cinza")
+            {
+                cor = Color.Gray;
+            }
+            else if (NomeCor == "Ouro")
+            {
+                cor = Color.Gold;
+            }
+            else if (NomeCor == "Prata")
+            {
+                cor = Color.Silver;
+            }
+            var brush = new SolidBrush(cor);
+
+            a.FillRectangle(brush, 384, 5, 24, 160);
             a.Dispose();
         }
     }

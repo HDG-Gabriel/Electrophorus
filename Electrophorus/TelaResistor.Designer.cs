@@ -157,8 +157,8 @@ namespace Electrophorus
             "Verde",
             "Azul",
             "Violeta",
-            "Ouro",
-            "Prata"});
+            "Cinza",
+            "Branco"});
             this.CbFaixa3.Location = new System.Drawing.Point(12, 229);
             this.CbFaixa3.Name = "CbFaixa3";
             this.CbFaixa3.Size = new System.Drawing.Size(323, 31);
@@ -268,13 +268,16 @@ namespace Electrophorus
             "Verde",
             "Azul",
             "Violeta",
-            "Dourado",
-            "Prateado"});
+            "Cinza",
+            "Branco",
+            "Ouro",
+            "Prata"});
             this.CbFaixa4.Location = new System.Drawing.Point(9, 47);
             this.CbFaixa4.Name = "CbFaixa4";
             this.CbFaixa4.Size = new System.Drawing.Size(323, 31);
             this.CbFaixa4.TabIndex = 6;
             this.CbFaixa4.Text = "Selecione uma cor";
+            this.CbFaixa4.SelectedIndexChanged += new System.EventHandler(this.CbFaixa4_SelectedIndexChanged);
             // 
             // CbFaixa5
             // 
@@ -287,13 +290,14 @@ namespace Electrophorus
             "Azul",
             "Violeta",
             "Cinza",
-            "Dourado ",
-            "Prateado"});
+            "Ouro",
+            "Prata"});
             this.CbFaixa5.Location = new System.Drawing.Point(9, 136);
             this.CbFaixa5.Name = "CbFaixa5";
             this.CbFaixa5.Size = new System.Drawing.Size(323, 31);
             this.CbFaixa5.TabIndex = 4;
             this.CbFaixa5.Text = "Selecione uma cor";
+            this.CbFaixa5.SelectedIndexChanged += new System.EventHandler(this.CbFaixa5_SelectedIndexChanged);
             // 
             // label12
             // 
