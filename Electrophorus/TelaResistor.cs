@@ -14,7 +14,6 @@ namespace Electrophorus
     {
 
         public Form TelaResistor1 { get; set; }
-
         public TelaResistor()
         {
             InitializeComponent();
@@ -28,7 +27,7 @@ namespace Electrophorus
         }
 
         //Esse método acessa a caixa de cores da tela e verifica qual a cor selecionada e depois retorna a cor escolhida ;D
-        private Color CorEscolhida(ComboBox caixa)
+        static Color CorEscolhida(ComboBox caixa)
         {
             var nomeCor = caixa.SelectedItem.ToString();
             Color cor;
@@ -69,25 +68,198 @@ namespace Electrophorus
             {
                 cor = Color.Gray;
             }
-            else
+            else if (nomeCor == "Branco")
             {
                 cor = Color.White;
             }
-
+            else if (nomeCor == "Dourado")
+            {
+                cor = Color.Gold;
+            }
+            else
+            {
+                cor = Color.Silver;
+            }
             return cor;
         }
+        // Esse método contém os números de cada cor da faixa
+        static int CorNum(ComboBox caixa)
+        {
+            var nomeCor = (caixa.SelectedItem ?? "").ToString();
+            int num;
 
+            if (nomeCor == "Preto")
+            {
+                num = 0;
+            }
+            else if (nomeCor == "Marrom")
+            {
+                num = 1;
+            }
+            else if (nomeCor == "Vermelho")
+            {
+                num = 2;
+            }
+            else if (nomeCor == "Laranja")
+            {
+                num = 3;
+            }
+            else if (nomeCor == "Amarelo")
+            {
+                num = 4;
+            }
+            else if (nomeCor == "Verde")
+            {
+                num = 5;
+            }
+            else if (nomeCor == "Azul")
+            {
+                num = 6;
+            }
+            else if (nomeCor == "Violeta")
+            {
+                num = 7;
+            }
+            else if (nomeCor == "Cinza")
+            {
+                num = 8;
+            }
+            else
+            {
+                num = 9;
+            }
+           
+            return num;
+        }
+        // Esse método adiciona os zeros do Multiplicador
+        static double Mult(ComboBox caixa)
+        {
+            var nomeCor = (caixa.SelectedItem ?? "").ToString();
+            double Num;
+
+            if (nomeCor == "Preto")
+            {
+                Num = 1;
+            }
+            else if (nomeCor == "Marrom")
+            {
+                Num = 10;
+            }
+            else if (nomeCor == "Vermelho")
+            {
+                Num = 100;
+            }
+            else if (nomeCor == "Laranja")
+            {
+                Num = 1000;
+            }
+            else if (nomeCor == "Amarelo")
+            {
+                Num = 10000;
+            }
+            else if (nomeCor == "Verde")
+            {
+                Num = 100000;
+            }
+            else if (nomeCor == "Azul")
+            {
+                Num = 1000000;
+            }
+            else if (nomeCor == "Violeta")
+            {
+                Num = 10000000;
+            }
+            else if (nomeCor == "Cinza")
+            {
+                Num = 100000000;
+            }
+            else if(nomeCor == "Branco")
+            {
+                Num = 1000000000;
+            }
+            else if(nomeCor == "Dourado")
+            {
+                Num = 0.1;
+            }
+            else
+            {
+                Num = 0.01;
+            }
+
+            return Num;
+        }
+        // Esse método mostra a Tolerância
+        static string Tolerancia(ComboBox caixa)
+        {
+            var nomeCor = (caixa.SelectedItem ?? "").ToString();
+            string Num;
+
+            if (nomeCor == "Marrom")
+            {
+                Num = "± 1%";
+            }
+            else if (nomeCor == "Vermelho")
+            {
+                Num = "± 2%";
+            }
+            
+            else if (nomeCor == "Verde")
+            {
+                Num = "± 0.5%";
+            }
+            else if (nomeCor == "Azul")
+            {
+                Num = "± 0.25%";
+            }
+            else if (nomeCor == "Violeta")
+            {
+                Num = "± 0.1%";
+            }
+            else if (nomeCor == "Cinza")
+            {
+                Num = "± 0.05%";
+            }
+            
+            else if (nomeCor == "Dourado")
+            {
+                Num = "± 5%";
+            }
+            else
+            {
+                Num = "± 10%";
+            }
+
+            return Num;
+        }
+
+        // Calcula a resistência do Resistor
+        private void CalcularResistencia()
+        {
+            var centena = CorNum(CbFaixa1) * 100;
+            var dezena = CorNum(CbFaixa2) * 10;
+            var unidade = CorNum(CbFaixa3);
+            var multiplicador = Mult(CbFaixa4);
+            var Tole = Tolerancia(CbFaixa5);
+
+            double valor = (centena + dezena + unidade) * multiplicador;
+            CbValorResistor.Text = $"{valor} Ω {Tole}";
+        }
         // Cores da Faixa 1
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             var a = ImgResistor.CreateGraphics();
 
             var cor = CorEscolhida(CbFaixa1);
-            
+
+            CorNum(CbFaixa1);
+
+            CalcularResistencia();
+
             var brush = new SolidBrush(cor);
 
             a.FillRectangle(brush, 104, 5, 24, 160);
             a.Dispose();
+
         }
 
         // Cores Faixa 2
@@ -97,11 +269,17 @@ namespace Electrophorus
             var a = ImgResistor.CreateGraphics();
 
             var cor = CorEscolhida(CbFaixa2);
-            
+
+            CorNum(CbFaixa2);
+
+            CalcularResistencia();
+
             var brush = new SolidBrush(cor);
 
             a.FillRectangle(brush, 168, 29, 32, 112);
             a.Dispose();
+
+            
         }
 
         // Cores Faixa 3
@@ -111,6 +289,10 @@ namespace Electrophorus
             var a = ImgResistor.CreateGraphics();
 
             var cor = CorEscolhida(CbFaixa3);
+
+            CorNum(CbFaixa3);
+
+            CalcularResistencia();
 
             var brush = new SolidBrush(cor);
 
@@ -126,6 +308,10 @@ namespace Electrophorus
 
             var cor = CorEscolhida(CbFaixa4);
 
+            Mult(CbFaixa4);
+
+            CalcularResistencia();
+
             var brush = new SolidBrush(cor);
 
             a.FillRectangle(brush, 312, 29, 32, 112);
@@ -139,6 +325,10 @@ namespace Electrophorus
             var a = ImgResistor.CreateGraphics();
 
             var cor = CorEscolhida(CbFaixa5);
+
+            CalcularResistencia();
+
+            Tolerancia(CbFaixa5);
 
             var brush = new SolidBrush(cor);
 
@@ -158,5 +348,6 @@ namespace Electrophorus
             CbValorResistor.ResetText();
 
         }
+        
     }
 }
