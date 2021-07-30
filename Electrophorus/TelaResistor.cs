@@ -90,43 +90,43 @@ namespace Electrophorus
 
             if (nomeCor == "Preto")
             {
-                num = 0;
+                num = 1;
             }
             else if (nomeCor == "Marrom")
             {
-                num = 1;
+                num = 2;
             }
             else if (nomeCor == "Vermelho")
             {
-                num = 2;
+                num = 3;
             }
             else if (nomeCor == "Laranja")
             {
-                num = 3;
+                num = 4;
             }
             else if (nomeCor == "Amarelo")
             {
-                num = 4;
+                num = 5;
             }
             else if (nomeCor == "Verde")
             {
-                num = 5;
+                num = 6;
             }
             else if (nomeCor == "Azul")
             {
-                num = 6;
+                num = 7;
             }
             else if (nomeCor == "Violeta")
             {
-                num = 7;
+                num = 8;
             }
             else if (nomeCor == "Cinza")
             {
-                num = 8;
+                num = 9;
             }
             else
             {
-                num = 9;
+                num = 10;
             }
            
             return num;
@@ -253,7 +253,7 @@ namespace Electrophorus
 
             CorNum(CbFaixa1);
 
-            
+            CalcularResistencia();
 
             var brush = new SolidBrush(cor);
 
@@ -272,7 +272,7 @@ namespace Electrophorus
 
             CorNum(CbFaixa2);
 
-            
+            CalcularResistencia();
 
             var brush = new SolidBrush(cor);
 
@@ -292,6 +292,8 @@ namespace Electrophorus
 
             CorNum(CbFaixa3);
 
+            CalcularResistencia();
+
             var brush = new SolidBrush(cor);
 
             a.FillRectangle(brush, 240, 29, 32, 112);
@@ -307,6 +309,8 @@ namespace Electrophorus
             var cor = CorEscolhida(CbFaixa4);
 
             Mult(CbFaixa4);
+
+            CalcularResistencia();
 
             var brush = new SolidBrush(cor);
 
