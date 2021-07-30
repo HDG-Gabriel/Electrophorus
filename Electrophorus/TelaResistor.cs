@@ -253,7 +253,7 @@ namespace Electrophorus
 
             CorNum(CbFaixa1);
 
-            CalcularResistencia();
+            
 
             var brush = new SolidBrush(cor);
 
@@ -272,7 +272,7 @@ namespace Electrophorus
 
             CorNum(CbFaixa2);
 
-            CalcularResistencia();
+            
 
             var brush = new SolidBrush(cor);
 
@@ -292,8 +292,6 @@ namespace Electrophorus
 
             CorNum(CbFaixa3);
 
-            CalcularResistencia();
-
             var brush = new SolidBrush(cor);
 
             a.FillRectangle(brush, 240, 29, 32, 112);
@@ -309,8 +307,6 @@ namespace Electrophorus
             var cor = CorEscolhida(CbFaixa4);
 
             Mult(CbFaixa4);
-
-            CalcularResistencia();
 
             var brush = new SolidBrush(cor);
 
@@ -340,11 +336,12 @@ namespace Electrophorus
         private void BtnReset_Click(object sender, EventArgs e)
         {
 
-            CbFaixa1.ResetText();
-            CbFaixa2.ResetText();
-            CbFaixa3.ResetText();
-            CbFaixa4.ResetText();
-            CbFaixa5.ResetText();
+            CbFaixa1.SelectedIndex = 0;
+            CbFaixa2.SelectedIndex = 0;
+            CbFaixa3.SelectedIndex = 0;
+            CbFaixa4.SelectedIndex = 0;
+            CbFaixa5.SelectedIndex = 0;
+
             CbValorResistor.ResetText();
 
         }

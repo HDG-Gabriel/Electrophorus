@@ -48,7 +48,6 @@ namespace Electrophorus
             this.CbFaixa4 = new System.Windows.Forms.ComboBox();
             this.CbFaixa5 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgResistor)).BeginInit();
             this.panel2.SuspendLayout();
@@ -117,6 +116,7 @@ namespace Electrophorus
             this.CbFaixa2.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CbFaixa2.FormattingEnabled = true;
             this.CbFaixa2.Items.AddRange(new object[] {
+            "Selecione uma cor",
             "Preto",
             "Marrom",
             "Vermelho",
@@ -150,6 +150,7 @@ namespace Electrophorus
             this.CbFaixa3.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CbFaixa3.FormattingEnabled = true;
             this.CbFaixa3.Items.AddRange(new object[] {
+            "Selecione uma cor",
             "Preto",
             "Marrom",
             "Vermelho",
@@ -172,6 +173,7 @@ namespace Electrophorus
             this.CbFaixa1.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CbFaixa1.FormattingEnabled = true;
             this.CbFaixa1.Items.AddRange(new object[] {
+            "Selecione uma cor",
             "Preto",
             "Marrom",
             "Vermelho",
@@ -261,6 +263,7 @@ namespace Electrophorus
             this.CbFaixa4.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CbFaixa4.FormattingEnabled = true;
             this.CbFaixa4.Items.AddRange(new object[] {
+            "Selecione uma cor",
             "Preto",
             "Marrom",
             "Vermelho",
@@ -285,6 +288,7 @@ namespace Electrophorus
             this.CbFaixa5.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CbFaixa5.FormattingEnabled = true;
             this.CbFaixa5.Items.AddRange(new object[] {
+            "Selecione uma cor",
             "Marrom",
             "Vermelho",
             "Verde",
@@ -311,16 +315,6 @@ namespace Electrophorus
             this.label12.TabIndex = 12;
             this.label12.Text = "Tolerância                    (faixa 5)";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(376, 404);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 15);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "label2";
-            // 
             // TelaResistor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -328,7 +322,6 @@ namespace Electrophorus
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(33)))), ((int)(((byte)(79)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.BtnReset);
             this.Controls.Add(this.BtnBackTelaInicial);
@@ -347,7 +340,6 @@ namespace Electrophorus
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -371,6 +363,5 @@ namespace Electrophorus
         private System.Windows.Forms.ComboBox CbFaixa4;
         private System.Windows.Forms.ComboBox CbFaixa5;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label2;
     }
 }
