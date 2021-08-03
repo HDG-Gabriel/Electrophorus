@@ -90,43 +90,43 @@ namespace Electrophorus
 
             if (nomeCor == "Preto")
             {
-                num = 1;
+                num = 0;
             }
             else if (nomeCor == "Marrom")
             {
-                num = 2;
+                num = 1;
             }
             else if (nomeCor == "Vermelho")
             {
-                num = 3;
+                num = 2;
             }
             else if (nomeCor == "Laranja")
             {
-                num = 4;
+                num = 3;
             }
             else if (nomeCor == "Amarelo")
             {
-                num = 5;
+                num = 4;
             }
             else if (nomeCor == "Verde")
             {
-                num = 6;
+                num = 5;
             }
             else if (nomeCor == "Azul")
             {
-                num = 7;
+                num = 6;
             }
             else if (nomeCor == "Violeta")
             {
-                num = 8;
+                num = 7;
             }
             else if (nomeCor == "Cinza")
             {
-                num = 9;
+                num = 8;
             }
             else
             {
-                num = 10;
+                num = 9;
             }
            
             return num;
@@ -253,7 +253,7 @@ namespace Electrophorus
 
             CorNum(CbFaixa1);
 
-            CalcularResistencia();
+            
 
             var brush = new SolidBrush(cor);
 
@@ -272,7 +272,7 @@ namespace Electrophorus
 
             CorNum(CbFaixa2);
 
-            CalcularResistencia();
+            
 
             var brush = new SolidBrush(cor);
 
@@ -292,7 +292,7 @@ namespace Electrophorus
 
             CorNum(CbFaixa3);
 
-            CalcularResistencia();
+            
 
             var brush = new SolidBrush(cor);
 
@@ -310,7 +310,7 @@ namespace Electrophorus
 
             Mult(CbFaixa4);
 
-            CalcularResistencia();
+           
 
             var brush = new SolidBrush(cor);
 
