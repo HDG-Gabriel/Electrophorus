@@ -15,13 +15,18 @@ namespace Electrophorus.Components
         protected List<Area> Areas;
         public ControlState ActualState { get; set; }
 
+        // Window for show options for change values
+        private WindowSettings windowSettings;
+
         public CircuitComponent()
         {
             InitializeComponent();
 
-            Load += CircuitComponent_Load;
+            windowSettings =  new WindowSettings(); 
             _displacementX = _displacementY = 0;
             Areas = new List<Area>();
+
+            Load += CircuitComponent_Load;
         }
 
         protected virtual void CircuitComponent_Load(object sender, EventArgs e)
@@ -33,11 +38,18 @@ namespace Electrophorus.Components
             lblValor.MouseUp += CircuitComponent_MouseUp;
             lblValor.MouseMove += CircuitComponent_MouseMove;
             lblValor.MouseLeave += LblValor_MouseLeave;
+            lblValor.MouseDoubleClick += LblValor_MouseDoubleClick;
 
             lblValor.Paint += LblValor_Paint;
         }
 
-        // Quando o mouse sair do do controle, as áreas especiais também será fechadas
+        private void LblValor_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (windowSettings.IsDisposed) windowSettings = new WindowSettings();
+            windowSettings.Show();
+        }
+
+        // Quando o mouse sair do do controle, as áreas especiais também seram fechadas
         private void LblValor_MouseLeave(object sender, EventArgs e)
         {
             ActualState = ControlState.Wait;
