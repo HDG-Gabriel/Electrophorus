@@ -18,6 +18,7 @@ namespace Electrophorus
         public Button BtnReturn { get; set; }
         public Button BtnAddResistor { get; set; }
         public Button BtnAddSource { get; set; }
+        public Button BtnSettings { get; set; }
         // Campos privados
         // Campo privado para botão de retorno
         private bool _isClicked;
@@ -100,9 +101,13 @@ namespace Electrophorus
         // Adiciona controles a parte inferior da tela
         private void AddButtonBottomPanel()
         {
+            BtnSettings = CreateButton("Settings");
+            BtnSettings.Dock = DockStyle.Right;
+
             BottomPanel.Controls.Add(BtnReturn = CreateButton("Voltar"));
             BottomPanel.Controls.Add(BtnAddResistor = CreateButton("Resistor", new Point(BtnReturn.Width, 0)));
             BottomPanel.Controls.Add(BtnAddSource = CreateButton("Source", new Point(BtnReturn.Width * 2, 0)));
+            BottomPanel.Controls.Add(BtnSettings);
         }
     }
 }
