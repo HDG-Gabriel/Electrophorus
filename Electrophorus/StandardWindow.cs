@@ -12,7 +12,7 @@ namespace Electrophorus
 {
     public partial class StandardWindow : Form
     {
-        // Código responnsável por mover a janela
+        // Move a janela
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -20,24 +20,16 @@ namespace Electrophorus
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
-        // =======================================
+        //  =======================
 
-        private bool _isExpanded = false;
-        // Icons
-        private readonly Image _iconExpanded = Image.FromFile(@"..\..\..\..\imagens\Expanded.png");
-        private readonly Image _iconContrained = Image.FromFile(@"..\..\..\..\imagens\Contrained.png");
-        //
-        public string Title
-        {
-            get => lblTitle.Text;
-            set => lblTitle.Text = value;
-        }
+        private bool _isMaximized;
+        //private readonly Image _imgContrained = Image.FromFile(@"..\..\..\..\imagens\Contrained.png");
+       //private readonly Image _imgExpanded = Image.FromFile(@"..\..\..\..\imagens\Expanded.png");
 
-        public StandardWindow(string title = "")
+        public StandardWindow()
         {
             InitializeComponent();
-
-            Title = title;
+           _isMaximized= false;
         }
 
         // Move a janela
@@ -50,28 +42,21 @@ namespace Electrophorus
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        private void btnCancel_Click(object sender, EventArgs e) => Application.Exit();
 
-        private void btnMinimize_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
+        private void btnMinimeze_Click(object sender, EventArgs e) => WindowState = FormWindowState.Minimized;
 
         private void btnMaximize_Click(object sender, EventArgs e)
         {
-            _isExpanded = !_isExpanded;
-            if (!_isExpanded)
-            {
-                btnMaximize.BackgroundImage = _iconExpanded;
-                WindowState = FormWindowState.Normal;
-            } else
-            {
-                btnMaximize.BackgroundImage = _iconContrained;
+            if (!_isMaximized) {
                 WindowState = FormWindowState.Maximized;
+                //btnMaximize.BackgroundImage = _imgContrained;
             }
+            else { 
+                WindowState = FormWindowState.Normal;
+                //btnMaximize.BackgroundImage = _imgExpanded;
+            }
+            _isMaximized = !_isMaximized;
         }
     }
 }
