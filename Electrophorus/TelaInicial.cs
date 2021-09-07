@@ -38,9 +38,9 @@ namespace Electrophorus
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            TelaInicial1 = new TelaResistor()
+            TelaInicial1 = new JanelaResistor()
             {
-                TelaResistor1 = this,
+                JanelaResistor1 = this,
             };
             TelaInicial1.Show();
 
@@ -54,6 +54,11 @@ namespace Electrophorus
                 JanelaQuiz1 = this,
             };
             TelaInicial1.Show();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

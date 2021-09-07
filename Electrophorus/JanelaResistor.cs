@@ -12,6 +12,7 @@ namespace Electrophorus
 {
     public partial class JanelaResistor : StandardWindow
     {
+        public Form JanelaResistor1 { get; set; }
         public JanelaResistor()
         {
             InitializeComponent();
@@ -20,6 +21,12 @@ namespace Electrophorus
         private void JanelaResistor_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnBackTelaInicial_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            JanelaResistor1.Show();
         }
     }
 }
