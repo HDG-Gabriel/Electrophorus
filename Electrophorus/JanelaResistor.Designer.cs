@@ -42,17 +42,20 @@ namespace Electrophorus
             this.label8 = new System.Windows.Forms.Label();
             this.CbFaixa4 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.BtnBackTelaInicial = new System.Windows.Forms.PictureBox();
+            this.BtnReset = new System.Windows.Forms.PictureBox();
+            this.CbFaixa5 = new System.Windows.Forms.ComboBox();
             this.panBody.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgResistor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnBackTelaInicial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnReset)).BeginInit();
             this.SuspendLayout();
             // 
             // panBody
             // 
+            this.panBody.Controls.Add(this.CbFaixa5);
+            this.panBody.Controls.Add(this.BtnReset);
             this.panBody.Controls.Add(this.BtnBackTelaInicial);
-            this.panBody.Controls.Add(this.comboBox1);
             this.panBody.Controls.Add(this.label12);
             this.panBody.Controls.Add(this.CbFaixa4);
             this.panBody.Controls.Add(this.label8);
@@ -128,6 +131,7 @@ namespace Electrophorus
             this.CbFaixa1.Size = new System.Drawing.Size(262, 31);
             this.CbFaixa1.TabIndex = 17;
             this.CbFaixa1.Text = "Selecione uma cor";
+            this.CbFaixa1.SelectedIndexChanged += new System.EventHandler(this.CbFaixa1_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -161,6 +165,7 @@ namespace Electrophorus
             this.CbFaixa2.Size = new System.Drawing.Size(262, 31);
             this.CbFaixa2.TabIndex = 19;
             this.CbFaixa2.Text = "Selecione uma cor";
+            this.CbFaixa2.SelectedIndexChanged += new System.EventHandler(this.CbFaixa2_SelectedIndexChanged_1);
             // 
             // label4
             // 
@@ -194,6 +199,7 @@ namespace Electrophorus
             this.CbFaixa3.Size = new System.Drawing.Size(262, 31);
             this.CbFaixa3.TabIndex = 21;
             this.CbFaixa3.Text = "Selecione uma cor";
+            this.CbFaixa3.SelectedIndexChanged += new System.EventHandler(this.CbFaixa3_SelectedIndexChanged_1);
             // 
             // label8
             // 
@@ -229,6 +235,7 @@ namespace Electrophorus
             this.CbFaixa4.Size = new System.Drawing.Size(262, 31);
             this.CbFaixa4.TabIndex = 23;
             this.CbFaixa4.Text = "Selecione uma cor";
+            this.CbFaixa4.SelectedIndexChanged += new System.EventHandler(this.CbFaixa4_SelectedIndexChanged_1);
             // 
             // label12
             // 
@@ -241,15 +248,6 @@ namespace Electrophorus
             this.label12.TabIndex = 24;
             this.label12.Text = "Tolerância      (faixa 5)";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(526, 371);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(262, 33);
-            this.comboBox1.TabIndex = 25;
-            // 
             // BtnBackTelaInicial
             // 
             this.BtnBackTelaInicial.Image = ((System.Drawing.Image)(resources.GetObject("BtnBackTelaInicial.Image")));
@@ -260,6 +258,38 @@ namespace Electrophorus
             this.BtnBackTelaInicial.TabIndex = 26;
             this.BtnBackTelaInicial.TabStop = false;
             this.BtnBackTelaInicial.Click += new System.EventHandler(this.BtnBackTelaInicial_Click);
+            // 
+            // BtnReset
+            // 
+            this.BtnReset.Image = ((System.Drawing.Image)(resources.GetObject("BtnReset.Image")));
+            this.BtnReset.Location = new System.Drawing.Point(764, 3);
+            this.BtnReset.Name = "BtnReset";
+            this.BtnReset.Size = new System.Drawing.Size(38, 44);
+            this.BtnReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BtnReset.TabIndex = 27;
+            this.BtnReset.TabStop = false;
+            this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click_1);
+            // 
+            // CbFaixa5
+            // 
+            this.CbFaixa5.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CbFaixa5.FormattingEnabled = true;
+            this.CbFaixa5.Items.AddRange(new object[] {
+            "Selecione uma cor",
+            "Marrom",
+            "Vermelho",
+            "Verde",
+            "Azul",
+            "Violeta",
+            "Cinza",
+            "Dourado",
+            "Prateado"});
+            this.CbFaixa5.Location = new System.Drawing.Point(526, 371);
+            this.CbFaixa5.Name = "CbFaixa5";
+            this.CbFaixa5.Size = new System.Drawing.Size(262, 31);
+            this.CbFaixa5.TabIndex = 28;
+            this.CbFaixa5.Text = "Selecione uma cor";
+            this.CbFaixa5.SelectedIndexChanged += new System.EventHandler(this.CbFaixa5_SelectedIndexChanged_1);
             // 
             // JanelaResistor
             // 
@@ -273,6 +303,7 @@ namespace Electrophorus
             this.panBody.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgResistor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnBackTelaInicial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnReset)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -291,7 +322,8 @@ namespace Electrophorus
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox CbFaixa4;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.PictureBox BtnBackTelaInicial;
+        private System.Windows.Forms.PictureBox BtnReset;
+        private System.Windows.Forms.ComboBox CbFaixa5;
     }
 }
