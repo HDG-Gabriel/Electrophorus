@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Electrophorus.Components
 {
-    public abstract partial class MovableComponent : UserControl
+    public partial class MovableComponent : UserControl
     {
         private ControlState _state;
         protected int displacementY = 0;

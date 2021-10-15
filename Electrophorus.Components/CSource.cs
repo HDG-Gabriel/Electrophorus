@@ -1,26 +1,16 @@
 ﻿using System.Windows.Forms;
 using System.Collections.Generic;
 using Electrophorus.Rendering;
+using SkiaSharp.Views.Desktop;
 
 namespace Electrophorus.Components
 {
     public partial class CSource : CircuitComponent
     {
-        private Source _source;
-        public Source Source
-        {
-            get => _source;
-            set
-            {
-                _source = value;
-                lblValor.Text = $"{value.Tensao} V";
-            }
-        }
-        public CSource()
+        public CSource(SKControl circuit) : base(circuit)
         {
             InitializeComponent();
 
-            Source = new Source(10);
             _displacementY = -13;
 
             Areas = new List<Area>

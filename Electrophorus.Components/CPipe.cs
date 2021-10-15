@@ -43,7 +43,7 @@ namespace Electrophorus.Components
             }
         }
 
-        // Aumenta o tamanho do fio horizontalmente
+        // Aumenta o tamanho para a direita
         private void btnRight_MouseMove(object sender, MouseEventArgs e)
         {
             if (_mode == StretchMode.Right)
@@ -56,6 +56,7 @@ namespace Electrophorus.Components
             }
         }
 
+        // Aumenta o tamanho para a esquerda
         private void btnLeft_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)

@@ -1,4 +1,5 @@
 ﻿using Electrophorus.Rendering;
+using SkiaSharp.Views.Desktop;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -6,20 +7,9 @@ namespace Electrophorus.Components
 {
     public partial class CResistor : CircuitComponent
     {
-        private Resistor _resistor;
-        public Resistor Resistor
-        {
-            get => _resistor;
-            set
-            {
-                _resistor = value;
-                lblValor.Text = $"{value.Resistencia} Ω";
-            }
-        }
-        public CResistor()
+        public CResistor(SKControl circuit) : base(circuit)
         {
             InitializeComponent();
-            Resistor = new Resistor(1);
             _displacementY = -10;
 
             Areas = new List<Area>

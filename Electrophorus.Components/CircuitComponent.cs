@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Linq;
+using SkiaSharp.Views.Desktop;
 
 namespace Electrophorus.Components
 {
@@ -13,15 +14,17 @@ namespace Electrophorus.Components
         protected int _displacementX;
         protected int _displacementY;
         protected List<Area> Areas;
+        protected SKControl Circuit; 
         public ControlState ActualState { get; set; }
 
         // Window for show options for change values
         private WindowSettings windowSettings;
 
-        public CircuitComponent()
+        public CircuitComponent(SKControl circuit)
         {
             InitializeComponent();
 
+            Circuit = circuit;
             windowSettings =  new WindowSettings(); 
             _displacementX = _displacementY = 0;
             Areas = new List<Area>();
@@ -83,9 +86,16 @@ namespace Electrophorus.Components
         {
             if (e.Button == MouseButtons.Left)
             {
-                ActualState = ControlState.Wait;
-                lblValor.Cursor = Cursors.SizeAll;
-                AdjustLocation();
+                if (Areas.Any(a => a.IsOnArea))
+                {
+                    MessageBox.Show("Está em área especial");
+                }
+                else
+                {
+                    ActualState = ControlState.Wait;
+                    lblValor.Cursor = Cursors.SizeAll;
+                    AdjustLocation();
+                }
             }
         }
 
