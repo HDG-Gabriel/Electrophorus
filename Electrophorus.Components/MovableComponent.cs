@@ -12,9 +12,19 @@ using System.Windows.Forms;
 
 namespace Electrophorus.Components
 {
-    public abstract partial class MovableComponent : UserControl
+    public partial class MovableComponent : UserControl
     {
         private ControlState _state;
+        private bool _canMove = true;
+        protected bool CanMove
+        {
+            get => _canMove;
+            set
+            {
+                _canMove = value;
+                Cursor = value ? Cursors.Hand : Cursors.Default;
+            }
+        }
         protected int displacementY = 0;
 
         public MovableComponent()
@@ -24,7 +34,7 @@ namespace Electrophorus.Components
 
         private void MovableComponent_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left && CanMove)
                 _state = ControlState.ToMove;
         }
 
