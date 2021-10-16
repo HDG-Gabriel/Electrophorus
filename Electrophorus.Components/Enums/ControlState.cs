@@ -4,7 +4,8 @@
     {
         DrawSpecialArea,
         ToMove,
-        JoinLines,
+        ConnectRight,
+        ConnectLeft,
         Wait,
     }
 }

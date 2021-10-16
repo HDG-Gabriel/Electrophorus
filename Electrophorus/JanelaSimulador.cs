@@ -18,6 +18,7 @@ namespace Electrophorus
         public Button BtnReturn { get; set; }
         public Button BtnAddResistor { get; set; }
         public Button BtnAddSource { get; set; }
+        public Button BtnAddWire { get; set; }
         public Button BtnSettings { get; set; }
         // Campos privados
         // Campo privado para botão de retorno
@@ -61,8 +62,9 @@ namespace Electrophorus
             ViewBoard.PaintSurface += (s, e) => board.DrawGrid(e.Surface);
             ViewBoard.Resize += (s, e) => board.SetSize(ViewBoard.Width, ViewBoard.Height);
             FormClosed += JanelaSimulador_FormClosed;
-            BtnAddResistor.Click += (s, e) => ViewBoard.Controls.Add(new CResistor());
-            BtnAddSource.Click += (s, e) => ViewBoard.Controls.Add(new CSource());
+            BtnAddResistor.Click += (s, e) => ViewBoard.Controls.Add(new CResistor(ViewBoard));
+            BtnAddSource.Click += (s, e) => ViewBoard.Controls.Add(new CSource(ViewBoard));
+            BtnAddWire.Click += (s, e) => ViewBoard.Controls.Add(new CPipe());
             // Volta a janela principal
             BtnReturn.Click += (s, e) =>
             {
@@ -105,6 +107,7 @@ namespace Electrophorus
             BtnSettings.Dock = DockStyle.Right;
 
             BottomPanel.Controls.Add(BtnReturn = CreateButton("Voltar"));
+            BottomPanel.Controls.Add(BtnAddWire = CreateButton("Wire", new Point(BtnReturn.Width * 3, 0)));
             BottomPanel.Controls.Add(BtnAddResistor = CreateButton("Resistor", new Point(BtnReturn.Width, 0)));
             BottomPanel.Controls.Add(BtnAddSource = CreateButton("Source", new Point(BtnReturn.Width * 2, 0)));
             BottomPanel.Controls.Add(BtnSettings);
