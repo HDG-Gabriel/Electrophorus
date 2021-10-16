@@ -38,27 +38,13 @@ namespace Electrophorus.Components
             lblValor.MouseDown += CircuitComponent_MouseDown;
             lblValor.MouseUp += CircuitComponent_MouseUp;
             lblValor.MouseMove += CircuitComponent_MouseMove;
-            lblValor.MouseLeave += LblValor_MouseLeave;
             lblValor.MouseDoubleClick += LblValor_MouseDoubleClick;
-
-            lblValor.Paint += LblValor_Paint;
         }
 
         private void LblValor_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (windowSettings.IsDisposed) windowSettings = new WindowSettings();
             windowSettings.Show();
-        }
-
-        // Quando o mouse sair do do controle, as áreas especiais também seram fechadas
-        private void LblValor_MouseLeave(object sender, EventArgs e)
-        {
-            
-        }
-
-        // Pinta o controle
-        private void LblValor_Paint(object sender, PaintEventArgs e)
-        {
         }
 
         // Acontece quando o usuário solta o botão esquerdo
