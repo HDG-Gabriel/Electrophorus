@@ -1,19 +1,22 @@
-﻿namespace Electrophorus.Components
-{
-    public class Source
-    {
-        public double Tensao { get; set; }
-        public double Corrente { get; set; }
-        public double Potencia { get; set; }
+﻿using System.Windows.Forms;
+using System.Collections.Generic;
+using Electrophorus.Rendering;
 
-        public Source(double tensao)
+using SkiaSharp.Views.Desktop;
+
+namespace Electrophorus.Components
+{
+    public partial class Source : CircuitComponent
+    {
+        public Source(SKControl screen) : base(screen)
         {
-            Tensao = tensao;
+            InitializeComponent();
         }
 
-        private void CalcularPotencia()
+        protected override void CircuitComponent_MouseUp(object sender, MouseEventArgs e)
         {
-            Potencia = Tensao * Corrente;
+            base.CircuitComponent_MouseUp(sender, e);
+            Location = new System.Drawing.Point(Location.X, Location.Y);
         }
     }
 }

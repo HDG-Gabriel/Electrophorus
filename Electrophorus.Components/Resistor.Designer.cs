@@ -1,7 +1,7 @@
 ﻿
 namespace Electrophorus.Components
 {
-    partial class CSource
+    partial class Resistor
     {
         /// <summary>
         /// Required designer variable.
@@ -29,21 +29,24 @@ namespace Electrophorus.Components
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CSource));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Resistor));
             this.SuspendLayout();
             // 
             // lblValor
             // 
             this.lblValor.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.lblValor.Image = ((System.Drawing.Image)(resources.GetObject("lblValor.Image")));
+            this.lblValor.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblValor.Margin = new System.Windows.Forms.Padding(0);
-            this.lblValor.Size = new System.Drawing.Size(48, 80);
+            this.lblValor.Padding = new System.Windows.Forms.Padding(0);
+            this.lblValor.Size = new System.Drawing.Size(64, 62);
+            this.lblValor.Text = "";
             // 
-            // CSource
+            // Resistor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.Name = "CSource";
-            this.Size = new System.Drawing.Size(64, 96);
+            this.Name = "Resistor";
+            this.Size = new System.Drawing.Size(64, 64);
             this.ResumeLayout(false);
 
         }

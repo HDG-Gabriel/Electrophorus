@@ -1,7 +1,7 @@
 ﻿
 namespace Electrophorus.Components
 {
-    partial class CResistor
+    partial class Source
     {
         /// <summary>
         /// Required designer variable.
@@ -29,21 +29,24 @@ namespace Electrophorus.Components
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CResistor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Source));
             this.SuspendLayout();
             // 
-            // lblResistencia
+            // lblValor
             // 
             this.lblValor.Cursor = System.Windows.Forms.Cursors.SizeAll;
-            this.lblValor.Image = ((System.Drawing.Image)(resources.GetObject("lblResistencia.Image")));
-            this.lblValor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 3);
-            this.lblValor.Size = new System.Drawing.Size(64, 60);
+            this.lblValor.Image = ((System.Drawing.Image)(resources.GetObject("lblValor.Image")));
+            this.lblValor.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblValor.Margin = new System.Windows.Forms.Padding(0);
+            this.lblValor.Padding = new System.Windows.Forms.Padding(0);
+            this.lblValor.Size = new System.Drawing.Size(64, 64);
+            this.lblValor.Text = "";
             // 
-            // CResistor
+            // Source
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.Name = "CResistor";
-            this.Size = new System.Drawing.Size(64, 96);
+            this.Name = "Source";
+            this.Size = new System.Drawing.Size(64, 64);
             this.ResumeLayout(false);
 
         }
