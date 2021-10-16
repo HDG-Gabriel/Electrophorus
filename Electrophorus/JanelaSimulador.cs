@@ -8,7 +8,7 @@ using SkiaSharp.Views.Desktop;
 
 namespace Electrophorus
 {
-    public partial class JanelaSimulador : Form
+    public partial class JanelaSimulador : StandardWindow
     {
         // Janela Principal
         private readonly TelaInicial _dadScreen;
@@ -20,8 +20,7 @@ namespace Electrophorus
         public Button BtnAddSource { get; set; }
         public Button BtnAddWire { get; set; }
         public Button BtnSettings { get; set; }
-        // Campos privados
-        // Campo privado para botão de retorno
+        // Lógica de reotnar a tela principal
         private bool _isClicked;
         
 
@@ -62,9 +61,10 @@ namespace Electrophorus
             ViewBoard.PaintSurface += (s, e) => board.DrawGrid(e.Surface);
             ViewBoard.Resize += (s, e) => board.SetSize(ViewBoard.Width, ViewBoard.Height);
             FormClosed += JanelaSimulador_FormClosed;
-            BtnAddResistor.Click += (s, e) => ViewBoard.Controls.Add(new CResistor(ViewBoard));
-            BtnAddSource.Click += (s, e) => ViewBoard.Controls.Add(new CSource(ViewBoard));
-            BtnAddWire.Click += (s, e) => ViewBoard.Controls.Add(new CPipe());
+            BtnAddResistor.Click += (s, e) => ViewBoard.Controls.Add(new Resistor(ViewBoard));
+            BtnAddSource.Click += (s, e) => ViewBoard.Controls.Add(new Source(ViewBoard));
+            BtnAddWire.Click += (s, e) => ViewBoard.Controls.Add(new Wire());
+
             // Volta a janela principal
             BtnReturn.Click += (s, e) =>
             {
@@ -72,7 +72,7 @@ namespace Electrophorus
                 Close();
             };
             
-            Controls.Add(viewManager);
+            panBody.Controls.Add(viewManager);
         }
 
         // Quando estiver fechado a janela do simulador, a janela principal exibirá automaticamente
