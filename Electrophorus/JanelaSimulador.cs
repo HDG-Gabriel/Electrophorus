@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Electrophorus.Components;
 using Electrophorus.Rendering;
 using SkiaSharp;
 using SkiaSharp.Views.Desktop;
@@ -20,7 +19,7 @@ namespace Electrophorus
         public Button BtnAddSource { get; set; }
         public Button BtnAddWire { get; set; }
         public Button BtnSettings { get; set; }
-        // Lógica de reotnar a tela principal
+        // Lógica de retornar a tela principal
         private bool _isClicked;
         
 
@@ -57,13 +56,19 @@ namespace Electrophorus
             // Malha do circuito
             var board = new Board();
 
+            // Gerencia os componentes dentro do circuito
+            var manager = new BoardManager(ViewBoard, board);
+
             // Eventos
             ViewBoard.PaintSurface += (s, e) => board.DrawGrid(e.Surface);
             ViewBoard.Resize += (s, e) => board.SetSize(ViewBoard.Width, ViewBoard.Height);
             FormClosed += JanelaSimulador_FormClosed;
-            BtnAddResistor.Click += (s, e) => ViewBoard.Controls.Add(new Resistor(ViewBoard));
-            BtnAddSource.Click += (s, e) => ViewBoard.Controls.Add(new Source(ViewBoard));
-            BtnAddWire.Click += (s, e) => ViewBoard.Controls.Add(new Wire());
+
+            BtnAddWire.Click += (s, e) =>
+            {
+                board.Components.Add(new Wire() { Location = new SKPoint(32, 0) });
+                ViewBoard.Refresh();
+            };
 
             // Volta a janela principal
             BtnReturn.Click += (s, e) =>
@@ -86,14 +91,13 @@ namespace Electrophorus
             Application.Exit();
         }
 
-
         private Button CreateButton(string text, Point point = new Point())
         {
             const int width = 100;
             var button = new Button()
             {
                 Text = text,
-                FlatStyle = FlatStyle.Flat,
+                BackColor = Color.White,
                 Location = point,
                 Size = new Size(width, BottomPanel.Size.Height),
             };
@@ -107,9 +111,9 @@ namespace Electrophorus
             BtnSettings.Dock = DockStyle.Right;
 
             BottomPanel.Controls.Add(BtnReturn = CreateButton("Voltar"));
-            BottomPanel.Controls.Add(BtnAddWire = CreateButton("Wire", new Point(BtnReturn.Width * 3, 0)));
+            BottomPanel.Controls.Add(BtnAddWire = CreateButton("Fio", new Point(BtnReturn.Width * 3, 0)));
             BottomPanel.Controls.Add(BtnAddResistor = CreateButton("Resistor", new Point(BtnReturn.Width, 0)));
-            BottomPanel.Controls.Add(BtnAddSource = CreateButton("Source", new Point(BtnReturn.Width * 2, 0)));
+            BottomPanel.Controls.Add(BtnAddSource = CreateButton("DC Fonte", new Point(BtnReturn.Width * 2, 0)));
             BottomPanel.Controls.Add(BtnSettings);
         }
     }

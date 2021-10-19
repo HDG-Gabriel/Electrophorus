@@ -1,4 +1,5 @@
 ﻿using SkiaSharp;
+using System.Collections.Generic;
 
 namespace Electrophorus.Rendering
 {
@@ -9,6 +10,8 @@ namespace Electrophorus.Rendering
         public int Width { get; private set; }
         public int Height { get; private set; }
         public const int CellSize = 32;
+
+        public List<ICircuitComponent> Components = new (); 
 
         public void DrawGrid(SKSurface surface)
         {
@@ -25,6 +28,11 @@ namespace Electrophorus.Rendering
             for (var i = 0; i <= Rows; i ++)
             {
                 canvas.DrawLine(0, i * CellSize, Width, i * CellSize, paint);
+            }
+
+            foreach (var c in Components)
+            {
+                canvas.DrawRect(c.Location.X, c.Location.Y, c.Size.Width, c.Size.Height, c.Paint);
             }
         }
 
