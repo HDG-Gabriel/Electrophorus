@@ -13,6 +13,7 @@ namespace Electrophorus.Rendering
     public class BoardManager
     {
         private readonly List<ICircuitComponent> _components;
+        private ICircuitComponent _component;
         private readonly SKControl _view;
         private bool _pressed = false;
 
@@ -27,42 +28,35 @@ namespace Electrophorus.Rendering
                 if (e.Button == MouseButtons.Left)
                 {
                     _pressed = true;
+
+                    if (_components.Count < 1) return;
+                    _component = _components.Where(c => c.IsInside(e)).FirstOrDefault();
                 }
             };
             _view.MouseUp += (s, e) =>
             {
                 if (_pressed)
                 {
-                    _pressed = !_pressed;
+                    _pressed = false;
+                    _component = null;
                 }
             };
         }
 
         private void View_MouseMove(object sender, MouseEventArgs e)
         {
-            if (_components.Count < 1) return;
-            ICircuitComponent component = _components.Where(c => c.IsInside(e)).FirstOrDefault();
-            if (component == null) return;
-
-            if (_pressed)
+            if (_pressed && _component != null)
             {
-                MoveComponent(component, e);
+                MoveComponent(_component, e);
             }
         }
 
         private void MoveComponent(ICircuitComponent c, MouseEventArgs e)
         {
-            Debug.WriteLine(e.X);
-            if (e.X % Board.CellSize / 2 == 0)
-            {
-                c.Location = new SKPoint(e.X, c.Location.Y);
-                _view.Refresh();
-            }
-            if (e.Y % Board.CellSize / 2 == 0)
-            {
-                c.Location = new SKPoint(c.Location.X, e.Y);
-                _view.Refresh();
-            }
+            int x = (e.X / Board.CellSize) * Board.CellSize;
+            int y = (e.Y / Board.CellSize) * Board.CellSize;
+            c.Location = new SKPoint(x, y);
+            _view.Refresh();
         }
     }
 }

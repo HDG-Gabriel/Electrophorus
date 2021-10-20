@@ -14,6 +14,16 @@ namespace Electrophorus.Rendering
         public SKPoint Location { get; set; }
         public SKRect Size { get; set; }
         public SKPaint Paint { get; set; }
+        private bool _isAbove = false;
+        public bool IsAbove
+        {
+            get {  return _isAbove; }
+            set
+            {
+                _isAbove = value;
+                Paint.Color = _isAbove ? SKColors.Blue : SKColors.Gray;
+            }
+        }
 
         public Wire()
         {
@@ -26,11 +36,5 @@ namespace Electrophorus.Rendering
         }
 
         public bool IsInside(MouseEventArgs e) => (e.X >= Location.X && e.X <= Location.X + Size.Width && e.Y >= Location.Y && e.Y <= Location.Y + Size.Height);
-
-        public void Move(SKSurface surface, MouseEventArgs e)
-        {
-            var canvas = surface.Canvas;
-            canvas.DrawRect(Size, Paint);
-        }
     }
 }

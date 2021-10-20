@@ -13,7 +13,7 @@ namespace Electrophorus.Rendering
         public SKPoint Location { get; set; }
         public SKRect Size { get; set; }
         public SKPaint Paint { get; set;  }
-        public void Move(SKSurface surface, MouseEventArgs e);
+        public bool IsAbove { get; set; }
         // Returns if mouse is on component drawed
         public bool IsInside(MouseEventArgs e);
     }
