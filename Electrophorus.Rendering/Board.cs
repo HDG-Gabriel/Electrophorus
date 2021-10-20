@@ -32,7 +32,7 @@ namespace Electrophorus.Rendering
 
             foreach (var c in Components)
             {
-                canvas.DrawRect(c.Location.X, c.Location.Y, c.Size.Width, c.Size.Height, c.Paint);
+                c.Draw(canvas);
             }
         }
 

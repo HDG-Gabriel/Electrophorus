@@ -15,7 +15,6 @@ namespace Electrophorus.Rendering
         private readonly List<ICircuitComponent> _components;
         private ICircuitComponent _component;
         private readonly SKControl _view;
-        private bool _pressed = false;
 
         public BoardManager(SKControl view, Board board)
         {
@@ -27,27 +26,47 @@ namespace Electrophorus.Rendering
             {
                 if (e.Button == MouseButtons.Left)
                 {
-                    _pressed = true;
-
                     if (_components.Count < 1) return;
+
                     _component = _components.Where(c => c.IsInside(e)).FirstOrDefault();
+                    if (_component == null) return;
+
+                    if (Node.IsInside(e, _component.NodeIn) || Node.IsInside(e, _component.NodeOut))
+                    {
+                        _component.CanGrowUp = true;
+                    } else
+                    {
+                        _component.CanMove = true;
+                    }
                 }
             };
+
             _view.MouseUp += (s, e) =>
             {
-                if (_pressed)
-                {
-                    _pressed = false;
-                    _component = null;
-                }
+                if (_component == null) return;
+
+                _component.CanGrowUp = false;
+                _component.CanMove = false;
             };
         }
 
         private void View_MouseMove(object sender, MouseEventArgs e)
         {
-            if (_pressed && _component != null)
+            if (_component == null) return;
+
+            if (_component.CanGrowUp)
             {
+                _view.Cursor = Cursors.Cross;
+                _component.GrowUp(_view, e);
+            }
+            else if (_component.CanMove)
+            {
+                _view.Cursor = Cursors.SizeAll;
                 MoveComponent(_component, e);
+            }
+            else
+            {
+                _view.Cursor = Cursors.Default;
             }
         }
 
