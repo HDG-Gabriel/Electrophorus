@@ -15,7 +15,7 @@ namespace Electrophorus.Rendering
         public bool IsInside(MouseEventArgs e);
         // Each component know how to draw itself
         public void Draw(SKCanvas canvas);
-        // Expaded component
+        // Expanded component
         public void GrowUp(SKControl view, MouseEventArgs e);
     }
 }

@@ -20,8 +20,9 @@ namespace Electrophorus.Rendering
             set
             {
                 _start = value;
+                End = new SKPoint(Start.X + Width, Start.Y);
                 NodeIn.Location = new SKPoint(Start.X + NodeIn.Radius, Start.Y + Height / 2);
-                NodeOut.Location = new SKPoint(Start.X + Width - NodeOut.Radius, Start.X + Height / 2);
+                NodeOut.Location = new SKPoint(Start.X + Width - NodeOut.Radius, Start.Y + Height / 2);
             }
         }
         public SKPoint End
@@ -38,10 +39,10 @@ namespace Electrophorus.Rendering
         public Node NodeOut { get; set; } = new();
         public bool CanGrowUp { get; set; } = false;
         public bool CanMove { get; set; } = false;
-        public int Width { get; set; }
-        public int Height { get; set; }
+        public int Width { get; protected set; }
+        public int Height { get; protected set; }
 
-        public CircuitComponent(int width = 2 * Board.CellSize, int height = 8)
+        public CircuitComponent(int width = Board.CellSize * 2, int height = 8)
         {
             if (width < Board.CellSize) throw new Exception("Width must be greather than cell border size");
 
