@@ -12,8 +12,8 @@ namespace Electrophorus.Rendering
 {
     public class BoardManager
     {
-        private readonly List<ICircuitComponent> _components;
-        private ICircuitComponent _component;
+        private readonly List<CircuitComponent> _components;
+        private CircuitComponent _component;
         private readonly SKControl _view;
 
         public BoardManager(SKControl view, Board board)
@@ -31,7 +31,7 @@ namespace Electrophorus.Rendering
                     _component = _components.Where(c => c.IsInside(e)).FirstOrDefault();
                     if (_component == null) return;
 
-                    if (Node.IsInside(e, _component.NodeIn) || Node.IsInside(e, _component.NodeOut))
+                    if (_component.NodeIn.IsInside(e) || _component.NodeOut.IsInside(e))
                     {
                         _component.CanGrowUp = true;
                     } else
@@ -45,6 +45,8 @@ namespace Electrophorus.Rendering
             {
                 if (_component == null) return;
 
+                _component.NodeIn.IsInside(e);
+                _component.NodeOut.IsInside(e);
                 _component.CanGrowUp = false;
                 _component.CanMove = false;
             };
@@ -70,11 +72,11 @@ namespace Electrophorus.Rendering
             }
         }
 
-        private void MoveComponent(ICircuitComponent c, MouseEventArgs e)
+        private void MoveComponent(CircuitComponent c, MouseEventArgs e)
         {
             int x = (e.X / Board.CellSize) * Board.CellSize;
             int y = (e.Y / Board.CellSize) * Board.CellSize;
-            c.Location = new SKPoint(x, y);
+            c.Start = new SKPoint(x, y);
             _view.Refresh();
         }
     }

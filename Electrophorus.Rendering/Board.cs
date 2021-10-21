@@ -11,7 +11,7 @@ namespace Electrophorus.Rendering
         public int Height { get; private set; }
         public const int CellSize = 32;
 
-        public List<ICircuitComponent> Components = new (); 
+        public List<CircuitComponent> Components = new (); 
 
         public void DrawGrid(SKSurface surface)
         {

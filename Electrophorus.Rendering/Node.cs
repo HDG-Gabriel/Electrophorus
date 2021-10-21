@@ -12,17 +12,21 @@ namespace Electrophorus.Rendering
     public class Node
     {
         // All elements will have the same radius
-        public static float Radius { get; set; } = 6;
-        public SKColor Color { get; set; } = SKColors.Red;
+        public float Radius { get; set; } = 6;
+        public SKColor Color { get; set; } = SKColor.Parse("#58d7ed");
+        public bool Inside { get; private set; } = false;
         public SKPoint Location {  get; set; } = new SKPoint();
         public SKPaint Paint { get; }
 
         public Node() => Paint = new SKPaint() { Color = Color};
 
-        public static bool IsInside(MouseEventArgs e, Node n)
+        public bool IsInside(MouseEventArgs e)
         {
-            return e.X >= n.Location.X - Radius && e.X <= n.Location.X + Radius &&
-                e.Y >= n.Location.Y - Radius && e.Y <= n.Location.Y + Radius;
+            var expression = e.X >= Location.X - Radius && e.X <= Location.X + Radius &&
+                e.Y >= Location.Y - Radius && e.Y <= Location.Y + Radius;
+
+            Inside = expression;
+            return expression;
         }
     }
 }
