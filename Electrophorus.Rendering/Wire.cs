@@ -24,14 +24,23 @@ namespace Electrophorus.Rendering
 
         public override bool IsInside(MouseEventArgs e)
         {
-            if (Start.Y == End.Y)
+            if (Start.Y == End.Y && End.X > Start.X)
             {
                 return e.X >= Start.X && e.X <= Start.X + Width && e.Y >= Start.Y - Height / 2 && e.Y <= Start.Y + Height / 2;
             }
-            else
+            else if (Start.Y == End.Y && End.X < Start.X)
+            {
+                return e.X >= End.X && e.X <= End.X + Width && e.Y >= Start.Y - Height / 2 && e.Y <= Start.Y + Height / 2;
+            }
+            else if (End.X > Start.X)
             {
                 return (e.X >= Start.X && e.X <= End.X && e.Y >= Start.Y && e.Y <= End.Y) ||
                     (e.X >= Start.X && e.X <= End.X && e.Y >= End.Y && e.Y <= Start.Y);
+            }
+            else
+            {
+                return (e.X > End.X && e.X < Start.X && e.Y > End.Y && e.Y < Start.Y) ||
+                    (e.X > End.X && e.X < Start.X && e.Y > Start.Y && e.Y < End.Y);
             }
         }
 
@@ -40,7 +49,6 @@ namespace Electrophorus.Rendering
             var x = ((int)(e.X / (Board.CellSize / 2))) * (Board.CellSize / 2);
             var y = ((int)((e.Y + Board.CellSize / 2) / Board.CellSize)) * Board.CellSize;
 
-            Debug.WriteLine(Width);
             if (NodeOut.Inside)
             {
                 End = new SKPoint(x, y);
@@ -48,7 +56,7 @@ namespace Electrophorus.Rendering
             }
             else if (NodeIn.Inside)
             {
-                if (Width <= 2 * Board.CellSize && Start.X - x <= 0) return;
+                //if (Width <= 2 * Board.CellSize && Start.X - x <= 0) return;
                 Start = new SKPoint(x, y);
                 view.Refresh();
             }

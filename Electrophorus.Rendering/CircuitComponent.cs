@@ -10,13 +10,6 @@ using System.Windows.Forms;
 
 namespace Electrophorus.Rendering
 {
-    // Type: Input ou Output
-    public enum IO
-    {
-        In,
-        Out,
-    }
-
     public abstract class CircuitComponent : ICircuitComponent
     {
         protected float _width;
@@ -28,7 +21,10 @@ namespace Electrophorus.Rendering
             set
             {
                 _start = value;
-                NodeIn.Location = new SKPoint(Start.X + NodeIn.Radius, Start.Y);
+                var fix = FixNodePosition();
+                NodeIn.Location = fix[0];
+                NodeOut.Location = fix[1];
+                //NodeIn.Location = new SKPoint(Start.X + NodeIn.Radius, Start.Y);
             }
         }
         public SKPoint End
@@ -36,8 +32,10 @@ namespace Electrophorus.Rendering
             get => _end;
             set
             {
-                _end = value; 
-                NodeOut.Location = FixNodePosition(NodeOut, IO.Out);
+                _end = value;
+                var fix = FixNodePosition();
+                NodeIn.Location = fix[0];
+                NodeOut.Location = fix[1];
             }
         }
         public SKPaint Paint { get; set; } = new SKPaint() { Color = SKColors.Gray };
@@ -82,46 +80,66 @@ namespace Electrophorus.Rendering
                 End = new SKPoint(End.X + dx, End.Y + dy);
             }
         }
-        public virtual SKPoint FixNodePosition(Node n, IO type)
+        public virtual SKPoint[] FixNodePosition()
         {
+            var x0 = Start.X;
+            var y0 = Start.Y;
             var x = End.X - NodeOut.Radius;
             var y = End.Y;
 
-            if (type == IO.Out)
+            // 1° Quadrant
+            if (End.X > Start.X && End.Y < Start.Y)
             {
-                if (Start.Y == End.Y)
-                {
-                    return new SKPoint(x, y);
-                }
-                // 1° Quadrant
-                else if (End.X > Start.X && End.Y < Start.Y)
-                {
-                    x += NodeOut.Radius / 2;
-                    y = End.Y + NodeOut.Radius / 2;
-                }
-                // 2° Quadrant
-                else if (End.X > Start.X && End.Y > Start.Y)
-                {
-                    x += NodeOut.Radius / 2;
-                    y = End.Y - NodeOut.Radius / 2;
-                }
-                // 3° Quadrant
-                else if (End.X < Start.X && End.Y < Start.Y)
-                {
-                    x +=  2 * NodeOut.Radius;
-                    y += NodeOut.Radius / 2;
-                }
-                // 4º Quadrant
-                else if (End.X < Start.X && End.Y > Start.Y)
-                {
-                    x += 2 * NodeOut.Radius;
-                    y -= NodeOut.Radius / 2;
-                }
-
-                return new SKPoint(x, y);
+                x0 += NodeIn.Radius / 2;
+                y0 -= NodeIn.Radius / 4;
+                x += NodeOut.Radius / 2;
+                y += NodeOut.Radius / 4;
+                return new SKPoint[] { new SKPoint(x0, y0), new SKPoint(x, y) };
             }
-
-            return new SKPoint(x, y);
+            // 2° Quadrant
+            else if (End.X < Start.X && End.Y < Start.Y)
+            {
+                x0 -= NodeIn.Radius / 2;
+                y0 -= NodeIn.Radius / 4;
+                x += 2 * NodeOut.Radius;
+                y += NodeOut.Radius / 4;
+                return new SKPoint[] { new SKPoint(x0, y0), new SKPoint(x, y) };
+            }
+            // 3º Quadrant
+            else if (End.X < Start.X && End.Y > Start.Y)
+            {
+                x0 -= NodeIn.Radius / 2;
+                y0 += NodeIn.Radius / 4;
+                x += 2 * NodeOut.Radius;
+                y -= NodeOut.Radius / 2;
+                return new SKPoint[] { new SKPoint(x0, y0), new SKPoint(x, y) };
+            }
+            // 4° Quadrant
+            else if (End.X > Start.X && End.Y > Start.Y)
+            {
+                x0 += NodeIn.Radius / 2;
+                y0 += NodeIn.Radius / 4;
+                x += NodeOut.Radius / 2;
+                y -=  NodeOut.Radius / 4;
+                return new SKPoint[] { new SKPoint(x0, y0), new SKPoint(x, y) };
+            }
+            // Axis X
+            else if (Start.Y == End.Y && End.X > Start.X)
+            {
+                x0 += NodeIn.Radius;
+                return new SKPoint[] { new SKPoint(x0, y0), new SKPoint(x, y) };
+            }
+            // Axis X
+            else if (Start.Y == End.Y && End.X < Start.X)
+            {
+                x0 -= NodeIn.Radius;
+                x += 2 * NodeOut.Radius;
+                Debug.WriteLine($"Start: {Start}\nEnd: {End}");
+                return new SKPoint[] { new SKPoint(x0, y0), new SKPoint(x, y) };
+            }
+            // Axis Y
+            x = (End.X / Board.CellSize) * Board.CellSize;
+            return new SKPoint[] { new SKPoint(x0, y0), new SKPoint(x, y) };
         }
     }
 }
