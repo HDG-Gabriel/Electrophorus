@@ -32,6 +32,10 @@ namespace Electrophorus.Rendering
             {
                 return e.X >= End.X && e.X <= End.X + Width && e.Y >= Start.Y - Height / 2 && e.Y <= Start.Y + Height / 2;
             }
+            else if (Start.X == End.X)
+            {
+                return ((e.Y > End.Y && e.Y < Start.Y) || (End.Y > Start.Y)) && (e.X >= Start.X - Board.CellSize && e.X <= Start.X + Board.CellSize);
+            }
             else if (End.X > Start.X)
             {
                 return (e.X >= Start.X && e.X <= End.X && e.Y >= Start.Y && e.Y <= End.Y) ||

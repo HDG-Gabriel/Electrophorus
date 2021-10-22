@@ -66,7 +66,7 @@ namespace Electrophorus
 
             BtnAddWire.Click += (s, e) =>
             {
-                board.Components.Add(new Wire() { Location = new SKPoint(32, 0) });
+                board.Components.Add(new Wire(new SKPoint(Board.CellSize * 6, Board.CellSize * 4)));
                 ViewBoard.Refresh();
             };
 
