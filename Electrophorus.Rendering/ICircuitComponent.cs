@@ -17,5 +17,7 @@ namespace Electrophorus.Rendering
         public void Draw(SKCanvas canvas);
         // Expanded component
         public void GrowUp(SKControl view, MouseEventArgs e);
+        // Well... It moves the component (badum tss) :)
+        public void Move(MouseEventArgs e);
     }
 }

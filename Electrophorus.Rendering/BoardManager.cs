@@ -74,9 +74,7 @@ namespace Electrophorus.Rendering
 
         private void MoveComponent(CircuitComponent c, MouseEventArgs e)
         {
-            int x = (e.X / Board.CellSize) * Board.CellSize;
-            int y = (e.Y / Board.CellSize) * Board.CellSize;
-            c.Start = new SKPoint(x, y);
+            c.Move(e);
             _view.Refresh();
         }
     }
