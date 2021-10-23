@@ -38,7 +38,7 @@ namespace Electrophorus.Rendering
                 NodeOut.Location = fix[1];
             }
         }
-        public SKPaint Paint { get; set; } = new SKPaint() { Color = SKColors.Gray };
+        public SKPaint Paint { get; set; } = new SKPaint() { Color = SKColors.Gray, StrokeWidth = 4 };
         public Node NodeIn { get; set; } = new();
         public Node NodeOut { get; set; } = new();
         public bool CanGrowUp { get; set; } = false;
@@ -51,7 +51,6 @@ namespace Electrophorus.Rendering
             if (width < Board.CellSize) throw new Exception("Width must be greather than cell border size");
 
             _width = width;
-            Paint.StrokeWidth = height;
             Height = height;
             Width = _width;
             Start = start;

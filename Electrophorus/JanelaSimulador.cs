@@ -70,6 +70,12 @@ namespace Electrophorus
                 ViewBoard.Refresh();
             };
 
+            BtnAddResistor.Click += (s, e) =>
+            {
+                board.Components.Add(new Resistor(new SKPoint(Board.CellSize * 2, Board.CellSize * 7)));
+                ViewBoard.Refresh();
+            };
+
             // Volta a janela principal
             BtnReturn.Click += (s, e) =>
             {

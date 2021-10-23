@@ -11,13 +11,30 @@ namespace Electrophorus.Rendering
 {
     public interface ICircuitComponent
     {
-        // Returns if mouse is on component drawed
+        /// <summary>
+        /// Returns if the mouse axis is inside the area of the component
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns></returns>
         public bool IsInside(MouseEventArgs e);
-        // Each component know how to draw itself
+
+        /// <summary>
+        /// Draw component in the board. Each component knows how to draw itself
+        /// </summary>
+        /// <param name="canvas"></param>
         public void Draw(SKCanvas canvas);
-        // Expanded component
+
+        /// <summary>
+        /// Expand the component.
+        /// </summary>
+        /// <param name="view"></param>
+        /// <param name="e"></param>
         public void GrowUp(SKControl view, MouseEventArgs e);
-        // Well... It moves the component (badum tss) :)
+
+        /// <summary>
+        /// Well... It moves the component :) (badum tss)
+        /// </summary>
+        /// <param name="e"></param>
         public void Move(MouseEventArgs e);
     }
 }
