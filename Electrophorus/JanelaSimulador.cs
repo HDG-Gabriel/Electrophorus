@@ -10,7 +10,7 @@ namespace Electrophorus
     public partial class JanelaSimulador : StandardWindow
     {
         // Janela Principal
-        private readonly TelaInicial _dadScreen;
+        private readonly MainWindow _dadScreen;
         // Propriedades
         public SKControl BottomPanel { get; set; }
         public SKControl ViewBoard { get; set; }
@@ -23,7 +23,7 @@ namespace Electrophorus
         private bool _isClicked;
         
 
-        public JanelaSimulador(TelaInicial tela)
+        public JanelaSimulador(MainWindow tela)
         {
             InitializeComponent();
 
