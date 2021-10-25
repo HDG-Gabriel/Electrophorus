@@ -76,6 +76,12 @@ namespace Electrophorus
                 ViewBoard.Refresh();
             };
 
+            BtnAddSource.Click += (s, e) =>
+            {
+                board.Components.Add(new Source(new SKPoint(Board.CellSize * 4, Board.CellSize * 5)));
+                ViewBoard.Refresh();
+            };
+
             // Volta a janela principal
             BtnReturn.Click += (s, e) =>
             {
