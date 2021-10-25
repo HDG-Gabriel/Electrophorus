@@ -12,16 +12,9 @@ namespace Electrophorus.Rendering
 {
     public class Resistor : CircuitComponent
     {
-        private float _leftWidth;
-        private float _rightWidth;
-
-        public Resistor(SKPoint start) : base(start, 3 * Board.CellSize)
+        public Resistor(SKPoint start) : base(start, Board.CellSize)
         {
-            Paint.Style = SKPaintStyle.Stroke;
-
-            var rest = Width - Board.CellSize;
-            _leftWidth = (float)rest / 2;
-            _rightWidth = (float)rest / 2;
+            CalculateSides();
         }
 
         public override void Draw(SKCanvas canvas)
@@ -47,39 +40,10 @@ namespace Electrophorus.Rendering
             canvas.DrawCircle(NodeOut.Location, NodeOut.Radius, NodeOut.Paint);
         }
 
-        public override void GrowUp(SKControl view, MouseEventArgs e)
-        {
-            var x = (int)(e.X / Board.CellSize) * Board.CellSize;
-            var y = ((int)((e.Y + Board.CellSize / 2) / Board.CellSize)) * Board.CellSize;
-
-            if (NodeOut.Inside)
-            {
-                var dx = x - End.X;
-                if (Math.Abs(End.X - Start.X) < 3 * Board.CellSize && dx < 0) return;
-                End = new SKPoint(End.X + dx, End.Y);
-
-                var rest = (End.X - Start.X) - Board.CellSize;
-                _leftWidth = (float)rest / 2;
-                _rightWidth = (float)rest / 2;
-                view.Refresh();
-            }
-            else if (NodeIn.Inside)
-            {
-                var dx = Start.X - x;
-                if (Math.Abs(End.X - Start.X) < 3 * Board.CellSize && dx < 0) return;
-                Start = new SKPoint(Start.X - dx, Start.Y);
-
-                var rest = (End.X - Start.X) - Board.CellSize;
-                _leftWidth = (float)rest / 2;
-                _rightWidth = (float)rest / 2;
-                view.Refresh();
-            }
-        }
-
         public override bool IsInside(MouseEventArgs e)
         {
             var height = Board.CellSize / 4;
-            return e.X >= Start.X && e.X <= End.X && e.Y >= Start.Y - height && e.Y <= Start.Y + height;
+            return e.X >= (Start.X - _looseness) && e.X <= (End.X + _looseness) && e.Y >= Start.Y - height && e.Y <= Start.Y + height;
         }
     }
 }

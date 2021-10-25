@@ -8,12 +8,9 @@ namespace Electrophorus.Rendering
 {
     public class Wire : CircuitComponent
     {
-        public override double Width => Math.Sqrt(Math.Pow(End.X - Start.X, 2) + Math.Pow(End.Y - Start.Y, 2));
+        //public override double Width => Math.Sqrt(Math.Pow(End.X - Start.X, 2) + Math.Pow(End.Y - Start.Y, 2));
 
-        public Wire(SKPoint start) : base(start) 
-        {
-            
-        }
+        public Wire(SKPoint start) : base(start, 0) {}
 
         public override void Draw(SKCanvas canvas)
         {
@@ -26,25 +23,25 @@ namespace Electrophorus.Rendering
         {
             if (Start.Y == End.Y && End.X > Start.X)
             {
-                return e.X >= Start.X && e.X <= Start.X + Width && e.Y >= Start.Y - Height / 2 && e.Y <= Start.Y + Height / 2;
+                return e.X >= (Start.X + - _looseness) && e.X <= (End.X + _looseness) && e.Y >= Start.Y - Height / 2 && e.Y <= Start.Y + Height / 2;
             }
             else if (Start.Y == End.Y && End.X < Start.X)
             {
-                return e.X >= End.X && e.X <= End.X + Width && e.Y >= Start.Y - Height / 2 && e.Y <= Start.Y + Height / 2;
+                return e.X >= (End.X - _looseness) && e.X <= (Start.X + _looseness) && e.Y >= Start.Y - Height / 2 && e.Y <= Start.Y + Height / 2;
             }
             else if (Start.X == End.X)
             {
-                return ((e.Y > End.Y && e.Y < Start.Y) || (End.Y > Start.Y)) && (e.X >= Start.X - Board.CellSize && e.X <= Start.X + Board.CellSize);
+                return ((e.Y >= End.Y - _looseness && e.Y <= Start.Y + _looseness) || (End.Y > Start.Y)) && (e.X >= Start.X - Board.CellSize / 2 && e.X <= Start.X + Board.CellSize / 2);
             }
             else if (End.X > Start.X)
             {
-                return (e.X >= Start.X && e.X <= End.X && e.Y >= Start.Y && e.Y <= End.Y) ||
-                    (e.X >= Start.X && e.X <= End.X && e.Y >= End.Y && e.Y <= Start.Y);
+                return (e.X >= Start.X - _looseness && e.X <= End.X  + _looseness && e.Y >= Start.Y - _looseness && e.Y <= End.Y + _looseness) ||
+                    (e.X >= Start.X - _looseness && e.X <= End.X + _looseness && e.Y >= End.Y - _looseness && e.Y <= Start.Y + _looseness);
             }
             else
             {
-                return (e.X > End.X && e.X < Start.X && e.Y > End.Y && e.Y < Start.Y) ||
-                    (e.X > End.X && e.X < Start.X && e.Y > Start.Y && e.Y < End.Y);
+                return (e.X >= End.X - _looseness && e.X <= Start.X + _looseness && e.Y >= End.Y - _looseness && e.Y <= Start.Y + _looseness) ||
+                    (e.X >= End.X - _looseness && e.X <= Start.X + _looseness && e.Y >= Start.Y - _looseness && e.Y <= End.Y + _looseness);
             }
         }
 

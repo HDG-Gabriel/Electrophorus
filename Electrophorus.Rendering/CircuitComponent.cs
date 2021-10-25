@@ -12,19 +12,23 @@ namespace Electrophorus.Rendering
 {
     public abstract class CircuitComponent : ICircuitComponent
     {
-        protected float _width;
         private SKPoint _start;
         private SKPoint _end;
+
+        protected const int _looseness = 4;
+        // Effective body of the referent component to calculate left and right margins
+        protected readonly float _body;
+        protected float _leftWidth;
+        protected float _rightWidth;
+
         public SKPoint Start
         {
             get => _start;
             set
             {
                 _start = value;
-                var fix = FixNodePosition();
-                NodeIn.Location = fix[0];
-                NodeOut.Location = fix[1];
-                //NodeIn.Location = new SKPoint(Start.X + NodeIn.Radius, Start.Y);
+                NodeIn.Location = Start;
+                NodeOut.Location = End;
             }
         }
         public SKPoint End
@@ -33,35 +37,64 @@ namespace Electrophorus.Rendering
             set
             {
                 _end = value;
-                var fix = FixNodePosition();
-                NodeIn.Location = fix[0];
-                NodeOut.Location = fix[1];
+                NodeIn.Location = Start;
+                NodeOut.Location = End;
             }
         }
         public SKPaint Paint { get; set; } = new SKPaint() { Color = SKColors.Gray, StrokeWidth = 4 };
+        public int MinimumWidth { get; }
         public Node NodeIn { get; set; } = new();
         public Node NodeOut { get; set; } = new();
         public bool CanGrowUp { get; set; } = false;
         public bool CanMove { get; set; } = false;
-        public virtual double Width { get; }
+        //public virtual double Width { get; }
         public int Height { get; protected set; }
 
-        public CircuitComponent(SKPoint start, int width = Board.CellSize * 2, int height = 6)
+        public CircuitComponent(SKPoint start, int body, int initialWidth = Board.CellSize * 2, int height = 6)
         {
-            if (width < Board.CellSize) throw new Exception("Width must be greather than cell border size");
+            if (initialWidth < Board.CellSize) throw new Exception("Width must be greather than cell border size");
 
-            _width = width;
+            _body = body;
+            MinimumWidth = initialWidth;
+            //_width = width;
             Height = height;
-            Width = _width;
+            //Width = width;
+            //Width = _width;
             Start = start;
-            End = new SKPoint(Start.X + width, Start.Y);
+            End = new SKPoint(Start.X + initialWidth, Start.Y);
+            Paint.Style = SKPaintStyle.Stroke;
         }
 
         public virtual void Draw(SKCanvas canvas) => throw new NotImplementedException();
 
-        public virtual void GrowUp(SKControl view, MouseEventArgs e) => throw new NotImplementedException();
+        public virtual void GrowUp(SKControl view, MouseEventArgs e)
+        {
+            var x = (int)(e.X / Board.CellSize) * Board.CellSize;
+            //var y = ((int)((e.Y + Board.CellSize / 2) / Board.CellSize)) * Board.CellSize;
+
+            if (NodeOut.Inside)
+            {
+                var dx = x - End.X;
+                Debug.WriteLine($"Size: {End.X - Start.X}\ndx: {dx}");
+                if (End.X - Start.X <= MinimumWidth && dx <= 0) return;
+                End = new SKPoint(End.X + dx, End.Y);
+
+                CalculateSides();
+                view.Refresh();
+            }
+            else if (NodeIn.Inside)
+            {
+                var dx = Start.X - x;
+                if (End.X - Start.X <= MinimumWidth && dx <= 0) return;
+
+                Start = new SKPoint(Start.X - dx, Start.Y);
+                CalculateSides();
+                view.Refresh();
+            }
+        }
 
         public virtual bool IsInside(MouseEventArgs e) => throw new NotImplementedException();
+
         public virtual void Move(MouseEventArgs e)
         {
             var x = (e.X / Board.CellSize) * Board.CellSize;
@@ -79,66 +112,12 @@ namespace Electrophorus.Rendering
                 End = new SKPoint(End.X + dx, End.Y + dy);
             }
         }
-        public virtual SKPoint[] FixNodePosition()
-        {
-            var x0 = Start.X;
-            var y0 = Start.Y;
-            var x = End.X - NodeOut.Radius;
-            var y = End.Y;
 
-            // 1° Quadrant
-            if (End.X > Start.X && End.Y < Start.Y)
-            {
-                x0 += NodeIn.Radius / 2;
-                y0 -= NodeIn.Radius / 4;
-                x += NodeOut.Radius / 2;
-                y += NodeOut.Radius / 4;
-                return new SKPoint[] { new SKPoint(x0, y0), new SKPoint(x, y) };
-            }
-            // 2° Quadrant
-            else if (End.X < Start.X && End.Y < Start.Y)
-            {
-                x0 -= NodeIn.Radius / 2;
-                y0 -= NodeIn.Radius / 4;
-                x += 2 * NodeOut.Radius;
-                y += NodeOut.Radius / 4;
-                return new SKPoint[] { new SKPoint(x0, y0), new SKPoint(x, y) };
-            }
-            // 3º Quadrant
-            else if (End.X < Start.X && End.Y > Start.Y)
-            {
-                x0 -= NodeIn.Radius / 2;
-                y0 += NodeIn.Radius / 4;
-                x += 2 * NodeOut.Radius;
-                y -= NodeOut.Radius / 2;
-                return new SKPoint[] { new SKPoint(x0, y0), new SKPoint(x, y) };
-            }
-            // 4° Quadrant
-            else if (End.X > Start.X && End.Y > Start.Y)
-            {
-                x0 += NodeIn.Radius / 2;
-                y0 += NodeIn.Radius / 4;
-                x += NodeOut.Radius / 2;
-                y -=  NodeOut.Radius / 4;
-                return new SKPoint[] { new SKPoint(x0, y0), new SKPoint(x, y) };
-            }
-            // Axis X
-            else if (Start.Y == End.Y && End.X > Start.X)
-            {
-                x0 += NodeIn.Radius;
-                return new SKPoint[] { new SKPoint(x0, y0), new SKPoint(x, y) };
-            }
-            // Axis X
-            else if (Start.Y == End.Y && End.X < Start.X)
-            {
-                x0 -= NodeIn.Radius;
-                x += 2 * NodeOut.Radius;
-                Debug.WriteLine($"Start: {Start}\nEnd: {End}");
-                return new SKPoint[] { new SKPoint(x0, y0), new SKPoint(x, y) };
-            }
-            // Axis Y
-            x = (End.X / Board.CellSize) * Board.CellSize;
-            return new SKPoint[] { new SKPoint(x0, y0), new SKPoint(x, y) };
+        protected void CalculateSides()
+        {
+            var rest = (End.X - Start.X) - _body;
+            _leftWidth = (float)rest / 2;
+            _rightWidth = (float)rest / 2;
         }
     }
 }
