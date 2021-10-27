@@ -18,8 +18,12 @@ namespace Electrophorus.Rendering
         protected const int _looseness = 4;
         // Effective body of the referent component to calculate left and right margins
         protected readonly float _body;
+        // Sides
         protected float _leftWidth;
         protected float _rightWidth;
+
+        public bool IsLeftConnect { get; set; }
+        public bool IsRightConnect { get; set; }
 
         public SKPoint Start
         {
@@ -65,7 +69,11 @@ namespace Electrophorus.Rendering
             Paint.Style = SKPaintStyle.Stroke;
         }
 
-        public virtual void Draw(SKCanvas canvas) => throw new NotImplementedException();
+        public virtual void Draw(SKCanvas canvas)
+        {
+            if (!IsLeftConnect) canvas.DrawCircle(NodeIn.Location, NodeIn.Radius, NodeIn.Paint);
+            if (!IsRightConnect) canvas.DrawCircle(NodeOut.Location, NodeOut.Radius, NodeOut.Paint);
+        }
 
         public virtual void GrowUp(SKControl view, MouseEventArgs e)
         {
@@ -75,7 +83,6 @@ namespace Electrophorus.Rendering
             if (NodeOut.Inside)
             {
                 var dx = x - End.X;
-                Debug.WriteLine($"Size: {End.X - Start.X}\ndx: {dx}");
                 if (End.X - Start.X <= MinimumWidth && dx <= 0) return;
                 End = new SKPoint(End.X + dx, End.Y);
 

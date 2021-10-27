@@ -15,8 +15,7 @@ namespace Electrophorus.Rendering
         public override void Draw(SKCanvas canvas)
         {
             canvas.DrawLine(Start, End, Paint);
-            canvas.DrawCircle(NodeIn.Location, NodeIn.Radius, NodeIn.Paint);
-            canvas.DrawCircle(NodeOut.Location, NodeOut.Radius, NodeOut.Paint);
+            base.Draw(canvas);
         }
 
         public override bool IsInside(MouseEventArgs e)

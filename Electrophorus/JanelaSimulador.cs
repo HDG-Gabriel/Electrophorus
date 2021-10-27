@@ -10,7 +10,7 @@ namespace Electrophorus
     public partial class JanelaSimulador : StandardWindow
     {
         // Janela Principal
-        private readonly MainWindow _dadScreen;
+        private readonly MainWindow _parentScreen;
         // Propriedades
         public SKControl BottomPanel { get; set; }
         public SKControl ViewBoard { get; set; }
@@ -27,7 +27,7 @@ namespace Electrophorus
         {
             InitializeComponent();
 
-            _dadScreen = tela;
+            _parentScreen = tela;
 
             Size = new Size(800 - 8, Board.CellSize * 18 + 10);
 
@@ -97,7 +97,7 @@ namespace Electrophorus
         {
             if (_isClicked)
             {
-                _dadScreen.Show();
+                _parentScreen.Show();
                 return;
             }
             Application.Exit();

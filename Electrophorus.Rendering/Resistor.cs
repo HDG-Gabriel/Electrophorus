@@ -35,9 +35,7 @@ namespace Electrophorus.Rendering
             draw.LineTo(Start.X + _leftWidth, End.Y);
             // Draw resistor
             canvas.DrawPath(draw, Paint);
-            // Draw nodes
-            canvas.DrawCircle(NodeIn.Location, NodeIn.Radius, NodeIn.Paint);
-            canvas.DrawCircle(NodeOut.Location, NodeOut.Radius, NodeOut.Paint);
+            base.Draw(canvas);
         }
 
         public override bool IsInside(MouseEventArgs e)
