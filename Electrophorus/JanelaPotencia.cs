@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace Electrophorus
 {
-    public partial class FrmCargas2 : Form
+    public partial class FrmCargas3 : Form
     {
-        public FrmCargas2()
+        public FrmCargas3()
         {
             InitializeComponent();
-        }
-
-        private void btnProximo_Click(object sender, EventArgs e)
-        {
-            FrmCargas3 j3 = new FrmCargas3();
-            j3.Show();
-            this.Hide();
         }
     }
 }
