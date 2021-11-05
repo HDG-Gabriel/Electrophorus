@@ -31,7 +31,6 @@ namespace Electrophorus
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaResistor));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ImgResistor = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,12 +47,13 @@ namespace Electrophorus
             this.CbFaixa4 = new System.Windows.Forms.ComboBox();
             this.CbFaixa5 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.ImgResistor = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImgResistor)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnBackTelaInicial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnReset)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgResistor)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -64,16 +64,6 @@ namespace Electrophorus
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(784, 282);
             this.panel1.TabIndex = 1;
-            // 
-            // ImgResistor
-            // 
-            this.ImgResistor.Image = ((System.Drawing.Image)(resources.GetObject("ImgResistor.Image")));
-            this.ImgResistor.Location = new System.Drawing.Point(167, 0);
-            this.ImgResistor.Name = "ImgResistor";
-            this.ImgResistor.Size = new System.Drawing.Size(512, 282);
-            this.ImgResistor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.ImgResistor.TabIndex = 0;
-            this.ImgResistor.TabStop = false;
             // 
             // panel2
             // 
@@ -315,6 +305,16 @@ namespace Electrophorus
             this.label12.TabIndex = 12;
             this.label12.Text = "Tolerância                    (faixa 5)";
             // 
+            // ImgResistor
+            // 
+            this.ImgResistor.Image = ((System.Drawing.Image)(resources.GetObject("ImgResistor.Image")));
+            this.ImgResistor.Location = new System.Drawing.Point(167, 0);
+            this.ImgResistor.Name = "ImgResistor";
+            this.ImgResistor.Size = new System.Drawing.Size(512, 282);
+            this.ImgResistor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.ImgResistor.TabIndex = 0;
+            this.ImgResistor.TabStop = false;
+            // 
             // TelaResistor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -332,13 +332,13 @@ namespace Electrophorus
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaResistor";
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ImgResistor)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnBackTelaInicial)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnReset)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgResistor)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -346,7 +346,6 @@ namespace Electrophorus
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox ImgResistor;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -363,5 +362,6 @@ namespace Electrophorus
         private System.Windows.Forms.ComboBox CbFaixa4;
         private System.Windows.Forms.ComboBox CbFaixa5;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.PictureBox ImgResistor;
     }
 }

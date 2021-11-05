@@ -290,7 +290,7 @@ namespace Electrophorus
 
             CorNum(CbFaixa3);
 
-
+            Mult(CbFaixa3);
 
             var brush = new SolidBrush(cor);
 
@@ -304,10 +304,6 @@ namespace Electrophorus
             var a = ImgResistor.CreateGraphics();
 
             var cor = CorEscolhida(CbFaixa4);
-
-            Mult(CbFaixa4);
-
-
 
             var brush = new SolidBrush(cor);
 
