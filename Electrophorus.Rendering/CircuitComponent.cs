@@ -1,12 +1,10 @@
 ﻿using SkiaSharp;
 using SkiaSharp.Views.Desktop;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using lib = SharpCircuit.src;
 
 namespace Electrophorus.Rendering
 {
@@ -21,6 +19,8 @@ namespace Electrophorus.Rendering
         // Sides
         protected float _leftWidth;
         protected float _rightWidth;
+
+        public lib.CircuitElement Element { get; private set; }
 
         public bool IsLeftConnect { get; set; }
         public bool IsRightConnect { get; set; }
@@ -54,19 +54,20 @@ namespace Electrophorus.Rendering
         //public virtual double Width { get; }
         public int Height { get; protected set; }
 
-        public CircuitComponent(SKPoint start, int body, int initialWidth = Board.CellSize * 2, int height = 6)
+        public CircuitComponent(SKPoint start, int body, lib.CircuitElement elm, int initialWidth = Board.CellSize * 2, int height = 6)
         {
             if (initialWidth < Board.CellSize) throw new Exception("Width must be greather than cell border size");
 
+            Paint.Style = SKPaintStyle.Stroke;
             _body = body;
+
             MinimumWidth = initialWidth;
-            //_width = width;
             Height = height;
-            //Width = width;
-            //Width = _width;
             Start = start;
             End = new SKPoint(Start.X + initialWidth, Start.Y);
-            Paint.Style = SKPaintStyle.Stroke;
+
+            Element = elm;
+            
         }
 
         public virtual void Draw(SKCanvas canvas)

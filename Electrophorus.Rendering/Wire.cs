@@ -1,8 +1,8 @@
 ﻿using SkiaSharp;
 using SkiaSharp.Views.Desktop;
-using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using lib = SharpCircuit.src.elements;
 
 namespace Electrophorus.Rendering
 {
@@ -10,7 +10,9 @@ namespace Electrophorus.Rendering
     {
         //public override double Width => Math.Sqrt(Math.Pow(End.X - Start.X, 2) + Math.Pow(End.Y - Start.Y, 2));
 
-        public Wire(SKPoint start) : base(start, 0) {}
+        public Wire(SKPoint start, lib.Wire w) : base(start, 0, w)
+        {
+        }
 
         public override void Draw(SKCanvas canvas)
         {
@@ -30,7 +32,7 @@ namespace Electrophorus.Rendering
             }
             else if (Start.X == End.X)
             {
-                return ((e.Y >= End.Y - _looseness && e.Y <= Start.Y + _looseness) || (End.Y > Start.Y)) && (e.X >= Start.X - Board.CellSize / 2 && e.X <= Start.X + Board.CellSize / 2);
+                return ((e.Y >= End.Y - _looseness && e.Y <= Start.Y + _looseness) || (e.Y >= Start.Y - _looseness && e.Y <= End.Y + _looseness)) && (e.X >= Start.X - Board.CellSize / 2 && e.X <= Start.X + Board.CellSize / 2);
             }
             else if (End.X > Start.X)
             {
