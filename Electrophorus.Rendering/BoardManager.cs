@@ -1,22 +1,26 @@
 ﻿using SkiaSharp;
 using SkiaSharp.Views.Desktop;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 using System.Windows.Forms;
+
+using Electrophorus;
+using lib = SharpCircuit.src;
 
 namespace Electrophorus.Rendering
 {
     public class BoardManager
     {
-        private readonly List<CircuitComponent> _components;
-        private CircuitComponent _component;
-        private readonly SKControl _view;
         // Count how many elements are presents in a node
-        private Dictionary<SKPoint, int> _positions = new();
+        private readonly Dictionary<SKPoint, int> _positions = new();
+        private readonly List<CircuitComponent> _components;
+        public lib.Circuit Circuit { get; set; } = new();
+        private readonly SKControl _view;
+
+        
+        private CircuitComponent _component;
 
         public BoardManager(SKControl view, Board board)
         {
@@ -24,27 +28,40 @@ namespace Electrophorus.Rendering
             _components = board.Components;
 
             _view.MouseMove += MouseMove;
-            _view.MouseDown += (s, e) =>
-            {
-                if (e.Button == MouseButtons.Left)
-                {
-                    if (_components.Count < 1) return;
-
-                    _component = _components.Where(c => c.IsInside(e)).FirstOrDefault();
-                    if (_component == null) return;
-
-                    if (_component.NodeIn.IsInside(e) || _component.NodeOut.IsInside(e))
-                    {
-                        _component.CanGrowUp = true;
-                    }
-                    else
-                    {
-                        _component.CanMove = true;
-                    }
-                }
-            };
-
+            _view.MouseDown += MouseDown;
+            _view.DoubleClick += DoubleClick;
             _view.MouseUp += MouseUp;
+        }
+
+        // Show component informations
+        private void DoubleClick(object sender, EventArgs e)
+        {
+            if (_component == null) return;
+
+            if (_component is Resistor resistor)
+            {
+                new InfoResistor(resistor.Element).Show();
+            }
+        }
+
+        private void MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (_components.Count < 1) return;
+
+                _component = _components.Where(c => c.IsInside(e)).FirstOrDefault();
+                if (_component == null) return;
+
+                if (_component.NodeIn.IsInside(e) || _component.NodeOut.IsInside(e))
+                {
+                    _component.CanGrowUp = true;
+                }
+                else
+                {
+                    _component.CanMove = true;
+                }
+            }
         }
 
         private void MouseUp(object sender, MouseEventArgs e)
@@ -56,6 +73,42 @@ namespace Electrophorus.Rendering
             _component.CanGrowUp = false;
             _component.CanMove = false;
 
+            ConnectNodes();
+            Circuit.doTick();
+
+            _view.Refresh();
+        }
+
+        private void MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_component == null) return;
+
+            if (_component.CanGrowUp)
+            {
+                _view.Cursor = Cursors.Cross;
+                _component.GrowUp(_view, e);
+            }
+            else if (_component.CanMove)
+            {
+                _view.Cursor = Cursors.SizeAll;
+                MoveComponent(_component, e);
+            }
+            else
+            {
+                _view.Cursor = Cursors.Default;
+            }
+        }
+
+        private void MoveComponent(CircuitComponent c, MouseEventArgs e)
+        {
+            c.Move(e);
+            _view.Refresh();
+        }
+
+        // Paint connection between components
+        private void ConnectNodes()
+        {
+            // FIXME: It's so bad clean dictionary all time, but I don't have time to do it now
             _positions.Clear();
             foreach (var c in _components)
             {
@@ -92,40 +145,14 @@ namespace Electrophorus.Rendering
                 if (_positions[c.NodeOut.Location] > 1)
                 {
                     c.IsRightConnect = true;
-                } 
+                }
                 else
                 {
-                    c.IsRightConnect= false;
+                    c.IsRightConnect = false;
                 }
             }
 
-            _view.Refresh();
-        }
-
-        private void MouseMove(object sender, MouseEventArgs e)
-        {
-            if (_component == null) return;
-
-            if (_component.CanGrowUp)
-            {
-                _view.Cursor = Cursors.Cross;
-                _component.GrowUp(_view, e);
-            }
-            else if (_component.CanMove)
-            {
-                _view.Cursor = Cursors.SizeAll;
-                MoveComponent(_component, e);
-            }
-            else
-            {
-                _view.Cursor = Cursors.Default;
-            }
-        }
-
-        private void MoveComponent(CircuitComponent c, MouseEventArgs e)
-        {
-            c.Move(e);
-            _view.Refresh();
+            Control.Connect(_positions, _components, Circuit);
         }
     }
 }

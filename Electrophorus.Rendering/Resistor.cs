@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using lib = SharpCircuit.src.elements;
+
 namespace Electrophorus.Rendering
 {
     public class Resistor : CircuitComponent
     {
-        public Resistor(SKPoint start) : base(start, Board.CellSize)
+        public lib.Resistor Element { get; set; }
+
+        public Resistor(SKPoint start, lib.Resistor r) : base(start, Board.CellSize)
         {
             CalculateSides();
+            Element = r;
         }
 
         public override void Draw(SKCanvas canvas)
@@ -36,6 +41,13 @@ namespace Electrophorus.Rendering
             // Draw resistor
             canvas.DrawPath(draw, Paint);
             base.Draw(canvas);
+            var middle = new SKPoint(Start.X + _leftWidth, Start.Y - Board.CellSize / 2);
+            var textPaint = new SKPaint()
+            {
+                StrokeWidth = 1,
+                TextSize = 14,
+            };
+            canvas.DrawText($"{((lib.Resistor)Element).resistance} Ω", middle, textPaint);
         }
 
         public override bool IsInside(MouseEventArgs e)

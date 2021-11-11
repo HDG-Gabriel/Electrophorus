@@ -1,12 +1,10 @@
 ﻿using SkiaSharp;
 using SkiaSharp.Views.Desktop;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using lib = SharpCircuit.src;
 
 namespace Electrophorus.Rendering
 {
@@ -58,15 +56,14 @@ namespace Electrophorus.Rendering
         {
             if (initialWidth < Board.CellSize) throw new Exception("Width must be greather than cell border size");
 
+            Paint.Style = SKPaintStyle.Stroke;
             _body = body;
+
             MinimumWidth = initialWidth;
-            //_width = width;
             Height = height;
-            //Width = width;
-            //Width = _width;
             Start = start;
             End = new SKPoint(Start.X + initialWidth, Start.Y);
-            Paint.Style = SKPaintStyle.Stroke;
+            
         }
 
         public virtual void Draw(SKCanvas canvas)

@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using Electrophorus.Rendering;
 using SkiaSharp;
 using SkiaSharp.Views.Desktop;
+
+
+using lib = SharpCircuit.src.elements;
 
 namespace Electrophorus
 {
@@ -66,19 +70,25 @@ namespace Electrophorus
 
             BtnAddWire.Click += (s, e) =>
             {
-                board.Components.Add(new Wire(new SKPoint(Board.CellSize * 6, Board.CellSize * 4)));
+                var wire = new Wire(new SKPoint(Board.CellSize * 6, Board.CellSize * 4), new lib.Wire());
+                board.Components.Add(wire);
+                manager.Circuit.AddElement(wire.Element);
                 ViewBoard.Refresh();
             };
 
             BtnAddResistor.Click += (s, e) =>
             {
-                board.Components.Add(new Resistor(new SKPoint(Board.CellSize * 2, Board.CellSize * 7)));
+                var resistor = new Resistor(new SKPoint(Board.CellSize * 2, Board.CellSize * 7), new lib.Resistor());
+                board.Components.Add(resistor);
+                manager.Circuit.AddElement(resistor.Element);
                 ViewBoard.Refresh();
             };
 
             BtnAddSource.Click += (s, e) =>
             {
-                board.Components.Add(new Source(new SKPoint(Board.CellSize * 4, Board.CellSize * 5)));
+                var source = new Source(new SKPoint(Board.CellSize * 4, Board.CellSize * 5), new lib.voltage.DCVoltageSource());
+                board.Components.Add(source);
+                manager.Circuit.AddElement(source.Element);
                 ViewBoard.Refresh();
             };
 
@@ -126,7 +136,7 @@ namespace Electrophorus
             BottomPanel.Controls.Add(BtnAddWire = CreateButton("Fio", new Point(BtnReturn.Width * 3, 0)));
             BottomPanel.Controls.Add(BtnAddResistor = CreateButton("Resistor", new Point(BtnReturn.Width, 0)));
             BottomPanel.Controls.Add(BtnAddSource = CreateButton("DC Fonte", new Point(BtnReturn.Width * 2, 0)));
-            BottomPanel.Controls.Add(BtnSettings);
+            //BottomPanel.Controls.Add(BtnSettings);
         }
     }
 }

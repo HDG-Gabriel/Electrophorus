@@ -1,20 +1,19 @@
 ﻿using SkiaSharp;
-using SkiaSharp.Views.Desktop;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using lib = SharpCircuit.src.elements.voltage;
 
 namespace Electrophorus.Rendering
 {
     public class Source : CircuitComponent
     {
-        public Source(SKPoint start) : base(start, Board.CellSize / 2)
+        public lib.DCVoltageSource Element { get; private set; }
+
+        public Source(SKPoint start, lib.DCVoltageSource dc) : base(start, Board.CellSize / 2)
         {
             CalculateSides();
+            Element = dc;
         }
 
         public override void Draw(SKCanvas canvas)
@@ -34,6 +33,13 @@ namespace Electrophorus.Rendering
             // Draw source
             canvas.DrawPath(draw, Paint);
             base.Draw(canvas);
+            var middle = new SKPoint(Start.X + _leftWidth, Start.Y - Board.CellSize - 10);
+            var textPaint = new SKPaint()
+            {
+                StrokeWidth = 1,
+                TextSize = 14,
+            };
+            canvas.DrawText($"{((lib.DCVoltageSource)Element).maxVoltage} V", middle, textPaint);
         }
 
         public override bool IsInside(MouseEventArgs e)
