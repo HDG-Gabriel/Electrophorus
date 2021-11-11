@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Electrophorus
 {
-    public partial class TelaResistores : UserControl
+    public partial class FrmCargas3 : Form
     {
-        public TelaResistores()
+        public FrmCargas3()
         {
             InitializeComponent();
         }

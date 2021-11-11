@@ -108,14 +108,14 @@ namespace Electrophorus
             this.panBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panBody.Location = new System.Drawing.Point(0, 34);
             this.panBody.Name = "panBody";
-            this.panBody.Size = new System.Drawing.Size(800, 416);
+            this.panBody.Size = new System.Drawing.Size(800, 516);
             this.panBody.TabIndex = 1;
             // 
             // StandardWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 550);
             this.Controls.Add(this.panBody);
             this.Controls.Add(this.panTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -133,6 +133,6 @@ namespace Electrophorus
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Button btnMinimeze;
-        protected System.Windows.Forms.Panel panBody;
+        public System.Windows.Forms.Panel panBody;
     }
 }

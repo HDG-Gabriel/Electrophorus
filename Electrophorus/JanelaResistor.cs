@@ -13,9 +13,12 @@ namespace Electrophorus
     public partial class JanelaResistor : StandardWindow
     {
         public Form JanelaResistor1 { get; set; }
-        public JanelaResistor()
+        // Janela Principal
+        private readonly Form _dadScreen;
+        public JanelaResistor(Form mainWindow)
         {
             InitializeComponent();
+            _dadScreen = mainWindow;
         }
 
         private void JanelaResistor_Load(object sender, EventArgs e)
@@ -25,8 +28,8 @@ namespace Electrophorus
 
         private void BtnBackTelaInicial_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            JanelaResistor1.Show();
+            _dadScreen.Show();
+            Close();
         }
         //Esse método acessa a caixa de cores da tela e verifica qual a cor selecionada e depois retorna a cor escolhida ;D
         static Color CorEscolhida(ComboBox caixa)

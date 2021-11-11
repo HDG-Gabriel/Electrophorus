@@ -30,5 +30,12 @@ namespace Electrophorus
             this.Hide();
             JanelaQuiz1.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmCargas j1 = new FrmCargas();
+            j1.Show();
+
+        }
     }
 }

@@ -18,7 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Electrophorus.Components\Electrophorus.Components.csproj" />
     <ProjectReference Include="..\Electrophorus.Rendering\Electrophorus.Rendering.csproj" />
   </ItemGroup>
 

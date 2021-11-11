@@ -1,17 +1,20 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using Electrophorus.Components;
 using Electrophorus.Rendering;
 using SkiaSharp;
 using SkiaSharp.Views.Desktop;
+
+
+using lib = SharpCircuit.src.elements;
 
 namespace Electrophorus
 {
     public partial class JanelaSimulador : StandardWindow
     {
         // Janela Principal
-        private readonly TelaInicial _dadScreen;
+        private readonly MainWindow _parentScreen;
         // Propriedades
         public SKControl BottomPanel { get; set; }
         public SKControl ViewBoard { get; set; }
@@ -20,15 +23,15 @@ namespace Electrophorus
         public Button BtnAddSource { get; set; }
         public Button BtnAddWire { get; set; }
         public Button BtnSettings { get; set; }
-        // Lógica de reotnar a tela principal
+        // Lógica de retornar a tela principal
         private bool _isClicked;
         
 
-        public JanelaSimulador(TelaInicial tela)
+        public JanelaSimulador(MainWindow tela)
         {
             InitializeComponent();
 
-            _dadScreen = tela;
+            _parentScreen = tela;
 
             Size = new Size(800 - 8, Board.CellSize * 18 + 10);
 
@@ -57,13 +60,37 @@ namespace Electrophorus
             // Malha do circuito
             var board = new Board();
 
+            // Gerencia os componentes dentro do circuito
+            var manager = new BoardManager(ViewBoard, board);
+
             // Eventos
             ViewBoard.PaintSurface += (s, e) => board.DrawGrid(e.Surface);
             ViewBoard.Resize += (s, e) => board.SetSize(ViewBoard.Width, ViewBoard.Height);
             FormClosed += JanelaSimulador_FormClosed;
-            BtnAddResistor.Click += (s, e) => ViewBoard.Controls.Add(new Resistor(ViewBoard));
-            BtnAddSource.Click += (s, e) => ViewBoard.Controls.Add(new Source(ViewBoard));
-            BtnAddWire.Click += (s, e) => ViewBoard.Controls.Add(new Wire());
+
+            BtnAddWire.Click += (s, e) =>
+            {
+                var wire = new Wire(new SKPoint(Board.CellSize * 6, Board.CellSize * 4), new lib.Wire());
+                board.Components.Add(wire);
+                manager.Circuit.AddElement(wire.Element);
+                ViewBoard.Refresh();
+            };
+
+            BtnAddResistor.Click += (s, e) =>
+            {
+                var resistor = new Resistor(new SKPoint(Board.CellSize * 2, Board.CellSize * 7), new lib.Resistor());
+                board.Components.Add(resistor);
+                manager.Circuit.AddElement(resistor.Element);
+                ViewBoard.Refresh();
+            };
+
+            BtnAddSource.Click += (s, e) =>
+            {
+                var source = new Source(new SKPoint(Board.CellSize * 4, Board.CellSize * 5), new lib.voltage.DCVoltageSource());
+                board.Components.Add(source);
+                manager.Circuit.AddElement(source.Element);
+                ViewBoard.Refresh();
+            };
 
             // Volta a janela principal
             BtnReturn.Click += (s, e) =>
@@ -80,12 +107,11 @@ namespace Electrophorus
         {
             if (_isClicked)
             {
-                _dadScreen.Show();
+                _parentScreen.Show();
                 return;
             }
             Application.Exit();
         }
-
 
         private Button CreateButton(string text, Point point = new Point())
         {
@@ -93,7 +119,7 @@ namespace Electrophorus
             var button = new Button()
             {
                 Text = text,
-                FlatStyle = FlatStyle.Flat,
+                BackColor = Color.White,
                 Location = point,
                 Size = new Size(width, BottomPanel.Size.Height),
             };
@@ -107,10 +133,10 @@ namespace Electrophorus
             BtnSettings.Dock = DockStyle.Right;
 
             BottomPanel.Controls.Add(BtnReturn = CreateButton("Voltar"));
-            BottomPanel.Controls.Add(BtnAddWire = CreateButton("Wire", new Point(BtnReturn.Width * 3, 0)));
+            BottomPanel.Controls.Add(BtnAddWire = CreateButton("Fio", new Point(BtnReturn.Width * 3, 0)));
             BottomPanel.Controls.Add(BtnAddResistor = CreateButton("Resistor", new Point(BtnReturn.Width, 0)));
-            BottomPanel.Controls.Add(BtnAddSource = CreateButton("Source", new Point(BtnReturn.Width * 2, 0)));
-            BottomPanel.Controls.Add(BtnSettings);
+            BottomPanel.Controls.Add(BtnAddSource = CreateButton("DC Fonte", new Point(BtnReturn.Width * 2, 0)));
+            //BottomPanel.Controls.Add(BtnSettings);
         }
     }
 }
