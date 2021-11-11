@@ -13,14 +13,14 @@ namespace Electrophorus.Rendering
 {
     public class BoardManager
     {
-        public lib.Circuit Circuit { get; set; } = new();
-
+        // Count how many elements are presents in a node
+        private readonly Dictionary<SKPoint, int> _positions = new();
         private readonly List<CircuitComponent> _components;
-        private CircuitComponent _component;
+        public lib.Circuit Circuit { get; set; } = new();
         private readonly SKControl _view;
 
-        // Count how many elements are presents in a node
-        private Dictionary<SKPoint, int> _positions = new();
+        
+        private CircuitComponent _component;
 
         public BoardManager(SKControl view, Board board)
         {
@@ -38,10 +38,9 @@ namespace Electrophorus.Rendering
         {
             if (_component == null) return;
 
-            if (_component.Element is lib.elements.Resistor)
+            if (_component is Resistor resistor)
             {
-                var resistor = _component.Element as lib.elements.Resistor;
-                new InfoResistor(resistor).Show();
+                new InfoResistor(resistor.Element).Show();
             }
         }
 
@@ -109,6 +108,7 @@ namespace Electrophorus.Rendering
         // Paint connection between components
         private void ConnectNodes()
         {
+            // FIXME: It's so bad clean dictionary all time, but I don't have time to do it now
             _positions.Clear();
             foreach (var c in _components)
             {
@@ -151,6 +151,8 @@ namespace Electrophorus.Rendering
                     c.IsRightConnect = false;
                 }
             }
+
+            Control.Connect(_positions, _components, Circuit);
         }
     }
 }

@@ -61,7 +61,7 @@ namespace Electrophorus
             this.panBody.Controls.Add(this.panSimulador);
             this.panBody.Controls.Add(this.panResistor);
             this.panBody.Controls.Add(this.panQuiz);
-            this.panBody.Size = new System.Drawing.Size(800, 416);
+            this.panBody.Size = new System.Drawing.Size(800, 512);
             // 
             // panQuiz
             // 
@@ -242,7 +242,7 @@ namespace Electrophorus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 546);
             this.Name = "MainWindow";
             this.Text = "MainWindow";
             this.panBody.ResumeLayout(false);

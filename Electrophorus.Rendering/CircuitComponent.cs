@@ -20,8 +20,6 @@ namespace Electrophorus.Rendering
         protected float _leftWidth;
         protected float _rightWidth;
 
-        public lib.CircuitElement Element { get; private set; }
-
         public bool IsLeftConnect { get; set; }
         public bool IsRightConnect { get; set; }
 
@@ -54,7 +52,7 @@ namespace Electrophorus.Rendering
         //public virtual double Width { get; }
         public int Height { get; protected set; }
 
-        public CircuitComponent(SKPoint start, int body, lib.CircuitElement elm, int initialWidth = Board.CellSize * 2, int height = 6)
+        public CircuitComponent(SKPoint start, int body, int initialWidth = Board.CellSize * 2, int height = 6)
         {
             if (initialWidth < Board.CellSize) throw new Exception("Width must be greather than cell border size");
 
@@ -65,8 +63,6 @@ namespace Electrophorus.Rendering
             Height = height;
             Start = start;
             End = new SKPoint(Start.X + initialWidth, Start.Y);
-
-            Element = elm;
             
         }
 

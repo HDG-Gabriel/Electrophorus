@@ -136,7 +136,7 @@ namespace Electrophorus
             BottomPanel.Controls.Add(BtnAddWire = CreateButton("Fio", new Point(BtnReturn.Width * 3, 0)));
             BottomPanel.Controls.Add(BtnAddResistor = CreateButton("Resistor", new Point(BtnReturn.Width, 0)));
             BottomPanel.Controls.Add(BtnAddSource = CreateButton("DC Fonte", new Point(BtnReturn.Width * 2, 0)));
-            BottomPanel.Controls.Add(BtnSettings);
+            //BottomPanel.Controls.Add(BtnSettings);
         }
     }
 }
