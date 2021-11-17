@@ -3,7 +3,7 @@ using SkiaSharp.Views.Desktop;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
-
+using SharpCircuit.src;
 using lib = SharpCircuit.src;
 
 namespace Electrophorus.Rendering
@@ -78,6 +78,19 @@ namespace Electrophorus.Rendering
         {
             if (!IsLeftConnect) canvas.DrawCircle(NodeIn.Location, NodeIn.Radius, NodeIn.Paint);
             if (!IsRightConnect) canvas.DrawCircle(NodeOut.Location, NodeOut.Radius, NodeOut.Paint);
+        }
+
+        protected void DrawText(SKCanvas canvas, double value, string unit, int dy)
+        {
+            var start = new SKPoint(Start.X + _leftWidth, Start.Y - dy);
+            var textPaint = new SKPaint()
+            {
+                StrokeWidth = 1,
+                TextSize = 18,
+                Style = SKPaintStyle.Fill,
+                Typeface = SKTypeface.FromFamilyName("Century Gothic", new SKFontStyle(SKFontStyleWeight.Thin, SKFontStyleWidth.ExtraExpanded, SKFontStyleSlant.Upright)),
+        };
+            canvas.DrawText(SIUnits.Normalize(value, unit), start, textPaint);
         }
 
         public virtual void GrowUp(SKControl view, MouseEventArgs e)

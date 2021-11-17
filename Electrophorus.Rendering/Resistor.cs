@@ -39,13 +39,7 @@ namespace Electrophorus.Rendering
             // Draw resistor
             canvas.DrawPath(draw, Paint);
             base.Draw(canvas);
-            var middle = new SKPoint(Start.X + _leftWidth, Start.Y - Board.CellSize / 2);
-            var textPaint = new SKPaint()
-            {
-                StrokeWidth = 1,
-                TextSize = 14,
-            };
-            canvas.DrawText($"{((lib.Resistor)Element).resistance} Ω", middle, textPaint);
+            DrawText(canvas, ((lib.Resistor)Element).resistance, "Ω", 16);
         }
 
         public override bool IsInside(MouseEventArgs e)

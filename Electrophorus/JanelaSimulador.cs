@@ -19,6 +19,7 @@ namespace Electrophorus
         public SKControl BottomPanel { get; set; }
         public SKControl ViewBoard { get; set; }
         public Button BtnReturn { get; set; }
+        public Button BtnAddCapacitor { get; set; }
         public Button BtnAddResistor { get; set; }
         public Button BtnAddSource { get; set; }
         public Button BtnAddWire { get; set; }
@@ -92,6 +93,14 @@ namespace Electrophorus
                 ViewBoard.Refresh();
             };
 
+            BtnAddCapacitor.Click += (s, e) =>
+            {
+                var capacitor = new Capacitor(new SKPoint(64, 64), new lib.Capacitor());
+                board.Components.Add(capacitor);
+                manager.Circuit.AddElement(capacitor.Element);
+                ViewBoard.Refresh();
+            };
+
             // Volta a janela principal
             BtnReturn.Click += (s, e) =>
             {
@@ -133,9 +142,10 @@ namespace Electrophorus
             BtnSettings.Dock = DockStyle.Right;
 
             BottomPanel.Controls.Add(BtnReturn = CreateButton("Voltar"));
-            BottomPanel.Controls.Add(BtnAddWire = CreateButton("Fio", new Point(BtnReturn.Width * 3, 0)));
+            BottomPanel.Controls.Add(BtnAddWire = CreateButton("Fio", new Point(BtnReturn.Width * 4, 0)));
             BottomPanel.Controls.Add(BtnAddResistor = CreateButton("Resistor", new Point(BtnReturn.Width, 0)));
             BottomPanel.Controls.Add(BtnAddSource = CreateButton("DC Fonte", new Point(BtnReturn.Width * 2, 0)));
+            BottomPanel.Controls.Add(BtnAddCapacitor = CreateButton("Capacitor", new Point(BtnReturn.Width * 3, 0)));
             //BottomPanel.Controls.Add(BtnSettings);
         }
     }

@@ -22,10 +22,10 @@ namespace Electrophorus.Rendering.Windows
             _resistor = r;
             txtResistencia.Text = r.resistance.ToString();
             lblCorrente.Text = SIUnits.CurrentRounded(r.getCurrent(), 3);
-            lblDDP.Text = SIUnits.Voltage(r.getVoltageDelta());
+            lblDDP.Text = SIUnits.VoltageRounded(r.getVoltageDelta(), 3);
         }
 
-        private void ImgOK_Click(object sender, System.EventArgs e)
+        private void ImgOK_Click(object sender, EventArgs e)
         {
             if (txtResistencia.Text != string.Empty)
             {
