@@ -25,39 +25,27 @@ namespace Electrophorus.Rendering
                         {
                             if (c1.Equals(c2)) continue;
 
-                            if (c1 is Wire wire && c2 is Resistor resistor)
+                            if (c1.TypeElement == ElementType.Passive && c2.TypeElement == ElementType.Passive)
                             {
-                                Connect(wire, resistor, circuit);
+                                Connect(c1, c2, (lib.PassiveElement)c1.Element, (lib.PassiveElement)c2.Element, circuit);
                             }
-                            else if (c1 is Wire wire1 && c2 is Source source)
+                            else if (c1.TypeElement == ElementType.Passive && c2.TypeElement == ElementType.Active)
                             {
-                                Connect(wire1, source, circuit);
+                                Connect(c1, c2, (lib.PassiveElement)c1.Element, (lib.ActiveElement)c2.Element, circuit);
                             }
-                            else if (c1 is Wire wire2 && c2 is Wire wire3)
+                            else if (c1.TypeElement == ElementType.Active && c2.TypeElement == ElementType.Active)
                             {
-                                Connect(wire2, wire3, circuit);
-                            }
-                            else if (c1 is Resistor resistor1 && c2 is Source source1)
-                            {
-                                Connect(resistor1, source1, circuit);
-                            }
-                            else if (c1 is Resistor resistor2 && c2 is Resistor resistor3)
-                            {
-                                Connect(resistor2, resistor3, circuit);
-                            }
-                            else if (c1 is Source source2 && c2 is Source source3)
-                            {
-                                Connect(source2, source3, circuit);
+                                Connect(c1, c2, (lib.ActiveElement)c1.Element, (lib.ActiveElement)c2.Element, circuit);
                             }
                         }
                     }
                 }
             }
         }
-        private static void Connect(Wire c1, Wire c2, lib.Circuit circuit)
+
+        private static void Connect<T>(CircuitComponent c1, CircuitComponent c2, T w0, T w1, lib.Circuit circuit)
+            where T : lib.PassiveElement
         {
-            var w0 = c1.Element;
-            var w1 = c2.Element;
             if (c1.NodeIn.Location == c2.NodeIn.Location)
             {
                 circuit.Connect(w0.leadIn, w1.leadIn);
@@ -76,54 +64,10 @@ namespace Electrophorus.Rendering
             }
         }
 
-        private static void Connect(Wire c1, Resistor c2, lib.Circuit circuit)
+        private static void Connect<T, K>(CircuitComponent c1, CircuitComponent c2, T r, K s, lib.Circuit circuit)
+            where T : lib.PassiveElement
+            where K : lib.ActiveElement
         {
-            var w = c1.Element;
-            var r = c2.Element;
-            if (c1.NodeIn.Location == c2.NodeIn.Location)
-            {
-                circuit.Connect(w.leadIn, r.leadIn);
-            }
-            else if (c1.NodeIn.Location == c2.NodeOut.Location)
-            {
-                circuit.Connect(w.leadIn, r.leadOut);
-            }
-            else if (c1.NodeOut.Location == c2.NodeIn.Location)
-            {
-                circuit.Connect(w.leadOut, r.leadIn);
-            }
-            else
-            {
-                circuit.Connect(w.leadOut, r.leadOut);
-            }
-        }
-
-        private static void Connect(Wire c1, Source c2, lib.Circuit circuit)
-        {
-            var w = c1.Element;
-            var s = c2.Element;
-            if (c1.NodeIn.Location == c2.NodeIn.Location)
-            {
-                circuit.Connect(w.leadIn, s.leadNeg);
-            }
-            else if (c1.NodeIn.Location == c2.NodeOut.Location)
-            {
-                circuit.Connect(w.leadIn, s.leadPos);
-            }
-            else if (c1.NodeOut.Location == c2.NodeIn.Location)
-            {
-                circuit.Connect(w.leadOut, s.leadNeg);
-            }
-            else
-            {
-                circuit.Connect(w.leadOut, s.leadPos);
-            }
-        }
-
-        private static void Connect(Resistor c1, Source c2, lib.Circuit circuit)
-        {
-            var r = c1.Element;
-            var s = c2.Element;
             if (c1.NodeIn.Location == c2.NodeIn.Location)
             {
                 circuit.Connect(r.leadIn, s.leadNeg);
@@ -141,33 +85,9 @@ namespace Electrophorus.Rendering
                 circuit.Connect(r.leadOut, s.leadPos);
             }
         }
-        
-        private static void Connect(Resistor c1, Resistor c2, lib.Circuit circuit)
+
+        private static void Connect(CircuitComponent c1, CircuitComponent c2, lib.ActiveElement s0, lib.ActiveElement s1, lib.Circuit circuit)
         {
-            var r0 = c1.Element;
-            var r1 = c2.Element;
-            if (c1.NodeIn.Location == c2.NodeIn.Location)
-            {
-                circuit.Connect(r0.leadIn, r1.leadIn);
-            }
-            else if (c1.NodeIn.Location == c2.NodeOut.Location)
-            {
-                circuit.Connect(r0.leadIn, r1.leadOut);
-            }
-            else if (c1.NodeOut.Location == c2.NodeIn.Location)
-            {
-                circuit.Connect(r0.leadOut, r1.leadIn);
-            }
-            else
-            {
-                circuit.Connect(r0.leadOut, r1.leadOut);
-            }
-        }
-        
-        private static void Connect(Source c1, Source c2, lib.Circuit circuit)
-        {
-            var s0 = c1.Element;
-            var s1 = c2.Element;
             if (c1.NodeIn.Location == c2.NodeIn.Location)
             {
                 circuit.Connect(s0.leadNeg, s1.leadNeg);

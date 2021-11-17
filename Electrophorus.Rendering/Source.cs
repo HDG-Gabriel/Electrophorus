@@ -8,9 +8,7 @@ namespace Electrophorus.Rendering
 {
     public class Source : CircuitComponent
     {
-        public lib.DCVoltageSource Element { get; private set; }
-
-        public Source(SKPoint start, lib.DCVoltageSource dc) : base(start, Board.CellSize / 2)
+        public Source(SKPoint start, lib.DCVoltageSource dc) : base(start, Board.CellSize / 2, ElementType.Active)
         {
             CalculateSides();
             Element = dc;

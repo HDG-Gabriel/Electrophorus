@@ -8,6 +8,12 @@ using lib = SharpCircuit.src;
 
 namespace Electrophorus.Rendering
 {
+    public enum ElementType
+    {
+        Active,
+        Passive
+    }
+
     public abstract class CircuitComponent : ICircuitComponent
     {
         private SKPoint _start;
@@ -23,6 +29,8 @@ namespace Electrophorus.Rendering
         public bool IsLeftConnect { get; set; }
         public bool IsRightConnect { get; set; }
 
+        public ElementType TypeElement { get; }
+        public lib.CircuitElement Element { get; protected set; }
         public SKPoint Start
         {
             get => _start;
@@ -52,10 +60,11 @@ namespace Electrophorus.Rendering
         //public virtual double Width { get; }
         public int Height { get; protected set; }
 
-        public CircuitComponent(SKPoint start, int body, int initialWidth = Board.CellSize * 2, int height = 6)
+        public CircuitComponent(SKPoint start, int body, ElementType type, int initialWidth = Board.CellSize * 2, int height = 6)
         {
             if (initialWidth < Board.CellSize) throw new Exception("Width must be greather than cell border size");
 
+            TypeElement = type;
             Paint.Style = SKPaintStyle.Stroke;
             _body = body;
 
@@ -63,7 +72,6 @@ namespace Electrophorus.Rendering
             Height = height;
             Start = start;
             End = new SKPoint(Start.X + initialWidth, Start.Y);
-            
         }
 
         public virtual void Draw(SKCanvas canvas)

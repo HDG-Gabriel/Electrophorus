@@ -9,9 +9,7 @@ namespace Electrophorus.Rendering
     public class Wire : CircuitComponent
     {
         //public override double Width => Math.Sqrt(Math.Pow(End.X - Start.X, 2) + Math.Pow(End.Y - Start.Y, 2));
-        public lib.Wire Element { get; private set; }
-
-        public Wire(SKPoint start, lib.Wire w) : base(start, 0)
+        public Wire(SKPoint start, lib.Wire w) : base(start, 0, ElementType.Passive)
         {
             Element = w;
         }

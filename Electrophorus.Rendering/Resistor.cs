@@ -14,9 +14,7 @@ namespace Electrophorus.Rendering
 {
     public class Resistor : CircuitComponent
     {
-        public lib.Resistor Element { get; set; }
-
-        public Resistor(SKPoint start, lib.Resistor r) : base(start, Board.CellSize)
+        public Resistor(SKPoint start, lib.Resistor r) : base(start, Board.CellSize, ElementType.Passive)
         {
             CalculateSides();
             Element = r;

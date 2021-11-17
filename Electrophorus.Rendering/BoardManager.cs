@@ -6,8 +6,8 @@ using System.Linq;
 using System;
 using System.Windows.Forms;
 
-using Electrophorus;
 using lib = SharpCircuit.src;
+using Electrophorus.Rendering.Windows;
 
 namespace Electrophorus.Rendering
 {
@@ -16,11 +16,9 @@ namespace Electrophorus.Rendering
         // Count how many elements are presents in a node
         private readonly Dictionary<SKPoint, int> _positions = new();
         private readonly List<CircuitComponent> _components;
-        public lib.Circuit Circuit { get; set; } = new();
         private readonly SKControl _view;
-
-        
         private CircuitComponent _component;
+        public lib.Circuit Circuit { get; set; } = new();
 
         public BoardManager(SKControl view, Board board)
         {
@@ -40,7 +38,13 @@ namespace Electrophorus.Rendering
 
             if (_component is Resistor resistor)
             {
-                new InfoResistor(resistor.Element).Show();
+                var r = (lib.elements.Resistor)resistor.Element;
+                new AboutResistor(r) {  View = _view }.Show();
+            }
+            else if (_component is Source source)
+            {
+                var s = (lib.elements.voltage.DCVoltageSource)source.Element;
+                new AboutSource(s) { View = _view }.Show();
             }
         }
 
