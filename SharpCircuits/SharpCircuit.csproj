@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>SharpCircuit</PackageId>
+    <Copyright>Copyright ©  2015</Copyright>
+  </PropertyGroup>
+
+</Project>

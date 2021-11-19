@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Electrophorus.Rendering\Electrophorus.Rendering.csproj" />
+    <ProjectReference Include="..\SharpCircuits\SharpCircuit.csproj" />
   </ItemGroup>
 
 </Project>

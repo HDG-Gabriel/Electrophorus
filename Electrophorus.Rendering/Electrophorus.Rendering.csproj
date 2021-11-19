@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\SharpCircuit-master\SharpCircuits\SharpCircuit.csproj" />
+    <ProjectReference Include="..\SharpCircuits\SharpCircuit.csproj" />
   </ItemGroup>
 
 </Project>
