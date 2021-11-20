@@ -46,6 +46,11 @@ namespace Electrophorus.Rendering
                 var s = (lib.elements.voltage.DCVoltageSource)source.Element;
                 new AboutSource(s) { View = _view }.Show();
             }
+            else if (_component is Capacitor capacitor)
+            {
+                var c = (lib.elements.Capacitor)capacitor.Element;
+                new AboutCapacitor(c) { View = _view }.Show();
+            }
         }
 
         private void MouseDown(object sender, MouseEventArgs e)
