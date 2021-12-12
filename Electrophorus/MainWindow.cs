@@ -32,6 +32,7 @@ namespace Electrophorus
             winResistor.Imagem = Image.FromFile(@"..\..\..\..\imagens\MainWindow\resistor.png");
 
             winQuiz.Titulo = "Quiz";
+            winQuiz.Window = QuizClicked;
             winQuiz.Legenda = "Teste seus conhecimentos";
         }
 
@@ -53,6 +54,11 @@ namespace Electrophorus
             JanelaResistor.Show();
 
             Hide();
+        }
+
+        private void QuizClicked()
+        {
+            new GuiaAprendizado().Show();
         }
     }
 }
