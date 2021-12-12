@@ -11,10 +11,10 @@ using System.Windows.Forms;
 namespace Electrophorus
 {
    
-    public partial class GuiaAprendizado : Form
+    public partial class JanelaQuiz : Form
     {
         public Form JanelaQuiz1 { get; set; }
-        public GuiaAprendizado()
+        public JanelaQuiz()
         {
             InitializeComponent();
             btnVoltarQ.Cursor = Cursors.Hand;
