@@ -88,7 +88,7 @@ namespace Electrophorus
             this.winSimulador.Location = new System.Drawing.Point(32, 365);
             this.winSimulador.Name = "winSimulador";
             this.winSimulador.Normal = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
-            this.winSimulador.Size = new System.Drawing.Size(340, 110);
+            this.winSimulador.Size = new System.Drawing.Size(350, 110);
             this.winSimulador.TabIndex = 8;
             this.winSimulador.Window = null;
             // 
@@ -100,7 +100,7 @@ namespace Electrophorus
             this.winResistor.Location = new System.Drawing.Point(32, 231);
             this.winResistor.Name = "winResistor";
             this.winResistor.Normal = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
-            this.winResistor.Size = new System.Drawing.Size(340, 110);
+            this.winResistor.Size = new System.Drawing.Size(350, 110);
             this.winResistor.TabIndex = 9;
             this.winResistor.Window = null;
             // 
@@ -112,7 +112,7 @@ namespace Electrophorus
             this.winQuiz.Location = new System.Drawing.Point(32, 96);
             this.winQuiz.Name = "winQuiz";
             this.winQuiz.Normal = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
-            this.winQuiz.Size = new System.Drawing.Size(340, 110);
+            this.winQuiz.Size = new System.Drawing.Size(350, 110);
             this.winQuiz.TabIndex = 10;
             this.winQuiz.Window = null;
             // 

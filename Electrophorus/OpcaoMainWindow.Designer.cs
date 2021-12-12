@@ -79,7 +79,7 @@
             this.Controls.Add(this.lblTititulo);
             this.Controls.Add(this.imgOpcao);
             this.Name = "OpcaoMainWindow";
-            this.Size = new System.Drawing.Size(340, 110);
+            this.Size = new System.Drawing.Size(360, 110);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.OpcaoMainWindow_Paint);
             this.MouseEnter += new System.EventHandler(this.OpcaoMainWindow_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.OpcaoMainWindow_MouseLeave);
