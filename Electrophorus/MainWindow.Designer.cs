@@ -35,14 +35,12 @@ namespace Electrophorus
             this.panel1 = new System.Windows.Forms.Panel();
             this.winSimulador = new Electrophorus.OpcaoMainWindow();
             this.winResistor = new Electrophorus.OpcaoMainWindow();
-            this.winQuiz = new Electrophorus.OpcaoMainWindow();
             this.panBody.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panBody
             // 
-            this.panBody.Controls.Add(this.winQuiz);
             this.panBody.Controls.Add(this.winResistor);
             this.panBody.Controls.Add(this.winSimulador);
             this.panBody.Controls.Add(this.panel1);
@@ -64,9 +62,9 @@ namespace Electrophorus
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(475, 156);
+            this.pictureBox2.Location = new System.Drawing.Point(460, 138);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(245, 196);
+            this.pictureBox2.Size = new System.Drawing.Size(260, 260);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
@@ -85,7 +83,7 @@ namespace Electrophorus
             this.winSimulador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.winSimulador.Cursor = System.Windows.Forms.Cursors.Hand;
             this.winSimulador.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.winSimulador.Location = new System.Drawing.Point(32, 365);
+            this.winSimulador.Location = new System.Drawing.Point(32, 288);
             this.winSimulador.Name = "winSimulador";
             this.winSimulador.Normal = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
             this.winSimulador.Size = new System.Drawing.Size(350, 110);
@@ -97,30 +95,19 @@ namespace Electrophorus
             this.winResistor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.winResistor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.winResistor.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.winResistor.Location = new System.Drawing.Point(32, 231);
+            this.winResistor.Location = new System.Drawing.Point(32, 138);
             this.winResistor.Name = "winResistor";
             this.winResistor.Normal = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
             this.winResistor.Size = new System.Drawing.Size(350, 110);
             this.winResistor.TabIndex = 9;
             this.winResistor.Window = null;
             // 
-            // winQuiz
-            // 
-            this.winQuiz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.winQuiz.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.winQuiz.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.winQuiz.Location = new System.Drawing.Point(32, 96);
-            this.winQuiz.Name = "winQuiz";
-            this.winQuiz.Normal = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
-            this.winQuiz.Size = new System.Drawing.Size(350, 110);
-            this.winQuiz.TabIndex = 10;
-            this.winQuiz.Window = null;
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 546);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.Text = "MainWindow";
             this.panBody.ResumeLayout(false);
@@ -135,7 +122,6 @@ namespace Electrophorus
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel1;
         private OpcaoMainWindow winSimulador;
-        private OpcaoMainWindow winQuiz;
         private OpcaoMainWindow winResistor;
     }
 }

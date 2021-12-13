@@ -52,9 +52,9 @@ namespace Electrophorus
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(348, 40);
+            this.pictureBox2.Location = new System.Drawing.Point(369, 40);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(452, 373);
+            this.pictureBox2.Size = new System.Drawing.Size(431, 373);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
@@ -75,7 +75,7 @@ namespace Electrophorus
             this.WinCapacitores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.WinCapacitores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.WinCapacitores.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.WinCapacitores.Location = new System.Drawing.Point(12, 64);
+            this.WinCapacitores.Location = new System.Drawing.Point(12, 65);
             this.WinCapacitores.Name = "WinCapacitores";
             this.WinCapacitores.Normal = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
             this.WinCapacitores.Size = new System.Drawing.Size(317, 103);
@@ -98,7 +98,7 @@ namespace Electrophorus
             this.WinIndutor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.WinIndutor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.WinIndutor.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.WinIndutor.Location = new System.Drawing.Point(12, 193);
+            this.WinIndutor.Location = new System.Drawing.Point(12, 195);
             this.WinIndutor.Name = "WinIndutor";
             this.WinIndutor.Normal = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
             this.WinIndutor.Size = new System.Drawing.Size(317, 103);

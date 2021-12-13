@@ -33,9 +33,11 @@ namespace Electrophorus
             winResistor.Legenda = "Calcule a resistência inserindo as cores";
             winResistor.Imagem = Image.FromFile(@"..\..\..\..\imagens\MainWindow\resistor.png");
 
+            /*
             winQuiz.Window = GuiaAprendizadoClicked;
             winQuiz.Titulo = "Guia Aprendizado";
             winQuiz.Legenda = "Teste seus conhecimentos";
+            */
         }
 
         private void SimuladorClicked()
@@ -56,17 +58,6 @@ namespace Electrophorus
             JanelaResistor.Show();
 
             Hide();
-        }
-
-        private void GuiaAprendizadoClicked()
-        {
-            if (GuiaDeAprendizagem == null || GuiaDeAprendizagem.IsDisposed)
-                GuiaDeAprendizagem = new GuiaDeAprendizagem(this);
-
-            GuiaDeAprendizagem.Show();
-
-            Hide();
-
         }
     }
 }

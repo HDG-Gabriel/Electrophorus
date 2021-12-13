@@ -68,6 +68,7 @@ namespace Electrophorus
             this.panBody.Controls.Add(this.CbValorResistor);
             this.panBody.Controls.Add(this.label7);
             this.panBody.Controls.Add(this.ImgResistor);
+            this.panBody.Size = new System.Drawing.Size(800, 416);
             // 
             // ImgResistor
             // 
@@ -296,6 +297,7 @@ namespace Electrophorus
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "JanelaResistor";
             this.Text = "JanelaResistor";
             this.Load += new System.EventHandler(this.JanelaResistor_Load);
