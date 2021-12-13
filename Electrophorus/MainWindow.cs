@@ -17,6 +17,8 @@ namespace Electrophorus
         public Form JanelaSimulador { get; set; }
         public Form JanelaResistor { get; set;  }
 
+        public Form GuiaDeAprendizagem { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -58,7 +60,13 @@ namespace Electrophorus
 
         private void GuiaAprendizadoClicked()
         {
-            new JanelaQuiz().Show();
+            if (GuiaDeAprendizagem == null || GuiaDeAprendizagem.IsDisposed)
+                GuiaDeAprendizagem = new GuiaDeAprendizagem(this);
+
+            GuiaDeAprendizagem.Show();
+
+            Hide();
+
         }
     }
 }

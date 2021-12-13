@@ -19,6 +19,7 @@ namespace Electrophorus
         {
             InitializeComponent();
             _dadScreen = mainWindow;
+            BtnBackTelaInicial.Cursor = Cursors.Hand;
         }
 
         private void JanelaResistor_Load(object sender, EventArgs e)
