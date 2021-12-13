@@ -66,9 +66,9 @@ namespace Electrophorus
             this.label1.ForeColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(12, 118);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(466, 33);
+            this.label1.Size = new System.Drawing.Size(488, 33);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Monte a seguinte associação mista de capacitores:";
+            this.label1.Text = "3) Monte a seguinte associação mista de capacitores:";
             // 
             // pictureBox2
             // 

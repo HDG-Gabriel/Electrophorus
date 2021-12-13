@@ -65,9 +65,9 @@ namespace Electrophorus
             this.label1.ForeColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(12, 105);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(418, 39);
+            this.label1.Size = new System.Drawing.Size(444, 39);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Monte o seguinte circuito em paralelo:";
+            this.label1.Text = "2) Monte o seguinte circuito em paralelo:";
             // 
             // pictureBox2
             // 

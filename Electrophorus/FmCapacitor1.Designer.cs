@@ -69,13 +69,13 @@ namespace Electrophorus
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(5, 76);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(384, 39);
+            this.label1.Size = new System.Drawing.Size(371, 35);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Monte o seguinte circuito em série:";
+            this.label1.Text = "1) Monte o seguinte circuito em série:";
             // 
             // label2
             // 
