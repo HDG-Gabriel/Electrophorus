@@ -11,18 +11,25 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpCircuit", "SharpCircui
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4480046-9FE1-4304-9F3B-114FDB27609E}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{F4480046-9FE1-4304-9F3B-114FDB27609E}.All|Any CPU.Build.0 = Release|Any CPU
 		{F4480046-9FE1-4304-9F3B-114FDB27609E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F4480046-9FE1-4304-9F3B-114FDB27609E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4480046-9FE1-4304-9F3B-114FDB27609E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4480046-9FE1-4304-9F3B-114FDB27609E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84F6CCD7-E43D-4684-B24F-818BDBBCAF2B}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{84F6CCD7-E43D-4684-B24F-818BDBBCAF2B}.All|Any CPU.Build.0 = Release|Any CPU
 		{84F6CCD7-E43D-4684-B24F-818BDBBCAF2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{84F6CCD7-E43D-4684-B24F-818BDBBCAF2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84F6CCD7-E43D-4684-B24F-818BDBBCAF2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84F6CCD7-E43D-4684-B24F-818BDBBCAF2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2767806-65FF-4D81-A6BF-094BA12E34C7}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{F2767806-65FF-4D81-A6BF-094BA12E34C7}.All|Any CPU.Build.0 = Release|Any CPU
 		{F2767806-65FF-4D81-A6BF-094BA12E34C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F2767806-65FF-4D81-A6BF-094BA12E34C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2767806-65FF-4D81-A6BF-094BA12E34C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
