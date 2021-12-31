@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace Electrophorus
@@ -16,6 +8,7 @@ namespace Electrophorus
         public Form TelaInicial1 { get; set; }
         public Form JanelaSimulador { get; set; }
         public Form JanelaResistor { get; set;  }
+        // TODO: Janela Guia de Aprendizado
 
         public Form GuiaDeAprendizagem { get; set; }
 
@@ -33,11 +26,9 @@ namespace Electrophorus
             winResistor.Legenda = "Calcule a resistência inserindo as cores";
             winResistor.Imagem = Image.FromFile(@"..\..\..\..\imagens\MainWindow\resistor.png");
 
-            /*
-            winQuiz.Window = GuiaAprendizadoClicked;
-            winQuiz.Titulo = "Guia Aprendizado";
-            winQuiz.Legenda = "Teste seus conhecimentos";
-            */
+            winGuiaAprendizado.Window = GuiaAprendizadoClicked;
+            winGuiaAprendizado.Titulo = "Guia Aprendizado";
+            winGuiaAprendizado.Legenda = "Teste seus conhecimentos";
         }
 
         private void SimuladorClicked()
@@ -51,6 +42,17 @@ namespace Electrophorus
         }
 
         private void ResistorClicked()
+        {
+            if (JanelaResistor == null || JanelaResistor.IsDisposed)
+                JanelaResistor = new JanelaResistor(this);
+
+            JanelaResistor.Show();
+
+            Hide();
+        }
+
+        // TODO: Trocar nome "JanelaResistor" pelo nome da janela de guia de aprendizem
+        private void GuiaAprendizadoClicked()
         {
             if (JanelaResistor == null || JanelaResistor.IsDisposed)
                 JanelaResistor = new JanelaResistor(this);
