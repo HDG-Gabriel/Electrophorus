@@ -1,6 +1,5 @@
 ﻿using SkiaSharp;
 using SkiaSharp.Views.Desktop;
-using System.Diagnostics;
 using System.Windows.Forms;
 using lib = SharpCircuit.src.elements;
 

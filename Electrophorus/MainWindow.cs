@@ -6,10 +6,8 @@ namespace Electrophorus
     public partial class MainWindow : StandardWindow
     {
         public Form TelaInicial1 { get; set; }
-        public Form JanelaSimulador { get; set; }
+        public StandardWindow JanelaSimulador { get; set; }
         public Form JanelaResistor { get; set;  }
-        // TODO: Janela Guia de Aprendizado
-
         public Form GuiaDeAprendizagem { get; set; }
 
         public MainWindow()
@@ -54,10 +52,10 @@ namespace Electrophorus
         // TODO: Trocar nome "JanelaResistor" pelo nome da janela de guia de aprendizem
         private void GuiaAprendizadoClicked()
         {
-            if (JanelaResistor == null || JanelaResistor.IsDisposed)
-                JanelaResistor = new JanelaResistor(this);
+            if (GuiaDeAprendizagem == null || GuiaDeAprendizagem.IsDisposed)
+                GuiaDeAprendizagem = new GuiaDeAprendizagem(this);
 
-            JanelaResistor.Show();
+            GuiaDeAprendizagem.Show();
 
             Hide();
         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutSource));
             this.lblCorrente = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -35,7 +36,10 @@
             this.txtValor = new System.Windows.Forms.TextBox();
             this.Bateria = new System.Windows.Forms.Label();
             this.imgOK = new System.Windows.Forms.PictureBox();
+            this.btnPlot = new System.Windows.Forms.PictureBox();
+            this.toolPlot = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.imgOK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPlot)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCorrente
@@ -91,20 +95,35 @@
             // 
             // imgOK
             // 
+            this.imgOK.Cursor = System.Windows.Forms.Cursors.Hand;
             this.imgOK.Image = ((System.Drawing.Image)(resources.GetObject("imgOK.Image")));
-            this.imgOK.Location = new System.Drawing.Point(175, 124);
+            this.imgOK.Location = new System.Drawing.Point(175, 165);
             this.imgOK.Name = "imgOK";
             this.imgOK.Size = new System.Drawing.Size(43, 40);
             this.imgOK.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgOK.TabIndex = 30;
             this.imgOK.TabStop = false;
             // 
+            // btnPlot
+            // 
+            this.btnPlot.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPlot.Image = global::Electrophorus.Rendering.Properties.Resources.graph;
+            this.btnPlot.Location = new System.Drawing.Point(12, 158);
+            this.btnPlot.Name = "btnPlot";
+            this.btnPlot.Size = new System.Drawing.Size(52, 47);
+            this.btnPlot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnPlot.TabIndex = 31;
+            this.btnPlot.TabStop = false;
+            this.toolPlot.SetToolTip(this.btnPlot, "Plot o gráfico");
+            this.btnPlot.Click += new System.EventHandler(this.btnPlot_Click);
+            // 
             // AboutSource
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.ClientSize = new System.Drawing.Size(230, 176);
+            this.ClientSize = new System.Drawing.Size(230, 217);
+            this.Controls.Add(this.btnPlot);
             this.Controls.Add(this.imgOK);
             this.Controls.Add(this.lblCorrente);
             this.Controls.Add(this.label2);
@@ -115,6 +134,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DC Fonte";
             ((System.ComponentModel.ISupportInitialize)(this.imgOK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPlot)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,5 +148,7 @@
         private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label Bateria;
         private System.Windows.Forms.PictureBox imgOK;
+        private System.Windows.Forms.PictureBox btnPlot;
+        private System.Windows.Forms.ToolTip toolPlot;
     }
 }

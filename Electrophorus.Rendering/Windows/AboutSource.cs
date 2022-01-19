@@ -34,5 +34,12 @@ namespace Electrophorus.Rendering.Windows
             txtValor.Text = s.maxVoltage.ToString();
             lblCorrente.Text = SIUnits.CurrentRounded(s.getCurrent(), 3);
         }
+
+        // TODO: [JOÃO] Realizar o plot
+        private void btnPlot_Click(object sender, EventArgs e)
+        {
+            // _source.getCurrent() -> pega o valor da corrente
+            // _source.getVoltageDelta() -> pega o valor da tensao
+        }
     }
 }
