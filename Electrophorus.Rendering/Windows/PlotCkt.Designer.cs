@@ -33,7 +33,7 @@
             // 
             // pltView
             // 
-            this.pltView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pltView.BackColor = System.Drawing.Color.White;
             this.pltView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pltView.Location = new System.Drawing.Point(0, 0);
             this.pltView.Name = "pltView";

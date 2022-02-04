@@ -1,11 +1,11 @@
 ﻿using SkiaSharp;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 using lib = SharpCircuit.src.elements.voltage;
 
 namespace Electrophorus.Rendering
 {
+
     public class Source : CircuitComponent
     {
         public Source(SKPoint start, lib.DCVoltageSource dc) : base(start, Board.CellSize / 2, ElementType.Active)

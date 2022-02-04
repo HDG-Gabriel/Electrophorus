@@ -7,7 +7,8 @@ using lib = SharpCircuit.src.elements.voltage;
 using OxyPlot;
 using OxyPlot.Legends;
 using OxyPlot.Series;
-
+using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace Electrophorus.Rendering.Windows
 {
@@ -15,6 +16,8 @@ namespace Electrophorus.Rendering.Windows
     {
         private PlotModel _model;
         private lib.DCVoltageSource _source;
+        public List<double> CurrentElapised;
+        public double Time { get; set; }
         public SKControl View { get; set; }
 
         public AboutSource()
@@ -22,7 +25,6 @@ namespace Electrophorus.Rendering.Windows
             InitializeComponent();
 
             imgOK.Click += ImgOK_Click;
-            _model = CreateModel(20);
         }
 
         private void ImgOK_Click(object sender, EventArgs e)
@@ -47,30 +49,15 @@ namespace Electrophorus.Rendering.Windows
          *  Estamos usando OxyPlot para, bem... o plot =)
          * Link: https://oxyplot.readthedocs.io/en/latest/getting-started/hello-windows-forms.html
          * Esse link é para a documentação onde tem exemplos de como plotar
-         * */
+         *
+         */
         private void btnPlot_Click(object sender, EventArgs e)
         {
+            Debug.WriteLine($"Janela: {Time}");
+            // V vs I
             // _source.getCurrent() -> pega o valor da corrente
             // _source.getVoltageDelta() -> pega o valor da tensao
-            new PlotCkt().Show();
-        }
-
-        // Cria um modelo
-        private PlotModel CreateModel(int n = 20)
-        {
-            var model = new PlotModel { Title = "LineSeries" };
-
-            for (int i = 1; i <= n; i++)
-            {
-                var s = new LineSeries { Title = "Series " + i };
-                model.Series.Add(s);
-                for (double x = 0; x < 2 * Math.PI; x += 0.1)
-                {
-                    s.Points.Add(new DataPoint(x, (Math.Sin(x * i) / i) + i));
-                }
-            }
-
-            return model;
+            new PlotCkt(Time, CurrentElapised).Show();
         }
     }
 }

@@ -16,8 +16,10 @@ namespace Electrophorus.Rendering
         // Count how many elements are presents in a node
         private readonly Dictionary<SKPoint, int> _positions = new();
         private readonly List<CircuitComponent> _components;
+        private readonly Timer _timer;
         private readonly SKControl _view;
         private CircuitComponent _component;
+
         public lib.Circuit Circuit { get; set; } = new();
 
         public BoardManager(SKControl view, Board board)
@@ -29,6 +31,26 @@ namespace Electrophorus.Rendering
             _view.MouseDown += MouseDown;
             _view.DoubleClick += DoubleClick;
             _view.MouseUp += MouseUp;
+
+            Circuit.timeStep = 1e-5;
+
+            // Temporizador
+            _timer = new Timer()
+            {
+                Interval = 1,
+            };
+            _timer.Start();
+            _timer.Tick += _timer_Tick;
+        }
+
+        private void _timer_Tick(object sender, EventArgs e)
+        {
+            Circuit.doTick();
+
+            foreach (var c in _components)
+            {
+                c.SaveCurrent();
+            }
         }
 
         // Show component informations
@@ -44,7 +66,13 @@ namespace Electrophorus.Rendering
             else if (_component is Source source)
             {
                 var s = (lib.elements.voltage.DCVoltageSource)source.Element;
-                new AboutSource(s) { View = _view }.Show();
+
+                new AboutSource(s)
+                {
+                    View = _view,
+                    Time = Circuit.time,
+                    CurrentElapised = _component.CurrentElapised,
+                }.Show();
             }
             else if (_component is Capacitor capacitor)
             {
@@ -83,7 +111,6 @@ namespace Electrophorus.Rendering
             _component.CanMove = false;
 
             ConnectNodes();
-            Circuit.doTick();
 
             _view.Refresh();
         }

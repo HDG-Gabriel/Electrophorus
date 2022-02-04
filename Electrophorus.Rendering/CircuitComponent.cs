@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using SharpCircuit.src;
 using lib = SharpCircuit.src;
+using System.Collections.Generic;
 
 namespace Electrophorus.Rendering
 {
@@ -60,6 +61,8 @@ namespace Electrophorus.Rendering
         //public virtual double Width { get; }
         public int Height { get; protected set; }
 
+        public List<double> CurrentElapised { get; } = new();
+
         public CircuitComponent(SKPoint start, int body, ElementType type, int initialWidth = Board.CellSize * 2, int height = 6)
         {
             if (initialWidth < Board.CellSize) throw new Exception("Width must be greather than cell border size");
@@ -89,7 +92,7 @@ namespace Electrophorus.Rendering
                 TextSize = 18,
                 Style = SKPaintStyle.Fill,
                 Typeface = SKTypeface.FromFamilyName("Century Gothic", new SKFontStyle(SKFontStyleWeight.Thin, SKFontStyleWidth.ExtraExpanded, SKFontStyleSlant.Upright)),
-        };
+            };
             canvas.DrawText(SIUnits.Normalize(value, unit), start, textPaint);
         }
 
@@ -143,6 +146,11 @@ namespace Electrophorus.Rendering
             var rest = (End.X - Start.X) - _body;
             _leftWidth = (float)rest / 2;
             _rightWidth = (float)rest / 2;
+        }
+
+        public virtual void SaveCurrent()
+        {
+            CurrentElapised.Add(Element.getCurrent());
         }
     }
 }
