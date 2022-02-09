@@ -33,12 +33,14 @@
             // 
             // pltView
             // 
+            this.pltView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pltView.BackColor = System.Drawing.Color.White;
-            this.pltView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pltView.Location = new System.Drawing.Point(0, 0);
             this.pltView.Name = "pltView";
             this.pltView.PanCursor = System.Windows.Forms.Cursors.Hand;
-            this.pltView.Size = new System.Drawing.Size(800, 450);
+            this.pltView.Size = new System.Drawing.Size(800, 480);
             this.pltView.TabIndex = 0;
             this.pltView.Text = "plotView1";
             this.pltView.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE;
@@ -49,7 +51,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 477);
             this.Controls.Add(this.pltView);
             this.Name = "PlotCkt";
             this.Text = "PlotCkt";
