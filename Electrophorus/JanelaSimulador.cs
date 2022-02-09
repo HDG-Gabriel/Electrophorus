@@ -23,6 +23,7 @@ namespace Electrophorus
         public Button BtnAddResistor { get; set; }
         public Button BtnAddSource { get; set; }
         public Button BtnAddWire { get; set; }
+        public Button BtnAddInductor { get; set; }
         public Button BtnSettings { get; set; }
         // Lógica de retornar a tela principal
         private bool _isClicked;
@@ -69,6 +70,7 @@ namespace Electrophorus
             ViewBoard.Resize += (s, e) => board.SetSize(ViewBoard.Width, ViewBoard.Height);
             FormClosed += JanelaSimulador_FormClosed;
 
+            // TODO: Criar método genérico para adição de componente
             BtnAddWire.Click += (s, e) =>
             {
                 var wire = new Wire(new SKPoint(Board.CellSize * 6, Board.CellSize * 4), new lib.Wire());
@@ -100,6 +102,15 @@ namespace Electrophorus
                 manager.Circuit.AddElement(capacitor.Element);
                 ViewBoard.Refresh();
             };
+
+            BtnAddInductor.Click += (s, e) =>
+            {
+                var inductor = new Inductor(new SKPoint(64*2, 64*4), new lib.Inductor());
+                board.Components.Add(inductor);
+                manager.Circuit.AddElement(inductor.Element);
+                ViewBoard.Refresh();
+            };
+            // ==========================================================
 
             // Volta a janela principal
             BtnReturn.Click += (s, e) =>
@@ -146,7 +157,7 @@ namespace Electrophorus
             BottomPanel.Controls.Add(BtnAddResistor = CreateButton("Resistor", new Point(BtnReturn.Width, 0)));
             BottomPanel.Controls.Add(BtnAddSource = CreateButton("DC Fonte", new Point(BtnReturn.Width * 2, 0)));
             BottomPanel.Controls.Add(BtnAddCapacitor = CreateButton("Capacitor", new Point(BtnReturn.Width * 3, 0)));
-            //BottomPanel.Controls.Add(BtnSettings);
+            BottomPanel.Controls.Add(BtnAddInductor = CreateButton("Indutor", new Point(BtnReturn.Width * 5, 0)));
         }
     }
 }
