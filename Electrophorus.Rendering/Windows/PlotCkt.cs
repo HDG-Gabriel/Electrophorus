@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 
 using OxyPlot;
@@ -60,6 +61,28 @@ namespace Electrophorus.Rendering.Windows
             linearAxis4.MinorGridlineStyle = LineStyle.Dot;
             linearAxis4.Position = AxisPosition.Bottom;
             model.Axes.Add(linearAxis4);
+
+            // Propriedades do label de i(A)
+            Label c1 = new Label();
+            c1.Text = "i(A)";
+            c1.Left = 10;
+            c1.Top = 15;
+            c1.Width = 80;
+            c1.Height = 20;
+            c1.ForeColor = Color.Black;
+            c1.Font = new Font("Bahnschrift", 10, FontStyle.Bold);
+            pltView.Controls.Add(c1);
+
+            // Propriedades do label de t(s)
+            Label c2 = new Label();
+            c2.Text = "t(s)";
+            c2.Left = 775;
+            c2.Top = 430;
+            c2.Width = 50;
+            c2.Height = 18;
+            c2.ForeColor = Color.Black;
+            c2.Font = new Font("Bahnschrift", 10, FontStyle.Bold);
+            pltView.Controls.Add(c2);
 
 
             pltView.Model = model;
