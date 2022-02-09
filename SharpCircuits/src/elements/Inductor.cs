@@ -6,12 +6,8 @@ using System.Collections.Generic;
 namespace SharpCircuit.src.elements
 {
 
-    public class Inductor : CircuitElement
+    public class Inductor : PassiveElement
     {
-
-        public Circuit.Lead leadIn { get { return base.lead0; } }
-        public Circuit.Lead leadOut { get { return base.lead1; } }
-
         /// <summary>
         /// Inductance (H)
         /// </summary>

@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Electrophorus.Rendering", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpCircuit", "SharpCircuits\SharpCircuit.csproj", "{F2767806-65FF-4D81-A6BF-094BA12E34C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Electrophorus.Graphics", "Electrophorus.Graphics\Electrophorus.Graphics.csproj", "{22FC3BC8-066B-4E81-9DF5-F49F51A068D8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|Any CPU = All|Any CPU
@@ -36,12 +34,6 @@ Global
 		{F2767806-65FF-4D81-A6BF-094BA12E34C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2767806-65FF-4D81-A6BF-094BA12E34C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2767806-65FF-4D81-A6BF-094BA12E34C7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{22FC3BC8-066B-4E81-9DF5-F49F51A068D8}.All|Any CPU.ActiveCfg = Debug|Any CPU
-		{22FC3BC8-066B-4E81-9DF5-F49F51A068D8}.All|Any CPU.Build.0 = Debug|Any CPU
-		{22FC3BC8-066B-4E81-9DF5-F49F51A068D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{22FC3BC8-066B-4E81-9DF5-F49F51A068D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{22FC3BC8-066B-4E81-9DF5-F49F51A068D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{22FC3BC8-066B-4E81-9DF5-F49F51A068D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,7 +1,6 @@
 ﻿using SkiaSharp;
 using SkiaSharp.Views.Desktop;
 using System;
-using System.Diagnostics;
 using System.Windows.Forms;
 using SharpCircuit.src;
 using lib = SharpCircuit.src;
@@ -85,7 +84,7 @@ namespace Electrophorus.Rendering
 
         protected void DrawText(SKCanvas canvas, double value, string unit, int dy)
         {
-            var start = new SKPoint(Start.X + _leftWidth, Start.Y - dy);
+            var start = new SKPoint(Start.X + (End.X - Start.X) / 2 - 12, Start.Y - dy);
             var textPaint = new SKPaint()
             {
                 StrokeWidth = 1,
