@@ -15,7 +15,6 @@ namespace Electrophorus
         public delegate void OpenWindow();
         public OpenWindow Window { get; set; }
 
-        public delegate void MyDelegate(string msg);
         public Color Normal { get; set; } = Color.FromArgb(81, 81, 81);
         public Color Hover { get; set; } = Color.FromArgb(61, 61, 61);
         public string Titulo {  set => lblTititulo.Text = value; }
@@ -26,6 +25,7 @@ namespace Electrophorus
         {
             InitializeComponent();
             Cursor = Cursors.Hand;
+
             // Click event
             Click += OpcaoMainWindow_Click;
             imgOpcao.Click += OpcaoMainWindow_Click;

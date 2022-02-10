@@ -32,12 +32,12 @@ namespace Electrophorus.Rendering
             _view.DoubleClick += DoubleClick;
             _view.MouseUp += MouseUp;
 
-            Circuit.timeStep = 1e-3;
+            Circuit.timeStep = 1e-1;
 
             // Temporizador
             _timer = new Timer()
             {
-                Interval = 1,
+                Interval = 100,
             };
             _timer.Start();
             _timer.Tick += _timer_Tick;

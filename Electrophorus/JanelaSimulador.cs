@@ -16,6 +16,7 @@ namespace Electrophorus
         // Janela Principal
         private readonly MainWindow _parentScreen;
         // Propriedades
+        public CustomPanel LeftPanel { get; set; }
         public SKControl BottomPanel { get; set; }
         public SKControl ViewBoard { get; set; }
         public Button BtnReturn { get; set; }
@@ -33,6 +34,7 @@ namespace Electrophorus
         {
             InitializeComponent();
 
+            WindowState = FormWindowState.Maximized;
             _parentScreen = tela;
 
             Size = new Size(800 - 8, Board.CellSize * 18 + 10);
@@ -46,6 +48,12 @@ namespace Electrophorus
             // Espaço onde ficará a malha do circuito
             ViewBoard = new SKControl() { Dock = DockStyle.Fill };
 
+            // Espaço onde é possível adicionar componentes ao programa
+            LeftPanel = new CustomPanel()
+            {
+                Dock = DockStyle.Left,
+            };
+
             // Espaço onde estará disponível opções para retornar e outras coisas
             BottomPanel = new SKControl()
             {
@@ -56,7 +64,7 @@ namespace Electrophorus
 
             // Adição de controles
             viewManager.Controls.Add(ViewBoard);
-            viewManager.Controls.Add(BottomPanel);
+                viewManager.Controls.Add(LeftPanel);
             AddButtonBottomPanel();
 
             // Malha do circuito
@@ -71,7 +79,7 @@ namespace Electrophorus
             FormClosed += JanelaSimulador_FormClosed;
 
             // TODO: Criar método genérico para adição de componente
-            BtnAddWire.Click += (s, e) =>
+            LeftPanel.BtnAddWire.NewComponent = () =>
             {
                 var wire = new Wire(new SKPoint(Board.CellSize * 6, Board.CellSize * 4), new lib.Wire());
                 board.Components.Add(wire);
@@ -79,7 +87,7 @@ namespace Electrophorus
                 ViewBoard.Refresh();
             };
 
-            BtnAddResistor.Click += (s, e) =>
+            LeftPanel.BtnAddResistor.NewComponent = () =>
             {
                 var resistor = new Resistor(new SKPoint(Board.CellSize * 2, Board.CellSize * 7), new lib.Resistor());
                 board.Components.Add(resistor);
@@ -87,7 +95,7 @@ namespace Electrophorus
                 ViewBoard.Refresh();
             };
 
-            BtnAddSource.Click += (s, e) =>
+            LeftPanel.BtnAddDCSource.NewComponent = () =>
             {
                 var source = new Source(new SKPoint(Board.CellSize * 4, Board.CellSize * 5), new lib.voltage.DCVoltageSource());
                 board.Components.Add(source);
@@ -95,7 +103,7 @@ namespace Electrophorus
                 ViewBoard.Refresh();
             };
 
-            BtnAddCapacitor.Click += (s, e) =>
+            LeftPanel.BtnAddCapacitor.NewComponent = () =>
             {
                 var capacitor = new Capacitor(new SKPoint(64, 64), new lib.Capacitor());
                 board.Components.Add(capacitor);
@@ -103,9 +111,9 @@ namespace Electrophorus
                 ViewBoard.Refresh();
             };
 
-            BtnAddInductor.Click += (s, e) =>
+            LeftPanel.BtnAddInductor.NewComponent = () =>
             {
-                var inductor = new Inductor(new SKPoint(64*2, 64*4), new lib.Inductor());
+                var inductor = new Inductor(new SKPoint(64 * 2, 64 * 4), new lib.Inductor());
                 board.Components.Add(inductor);
                 manager.Circuit.AddElement(inductor.Element);
                 ViewBoard.Refresh();

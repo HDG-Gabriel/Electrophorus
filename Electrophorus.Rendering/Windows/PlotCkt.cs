@@ -39,8 +39,6 @@ namespace Electrophorus.Rendering.Windows
                 // alteração na linha de plot
                 lineSeries.Color = OxyColors.DarkSlateBlue;
                 lineSeries.StrokeThickness = 1.5;
-                lineSeries.LineStyle = LineStyle.Dash;
-                lineSeries.MarkerType = MarkerType.Circle;
                 lineSeries.MarkerSize =1.5;
                 lineSeries.MarkerStroke = OxyColors.DarkSlateBlue;
                 lineSeries.MarkerFill = OxyColors.DarkSlateBlue;
