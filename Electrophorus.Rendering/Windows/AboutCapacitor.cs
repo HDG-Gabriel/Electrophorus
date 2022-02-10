@@ -5,6 +5,7 @@ using lib = SharpCircuit.src.elements;
 
 namespace Electrophorus.Rendering.Windows
 {
+    // TODO: Make unique class for all componets "about components"
     public partial class AboutCapacitor : Form
     {
         public SKControl View { get; set; }

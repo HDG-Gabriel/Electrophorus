@@ -1,5 +1,4 @@
 ﻿using SkiaSharp;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 using lib = SharpCircuit.src.elements.voltage;
@@ -19,7 +18,6 @@ namespace Electrophorus.Rendering
         {
             var k = Board.CellSize;
             using var draw = new SKPath();
-            Debug.WriteLine($"width: {_leftWidth}");
             // Left side
             draw.MoveTo(Start);
             draw.LineTo(Start.X + _leftWidth, Start.Y);

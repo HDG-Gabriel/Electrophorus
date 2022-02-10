@@ -32,11 +32,9 @@ namespace Electrophorus
         private bool _isClicked;
         
 
-        public JanelaSimulador(MainWindow tela)
+        public JanelaSimulador(MainWindow tela) : base(true)
         {
             InitializeComponent();
-
-            WindowState = FormWindowState.Maximized;
             _parentScreen = tela;
 
             Size = new Size(800 - 8, Board.CellSize * 18 + 10);

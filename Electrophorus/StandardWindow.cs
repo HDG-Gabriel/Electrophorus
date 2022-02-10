@@ -23,13 +23,20 @@ namespace Electrophorus
         //  =======================
 
         private bool _isMaximized;
-        //private readonly Image _imgContrained = Image.FromFile(@"..\..\..\..\imagens\Contrained.png");
-       //private readonly Image _imgExpanded = Image.FromFile(@"..\..\..\..\imagens\Expanded.png");
+        private readonly Image _imgContrained = Image.FromFile(@"..\..\..\..\imagens\Contrained.png");
+        private readonly Image _imgExpanded = Image.FromFile(@"..\..\..\..\imagens\Expanded.png");
 
         public StandardWindow()
         {
             InitializeComponent();
-           _isMaximized= false;
+           _isMaximized = false;
+        }
+
+        public StandardWindow(bool maximized) : this()
+        {
+            _isMaximized = maximized;
+            btnMaximize.BackgroundImage = _imgContrained;
+            WindowState = FormWindowState.Maximized;
         }
 
         // Move a janela
@@ -50,11 +57,11 @@ namespace Electrophorus
         {
             if (!_isMaximized) {
                 WindowState = FormWindowState.Maximized;
-                //btnMaximize.BackgroundImage = _imgContrained;
+                btnMaximize.BackgroundImage = _imgContrained;
             }
             else { 
                 WindowState = FormWindowState.Normal;
-                //btnMaximize.BackgroundImage = _imgExpanded;
+                btnMaximize.BackgroundImage = _imgExpanded;
             }
             _isMaximized = !_isMaximized;
         }

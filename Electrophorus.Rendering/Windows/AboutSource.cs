@@ -12,6 +12,7 @@ using System.Collections.Generic;
 
 namespace Electrophorus.Rendering.Windows
 {
+    // TODO: Make unique class for all componets "about components"
     public partial class AboutSource : Form
     {
         private PlotModel _model;

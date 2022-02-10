@@ -79,6 +79,11 @@ namespace Electrophorus.Rendering
                 var c = (lib.elements.Capacitor)capacitor.Element;
                 new AboutCapacitor(c) { View = _view }.Show();
             }
+            else if (_component is Inductor inductor)
+            {
+                var i = (lib.elements.Inductor)inductor.Element;
+                new AboutInductor(i) { View = _view}.Show();
+            }
         }
 
         private void MouseDown(object sender, MouseEventArgs e)
