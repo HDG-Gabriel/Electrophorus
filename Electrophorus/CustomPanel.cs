@@ -13,6 +13,10 @@ namespace Electrophorus
 {
     public partial class CustomPanel : UserControl
     {
+        public delegate void Return(object s, EventArgs e);
+        public Return ReturnMainScreen { get; set; }
+
+        // Buttons
         public ButtonComponent BtnAddResistor;
         public ButtonComponent BtnAddWire;
         public ButtonComponent BtnAddDCSource;
@@ -23,6 +27,10 @@ namespace Electrophorus
         {
             InitializeComponent();
 
+            // Return
+            btnBack.Click += (s, e) => { ReturnMainScreen(s, e); };
+
+            // Buttons
             BtnAddResistor = btn1;
             BtnAddWire = btn2;
             BtnAddDCSource = btn3;

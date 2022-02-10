@@ -15,6 +15,7 @@ namespace Electrophorus
     {
         // Janela Principal
         private readonly MainWindow _parentScreen;
+
         // Propriedades
         public CustomPanel LeftPanel { get; set; }
         public SKControl BottomPanel { get; set; }
@@ -26,6 +27,7 @@ namespace Electrophorus
         public Button BtnAddWire { get; set; }
         public Button BtnAddInductor { get; set; }
         public Button BtnSettings { get; set; }
+
         // Lógica de retornar a tela principal
         private bool _isClicked;
         
@@ -121,7 +123,7 @@ namespace Electrophorus
             // ==========================================================
 
             // Volta a janela principal
-            BtnReturn.Click += (s, e) =>
+            LeftPanel.ReturnMainScreen = (s, e) =>
             {
                 _isClicked = true;
                 Close();
