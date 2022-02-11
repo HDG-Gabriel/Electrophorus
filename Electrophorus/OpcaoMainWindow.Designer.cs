@@ -43,19 +43,19 @@
             this.imgOpcao.Location = new System.Drawing.Point(15, 21);
             this.imgOpcao.Name = "imgOpcao";
             this.imgOpcao.Size = new System.Drawing.Size(64, 64);
-            this.imgOpcao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgOpcao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgOpcao.TabIndex = 1;
             this.imgOpcao.TabStop = false;
             // 
             // lblTititulo
             // 
             this.lblTititulo.AutoSize = true;
-            this.lblTititulo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTititulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTititulo.ForeColor = System.Drawing.Color.White;
             this.lblTititulo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblTititulo.Location = new System.Drawing.Point(98, 11);
             this.lblTititulo.Name = "lblTititulo";
-            this.lblTititulo.Size = new System.Drawing.Size(87, 32);
+            this.lblTititulo.Size = new System.Drawing.Size(81, 31);
             this.lblTititulo.TabIndex = 2;
             this.lblTititulo.Text = "Titulo";
             // 

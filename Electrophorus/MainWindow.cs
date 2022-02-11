@@ -10,6 +10,8 @@ namespace Electrophorus
         public Form JanelaResistor { get; set;  }
         public Form GuiaDeAprendizagem { get; set; }
 
+        public Form JanelaArduino { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,6 +29,12 @@ namespace Electrophorus
             winGuiaAprendizado.Window = GuiaAprendizadoClicked;
             winGuiaAprendizado.Titulo = "Guia Aprendizado";
             winGuiaAprendizado.Legenda = "Teste seus conhecimentos";
+
+            winArduino.Window = winArduino_Load;
+            winArduino.Titulo = "Arduíno";
+            winArduino.Legenda = "Veja e compreenda o arduíno";
+            winArduino.Imagem = Image.FromFile(@"..\..\..\..\imagens\MainWindow\arduino.png");
+
         }
 
         private void SimuladorClicked()
@@ -56,6 +64,16 @@ namespace Electrophorus
                 GuiaDeAprendizagem = new GuiaDeAprendizagem(this);
 
             GuiaDeAprendizagem.Show();
+
+            Hide();
+        }
+
+        private void winArduino_Load()
+        {
+            if (JanelaArduino == null || JanelaArduino.IsDisposed)
+                JanelaArduino = new JanelaArduino(this);
+
+            JanelaArduino.Show();
 
             Hide();
         }
