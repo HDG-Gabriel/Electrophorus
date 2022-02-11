@@ -34,9 +34,12 @@ namespace Electrophorus
 
         public StandardWindow(bool maximized) : this()
         {
-            _isMaximized = maximized;
-            btnMaximize.BackgroundImage = _imgContrained;
-            WindowState = FormWindowState.Maximized;
+            if (maximized)
+            {
+                _isMaximized = maximized;
+                btnMaximize.BackgroundImage = _imgContrained;
+                WindowState = FormWindowState.Maximized;
+            }
         }
 
         // Move a janela

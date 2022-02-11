@@ -19,7 +19,7 @@ namespace Electrophorus.Rendering
 
             canvas.Clear(SKColors.White);
 
-            var paint = new SKPaint() { StrokeWidth = 1, Color = SKColors.Gray };
+            var paint = new SKPaint() { StrokeWidth = 1, Color = new SKColor(212, 212, 212) };
 
             for (var i = 0; i <= Columns; i ++)
             {

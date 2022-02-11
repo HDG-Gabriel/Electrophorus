@@ -49,7 +49,7 @@ namespace Electrophorus
             ViewBoard = new SKControl() { Dock = DockStyle.Fill };
 
             // Espaço onde é possível adicionar componentes ao programa
-            LeftPanel = new CustomPanel()
+            LeftPanel = new CustomPanel(false)
             {
                 Dock = DockStyle.Left,
             };

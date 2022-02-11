@@ -6,10 +6,12 @@ namespace Electrophorus.UI_Components
 {
     public partial class ButtonComponent : UserControl
     {
-        // Private fields
+        // Private field
         private readonly Color _backColor;
-        private readonly Size maxSize = new(192, 48);
-        private readonly Size minSize = new(60, 48);
+
+        // "Constants"
+        public static readonly Size maxSize = new(192, 48);
+        public static readonly Size minSize = new(66, 48);
 
         // Public fields
         public delegate void AddComponent();

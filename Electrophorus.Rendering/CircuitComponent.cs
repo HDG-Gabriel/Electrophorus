@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using SharpCircuit.src;
 using lib = SharpCircuit.src;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Electrophorus.Rendering
 {
