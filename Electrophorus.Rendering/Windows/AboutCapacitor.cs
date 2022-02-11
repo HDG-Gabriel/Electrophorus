@@ -26,7 +26,7 @@ namespace Electrophorus.Rendering.Windows
         {
             if (txtCapacitancia.Text != string.Empty)
             {
-                _capacitor.capacitance = int.Parse(txtCapacitancia.Text);
+                _capacitor.capacitance = double.Parse(txtCapacitancia.Text);
             }
             if (View != null) View.Refresh();
             Close();

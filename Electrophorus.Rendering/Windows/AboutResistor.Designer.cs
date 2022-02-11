@@ -140,7 +140,6 @@
             this.Controls.Add(this.label1);
             this.Name = "AboutResistor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Informações";
             ((System.ComponentModel.ISupportInitialize)(this.imgOK)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

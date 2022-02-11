@@ -52,7 +52,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(130, 46);
+            this.label2.Location = new System.Drawing.Point(136, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 21);
             this.label2.TabIndex = 8;
@@ -62,14 +62,14 @@
             // 
             this.txtCapacitancia.Location = new System.Drawing.Point(12, 48);
             this.txtCapacitancia.Name = "txtCapacitancia";
-            this.txtCapacitancia.Size = new System.Drawing.Size(112, 23);
+            this.txtCapacitancia.Size = new System.Drawing.Size(118, 23);
             this.txtCapacitancia.TabIndex = 7;
             // 
             // imgOK
             // 
             this.imgOK.Cursor = System.Windows.Forms.Cursors.Hand;
             this.imgOK.Image = ((System.Drawing.Image)(resources.GetObject("imgOK.Image")));
-            this.imgOK.Location = new System.Drawing.Point(116, 101);
+            this.imgOK.Location = new System.Drawing.Point(132, 103);
             this.imgOK.Name = "imgOK";
             this.imgOK.Size = new System.Drawing.Size(30, 30);
             this.imgOK.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -81,7 +81,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.ClientSize = new System.Drawing.Size(161, 143);
+            this.ClientSize = new System.Drawing.Size(171, 143);
             this.Controls.Add(this.imgOK);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCapacitancia);

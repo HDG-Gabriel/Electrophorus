@@ -20,6 +20,8 @@ namespace Electrophorus.Rendering
         private readonly SKControl _view;
         private CircuitComponent _component;
 
+        public const double TimeStep = 1e-2;
+
         public lib.Circuit Circuit { get; set; } = new();
 
         public BoardManager(SKControl view, Board board)
@@ -32,12 +34,12 @@ namespace Electrophorus.Rendering
             _view.DoubleClick += DoubleClick;
             _view.MouseUp += MouseUp;
 
-            Circuit.timeStep = 1e-1;
+            Circuit.timeStep = TimeStep;
 
             // Temporizador
             _timer = new Timer()
             {
-                Interval = 100,
+                Interval = (int)(TimeStep * 1e3),
             };
             _timer.Start();
             _timer.Tick += _timer_Tick;
@@ -70,7 +72,7 @@ namespace Electrophorus.Rendering
                 new AboutSource(s)
                 {
                     View = _view,
-                    Time = Circuit.time,
+                    Circuit = Circuit,
                     CurrentElapised = _component.CurrentElapised,
                 }.Show();
             }
@@ -82,7 +84,7 @@ namespace Electrophorus.Rendering
             else if (_component is Inductor inductor)
             {
                 var i = (lib.elements.Inductor)inductor.Element;
-                new AboutInductor(i) { View = _view}.Show();
+                new AboutInductor(i) { View = _view }.Show();
             }
         }
 
@@ -101,7 +103,7 @@ namespace Electrophorus.Rendering
                 }
                 else
                 {
-                    _component.CanMove = true;
+                    _component.CanMove = !_component.IsLeftLocked && !_component.IsRightLocked;
                 }
             }
         }

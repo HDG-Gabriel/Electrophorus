@@ -29,13 +29,14 @@ namespace Electrophorus.Rendering.Windows
         public AboutInductor(lib.Inductor inductor) : this()
         {
             _inductor = inductor;
+            //txtResistencia.Text = r.resistance.ToString();
         }
 
         private void ImgOK_Click(object sender, EventArgs e)
         {
             if (txtInductance.Text != string.Empty)
             {
-                _inductor.inductance = int.Parse(txtInductance.Text);
+                _inductor.inductance = double.Parse(txtInductance.Text);
             }
             if (View != null) View.Refresh();
             Close();
