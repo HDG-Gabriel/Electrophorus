@@ -6,7 +6,6 @@ using System.Windows.Forms;
 
 using OxyPlot;
 using OxyPlot.Axes;
-using OxyPlot.Legends;
 using OxyPlot.Series;
 
 using SharpCircuit.src;

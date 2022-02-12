@@ -43,8 +43,10 @@ namespace Electrophorus
 
         private void WinCapacitores_Load()
         {
+            /*
             if (FmCapacitor1 == null || FmCapacitor1.IsDisposed)
                 FmCapacitor1 = new FmCapacitor1(this);
+            */
 
             FmCapacitor1.Show();
 
@@ -53,8 +55,10 @@ namespace Electrophorus
 
         private void WinIndutor_Load()
         {
+            /*
             if (FmIndutor1 == null || FmIndutor1.IsDisposed)
                 FmIndutor1 = new FmIndutor1(this);
+            */
 
             FmIndutor1.Show();
 
