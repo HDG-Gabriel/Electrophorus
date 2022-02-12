@@ -60,32 +60,13 @@ namespace Electrophorus.Rendering
         {
             if (_component == null) return;
 
-            if (_component is Resistor resistor)
+            new About(Circuit, _component.CurrentElapised)
             {
-                var r = (lib.elements.Resistor)resistor.Element;
-                new AboutResistor(r) {  View = _view }.Show();
-            }
-            else if (_component is Source source)
-            {
-                var s = (lib.elements.voltage.DCVoltageSource)source.Element;
-
-                new AboutSource(s)
-                {
-                    View = _view,
-                    Circuit = Circuit,
-                    CurrentElapised = _component.CurrentElapised,
-                }.Show();
-            }
-            else if (_component is Capacitor capacitor)
-            {
-                var c = (lib.elements.Capacitor)capacitor.Element;
-                new AboutCapacitor(c) { View = _view }.Show();
-            }
-            else if (_component is Inductor inductor)
-            {
-                var i = (lib.elements.Inductor)inductor.Element;
-                new AboutInductor(i) { View = _view }.Show();
-            }
+                Title = _component.GetType().Name,
+                Unity = _component.Unity,
+                Element = _component.Element,
+                View = _view,
+            }.Show();
         }
 
         private void MouseDown(object sender, MouseEventArgs e)

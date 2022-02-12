@@ -6,6 +6,7 @@ namespace Electrophorus.Rendering
 {
     public class Capacitor : CircuitComponent
     {
+        public override string Unity => "F";
         public Capacitor(SKPoint start, lib.Capacitor capacitor) : base(start, Board.CellSize / 2, ElementType.Passive)
         {
             CalculateSides();

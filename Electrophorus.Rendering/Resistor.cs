@@ -7,6 +7,7 @@ namespace Electrophorus.Rendering
 {
     public class Resistor : CircuitComponent
     {
+        public override string Unity => "Ω";
         public Resistor(SKPoint start, lib.Resistor r) : base(start, Board.CellSize, ElementType.Passive)
         {
             CalculateSides();

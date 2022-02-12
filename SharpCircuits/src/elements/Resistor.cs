@@ -1,14 +1,12 @@
-using SharpCircuit.src;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-
 namespace SharpCircuit.src.elements
 {
-
     public class Resistor : PassiveElement
     {
-
+        public override double Value
+        { 
+            get => resistance; 
+            set => resistance = value;
+        }
         /// <summary>
         /// Resistance (ohms)
         /// </summary>

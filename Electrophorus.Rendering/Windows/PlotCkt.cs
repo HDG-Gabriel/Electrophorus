@@ -110,6 +110,10 @@ namespace Electrophorus.Rendering.Windows
             pltView.Model = _model;
         }
 
+        /*
+         * TODO: Make method more flexible. It executes so many times when timer does tick, so it does
+         * many computations what makes a little slowly when it plots.
+         */
         private void DoPlot()
         {
             if (_circuit == null || _current == null) return;

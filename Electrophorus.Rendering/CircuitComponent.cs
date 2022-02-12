@@ -65,6 +65,11 @@ namespace Electrophorus.Rendering
         //public virtual double Width { get; }
         public int Height { get; protected set; }
 
+        public virtual string Unity
+        {
+            get => throw new NotImplementedException();
+        } 
+
         public List<double> CurrentElapised { get; } = new();
 
         public CircuitComponent(SKPoint start, int body, ElementType type, int initialWidth = Board.CellSize * 2, int height = 6)

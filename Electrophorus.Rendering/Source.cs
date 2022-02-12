@@ -8,6 +8,7 @@ namespace Electrophorus.Rendering
 
     public class Source : CircuitComponent
     {
+        public override string Unity => "V";
         public Source(SKPoint start, lib.DCVoltageSource dc) : base(start, Board.CellSize / 2, ElementType.Active)
         {
             CalculateSides();

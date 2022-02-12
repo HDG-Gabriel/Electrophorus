@@ -7,6 +7,15 @@ namespace SharpCircuit.src
 
     public abstract class CircuitElement : ICircuitElement
     {
+        /*
+         * [GOTNEB]: These 2 properties were created for integrate with plot
+         */
+        public virtual double Value
+        {
+            get => throw new NotImplementedException();
+            set => throw new NotImplementedException();
+        }
+        // =================================================================
 
         public readonly static double pi = 3.14159265358979323846;
 
