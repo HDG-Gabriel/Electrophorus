@@ -58,8 +58,17 @@ namespace Electrophorus.Rendering
         public Node NodeOut { get; set; } = new();
         public bool CanGrowUp { get; set; } = false;
         public bool CanMove { get; set; } = false;
+
+        public bool IsLeftLocked { get; set; } = false;
+        public bool IsRightLocked { get;set; } = false;
+
         //public virtual double Width { get; }
         public int Height { get; protected set; }
+
+        public virtual string Unity
+        {
+            get => throw new NotImplementedException();
+        } 
 
         public List<double> CurrentElapised { get; } = new();
 
@@ -101,8 +110,9 @@ namespace Electrophorus.Rendering
             var x = (int)(e.X / Board.CellSize) * Board.CellSize;
             //var y = ((int)((e.Y + Board.CellSize / 2) / Board.CellSize)) * Board.CellSize;
 
-            if (NodeOut.Inside)
+            if (NodeOut.Inside && !IsRightConnect)
             {
+                Debug.WriteLine($"Right: {IsRightConnect}");
                 var dx = x - End.X;
                 if (End.X - Start.X <= MinimumWidth && dx <= 0) return;
                 End = new SKPoint(End.X + dx, End.Y);
@@ -110,7 +120,7 @@ namespace Electrophorus.Rendering
                 CalculateSides();
                 view.Refresh();
             }
-            else if (NodeIn.Inside)
+            else if (NodeIn.Inside && !IsLeftConnect)
             {
                 var dx = Start.X - x;
                 if (End.X - Start.X <= MinimumWidth && dx <= 0) return;

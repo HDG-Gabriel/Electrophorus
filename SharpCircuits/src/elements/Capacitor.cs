@@ -1,13 +1,12 @@
-using SharpCircuit.src;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-
 namespace SharpCircuit.src.elements
 {
-
     public class Capacitor : PassiveElement
     {
+        public override double Value
+        {
+            get => capacitance;
+            set => capacitance = value;
+        }
 
         /// <summary>
         /// Capacitance (F)

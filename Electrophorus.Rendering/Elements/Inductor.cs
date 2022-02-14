@@ -1,10 +1,4 @@
 ﻿using SkiaSharp;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using lib = SharpCircuit.src.elements;
 
@@ -13,6 +7,7 @@ namespace Electrophorus.Rendering
     // TODO: Make logic of inductor logic
     public  class Inductor : CircuitComponent
     {
+        public override string Unity => "H";
         public Inductor(SKPoint start, lib.Inductor i) : base(start, 3*Board.CellSize, ElementType.Passive, 4*Board.CellSize)
         {
             CalculateSides();

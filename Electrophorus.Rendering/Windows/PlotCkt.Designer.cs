@@ -54,7 +54,8 @@
             this.ClientSize = new System.Drawing.Size(800, 477);
             this.Controls.Add(this.pltView);
             this.Name = "PlotCkt";
-            this.Text = "PlotCkt";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Plot";
             this.ResumeLayout(false);
 
         }

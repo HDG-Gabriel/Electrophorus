@@ -20,6 +20,8 @@ namespace Electrophorus.Rendering
         private readonly SKControl _view;
         private CircuitComponent _component;
 
+        public const double TimeStep = 1e-2;
+
         public lib.Circuit Circuit { get; set; } = new();
 
         public BoardManager(SKControl view, Board board)
@@ -32,12 +34,12 @@ namespace Electrophorus.Rendering
             _view.DoubleClick += DoubleClick;
             _view.MouseUp += MouseUp;
 
-            Circuit.timeStep = 1e-1;
+            Circuit.timeStep = TimeStep;
 
             // Temporizador
             _timer = new Timer()
             {
-                Interval = 100,
+                Interval = (int)(TimeStep * 1e3),
             };
             _timer.Start();
             _timer.Tick += _timer_Tick;
@@ -58,32 +60,13 @@ namespace Electrophorus.Rendering
         {
             if (_component == null) return;
 
-            if (_component is Resistor resistor)
+            new About(Circuit, _component.CurrentElapised)
             {
-                var r = (lib.elements.Resistor)resistor.Element;
-                new AboutResistor(r) {  View = _view }.Show();
-            }
-            else if (_component is Source source)
-            {
-                var s = (lib.elements.voltage.DCVoltageSource)source.Element;
-
-                new AboutSource(s)
-                {
-                    View = _view,
-                    Time = Circuit.time,
-                    CurrentElapised = _component.CurrentElapised,
-                }.Show();
-            }
-            else if (_component is Capacitor capacitor)
-            {
-                var c = (lib.elements.Capacitor)capacitor.Element;
-                new AboutCapacitor(c) { View = _view }.Show();
-            }
-            else if (_component is Inductor inductor)
-            {
-                var i = (lib.elements.Inductor)inductor.Element;
-                new AboutInductor(i) { View = _view}.Show();
-            }
+                Title = _component.GetType().Name,
+                Unity = _component.Unity,
+                Element = _component.Element,
+                View = _view,
+            }.Show();
         }
 
         private void MouseDown(object sender, MouseEventArgs e)
@@ -101,7 +84,7 @@ namespace Electrophorus.Rendering
                 }
                 else
                 {
-                    _component.CanMove = true;
+                    _component.CanMove = !_component.IsLeftLocked && !_component.IsRightLocked;
                 }
             }
         }

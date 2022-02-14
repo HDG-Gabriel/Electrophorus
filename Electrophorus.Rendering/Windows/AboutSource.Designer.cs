@@ -132,7 +132,6 @@
             this.Controls.Add(this.Bateria);
             this.Name = "AboutSource";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DC Fonte";
             ((System.ComponentModel.ISupportInitialize)(this.imgOK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPlot)).EndInit();
             this.ResumeLayout(false);

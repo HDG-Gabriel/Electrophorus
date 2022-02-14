@@ -1,13 +1,12 @@
-using SharpCircuit.src;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-
 namespace SharpCircuit.src.elements
 {
-
     public class Inductor : PassiveElement
     {
+        public override double Value
+        {
+            get => inductance;
+            set => inductance = value;
+        }
         /// <summary>
         /// Inductance (H)
         /// </summary>

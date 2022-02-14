@@ -16,14 +16,29 @@ namespace Electrophorus.Rendering.Windows
     public partial class AboutSource : Form
     {
         private PlotModel _model;
+        private Timer _timer;
         private lib.DCVoltageSource _source;
         public List<double> CurrentElapised;
-        public double Time { get; set; }
+
+        public SharpCircuit.src.Circuit Circuit { get; set; }
         public SKControl View { get; set; }
 
         public AboutSource()
         {
             InitializeComponent();
+
+            _timer = new()
+            {
+                Interval = (int)(BoardManager.TimeStep * 1e3),
+            };
+            _timer.Tick += (s, e) =>
+            {
+                if (_source != null)
+                {
+                    lblCorrente.Text = SIUnits.CurrentRounded(_source.getCurrent(), 3);
+                }
+            };
+            _timer.Start();
 
             imgOK.Click += ImgOK_Click;
         }
@@ -32,7 +47,7 @@ namespace Electrophorus.Rendering.Windows
         {
             if (txtValor.Text != string.Empty)
             {
-                _source.maxVoltage = int.Parse(txtValor.Text);
+                _source.maxVoltage = double.Parse(txtValor.Text);
             }
             if (View != null) View.Refresh();
             Close();
@@ -41,24 +56,16 @@ namespace Electrophorus.Rendering.Windows
         public AboutSource(lib.DCVoltageSource s) : this()
         {
             _source = s;
-            txtValor.Text = s.maxVoltage.ToString();
-            lblCorrente.Text = SIUnits.CurrentRounded(s.getCurrent(), 3);
+            txtValor.Text = _source.maxVoltage.ToString();
+            lblCorrente.Text = SIUnits.CurrentRounded(_source.getCurrent(), 3);
         }
 
-        /*
-         *  TODO: [JOÃO] Realizar o plot
-         *  Estamos usando OxyPlot para, bem... o plot =)
-         * Link: https://oxyplot.readthedocs.io/en/latest/getting-started/hello-windows-forms.html
-         * Esse link é para a documentação onde tem exemplos de como plotar
-         *
-         */
         private void btnPlot_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine($"Janela: {Time}");
-            // V vs I
             // _source.getCurrent() -> pega o valor da corrente
             // _source.getVoltageDelta() -> pega o valor da tensao
-            new PlotCkt(Time, CurrentElapised).Show();
+            //new PlotCkt(Circuit.time, CurrentElapised).Show();
+            new PlotCkt(Circuit, CurrentElapised).Show();
         }
     }
 }

@@ -50,12 +50,12 @@ namespace Electrophorus.Rendering
             var x = ((int)(e.X / (Board.CellSize / 2))) * (Board.CellSize / 2);
             var y = ((int)((e.Y + Board.CellSize / 2) / Board.CellSize)) * Board.CellSize;
 
-            if (NodeOut.Inside)
+            if (NodeOut.Inside && !IsRightLocked)
             {
                 End = new SKPoint(x, y);
                 view.Refresh();
             }
-            else if (NodeIn.Inside)
+            else if (NodeIn.Inside && !IsLeftLocked)
             {
                 //if (Width <= 2 * Board.CellSize && Start.X - x <= 0) return;
                 Start = new SKPoint(x, y);

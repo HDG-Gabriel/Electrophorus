@@ -9,6 +9,11 @@ namespace SharpCircuit.src.elements.voltage
 
     public class DCVoltageSource : ActiveElement
     {
+        public override double Value
+        {
+            get => maxVoltage;
+            set => maxVoltage = value;
+        }
         public DCVoltageSource() : base(WaveType.DC)
         {
 

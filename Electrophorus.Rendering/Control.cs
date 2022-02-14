@@ -1,11 +1,8 @@
 ﻿using lib = SharpCircuit.src;
 using SkiaSharp;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Electrophorus.Rendering
 {
@@ -62,6 +59,7 @@ namespace Electrophorus.Rendering
             {
                 circuit.Connect(w0.leadOut, w1.leadOut);
             }
+            LockSide(c1, c2);
         }
 
         private static void Connect<T, K>(CircuitComponent c1, CircuitComponent c2, T r, K s, lib.Circuit circuit)
@@ -84,6 +82,7 @@ namespace Electrophorus.Rendering
             {
                 circuit.Connect(r.leadOut, s.leadPos);
             }
+            LockSide(c1, c2);
         }
 
         private static void Connect(CircuitComponent c1, CircuitComponent c2, lib.ActiveElement s0, lib.ActiveElement s1, lib.Circuit circuit)
@@ -104,8 +103,33 @@ namespace Electrophorus.Rendering
             {
                 circuit.Connect(s0.leadPos, s1.leadPos);
             }
+            LockSide(c1, c2);
         }
 
+        // It will lock a side from component
+        private static void LockSide(CircuitComponent c1, CircuitComponent c2)
+        {
+            if (c1.NodeIn.Location == c2.NodeIn.Location)
+            {
+                c1.IsLeftLocked = true;
+                c2.IsLeftLocked = true;
+            }
+            else if (c1.NodeIn.Location == c2.NodeOut.Location)
+            {
+                c1.IsLeftLocked = true;
+                c2.IsRightLocked = true;
+            }
+            else if (c1.NodeOut.Location == c2.NodeIn.Location)
+            {
+                c1.IsRightLocked = true;
+                c2.IsLeftLocked = true;
+            }
+            else
+            {
+                c1.IsRightLocked = true;
+                c2.IsRightLocked = true;
+            }
+        }
         // TODO: Disconect element
     }
 }
