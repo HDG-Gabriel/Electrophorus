@@ -72,13 +72,15 @@
             this.cmbMagnitude.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbMagnitude.FormattingEnabled = true;
             this.cmbMagnitude.Items.AddRange(new object[] {
+            "p",
+            "n",
             "μ",
             "m",
-            "c",
             "1",
             "K",
             "M",
-            "G"});
+            "G",
+            "T"});
             this.cmbMagnitude.Location = new System.Drawing.Point(84, 47);
             this.cmbMagnitude.Name = "cmbMagnitude";
             this.cmbMagnitude.Size = new System.Drawing.Size(45, 27);
