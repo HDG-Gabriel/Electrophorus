@@ -57,7 +57,6 @@ namespace Electrophorus
             Hide();
         }
 
-        // TODO: Trocar nome "JanelaResistor" pelo nome da janela de guia de aprendizem
         private void GuiaAprendizadoClicked()
         {
             if (GuiaDeAprendizagem == null || GuiaDeAprendizagem.IsDisposed)
