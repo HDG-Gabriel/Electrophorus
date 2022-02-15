@@ -38,11 +38,13 @@ namespace Electrophorus
             this.timerCOM = new System.Windows.Forms.Timer(this.components);
             this.btReceber = new System.Windows.Forms.Button();
             this.btClear = new System.Windows.Forms.Button();
+            this.Salvar = new System.Windows.Forms.Button();
             this.panBody.SuspendLayout();
             this.SuspendLayout();
             // 
             // panBody
             // 
+            this.panBody.Controls.Add(this.Salvar);
             this.panBody.Controls.Add(this.btClear);
             this.panBody.Controls.Add(this.btReceber);
             this.panBody.Controls.Add(this.textBoxReceber);
@@ -121,6 +123,16 @@ namespace Electrophorus
             this.btClear.UseVisualStyleBackColor = true;
             this.btClear.Click += new System.EventHandler(this.BtClear_Click);
             // 
+            // Salvar
+            // 
+            this.Salvar.Location = new System.Drawing.Point(320, 274);
+            this.Salvar.Name = "Salvar";
+            this.Salvar.Size = new System.Drawing.Size(75, 23);
+            this.Salvar.TabIndex = 7;
+            this.Salvar.Text = "Salvar";
+            this.Salvar.UseVisualStyleBackColor = true;
+            this.Salvar.Click += new System.EventHandler(this.button1_Click);
+            // 
             // JanelaArduino
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -144,5 +156,6 @@ namespace Electrophorus
         private System.Windows.Forms.Timer timerCOM;
         private System.Windows.Forms.Button btReceber;
         private System.Windows.Forms.Button btClear;
+        private System.Windows.Forms.Button Salvar;
     }
 }

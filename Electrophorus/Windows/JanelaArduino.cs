@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
-
+using System.IO;
 
 namespace Electrophorus
 {
@@ -134,13 +134,22 @@ namespace Electrophorus
             if (_serialPort.IsOpen == true)
             {
                 message = _serialPort.ReadExisting();
-            _ = Invoke(new EventHandler(TrataDadoRecebido));
+                textBoxReceber.Text = comboBox1.Items[comboBox1.SelectedIndex].ToString(); // Usado como exemplo para o botão Salvar
+                _ = Invoke(new EventHandler(TrataDadoRecebido));
             }
             
         }
 
         private void BtClear_Click(object sender, EventArgs e)
         {
+            textBoxReceber.Text = "";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Salva arquivo textBoxReceber em Texto
+            ClassArqText arquivoTXT = new ClassArqText();
+            arquivoTXT.FU_Salvar(textBoxReceber.Text);
             textBoxReceber.Text = "";
         }
     }
