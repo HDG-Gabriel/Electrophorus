@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -14,15 +12,17 @@ namespace Electrophorus.Rendering.Windows
 {
     public partial class PlotCkt : Form
     {
+        private readonly Label _axisY;
         private readonly PlotModel _model;
         private readonly LineSeries _lineSeries;
         private readonly Timer _timer;
+        private readonly CircuitComponent _component;
         private readonly Circuit _circuit;
-        private readonly List<double> _current;
 
         public PlotCkt()
         {
             InitializeComponent();
+            cmbPlotOption.SelectedIndex = 0;
 
             _model = new PlotModel
             {
@@ -40,12 +40,18 @@ namespace Electrophorus.Rendering.Windows
                 DoPlot();
             };
             _timer.Start();
+
+            cmbPlotOption.SelectedIndexChanged += (s, e) =>
+            {
+                _model.Title = cmbPlotOption.SelectedIndex == 0 ? "Corrente Elétrica vs Tempo" : "Tensão vs Tempo";
+                _axisY.Text = cmbPlotOption.SelectedIndex == 0 ? "i (A)" : "V (V)";
+            };
         }
 
-        public PlotCkt(Circuit circuit, List<double> current) : this()
+        public PlotCkt(Circuit circuit, CircuitComponent component) : this()
         {
             _circuit = circuit;
-            _current = current;
+            _component = component;
 
             _lineSeries = new LineSeries
             {
@@ -53,9 +59,9 @@ namespace Electrophorus.Rendering.Windows
                 Color = OxyColors.DarkSlateBlue,
                 MarkerStroke = OxyColors.DarkSlateBlue,
                 MarkerFill = OxyColors.DarkSlateBlue,
-                StrokeThickness = 1.5,
+                StrokeThickness = 3,
                 MarkerSize = 1.5,
-                MarkerStrokeThickness = 1.5
+                MarkerStrokeThickness = 2,
             };
             _model.Series.Add(_lineSeries);
 
@@ -65,7 +71,7 @@ namespace Electrophorus.Rendering.Windows
             LinearAxis linearAxis1 = new()
             {
                 MajorGridlineStyle = LineStyle.Solid,
-                MinorGridlineStyle = LineStyle.Dot
+                MinorGridlineStyle = LineStyle.Dot,
             };
             _model.Axes.Add(linearAxis1);
 
@@ -80,7 +86,7 @@ namespace Electrophorus.Rendering.Windows
             _model.Axes.Add(linearAxis4);
 
             // Propriedades do label de i(A)
-            Label c1 = new()
+            _axisY = new()
             {
                 Text = "i(A)",
                 Left = 10,
@@ -90,7 +96,7 @@ namespace Electrophorus.Rendering.Windows
                 ForeColor = Color.Black,
                 Font = new Font("Bahnschrift", 10)
             };
-            pltView.Controls.Add(c1);
+            pltView.Controls.Add(_axisY);
 
             // Propriedades do label de t(s)
             Label c2 = new()
@@ -111,25 +117,47 @@ namespace Electrophorus.Rendering.Windows
 
         /*
          * TODO: Make method more flexible. It executes so many times when timer does tick, so it does
-         * many computations what makes a little slowly when it plots.
+         * many computations what makes a litle slowly when it plots.
          */
         private void DoPlot()
         {
-            if (_circuit == null || _current == null) return;
+            if (_circuit == null || _component == null) return;
 
             _lineSeries.Points.Clear();
+
+            // Evaluate time
             var timeElapised = new List<double>();
-            //Debug.WriteLine($"Tempo passado: {_circuit.time}");
             for (double i = 0; i <= _circuit.time; i += BoardManager.TimeStep)
             {
                 timeElapised.Add(i);
             }
-            //Debug.WriteLine($"Time: {timeElapised.Count}\nCurrent: {_current.Count}");
-            for (var i = 0; i < _current.Count; i++)
+
+            // TDO: Improve this code, make more flexible
+            if (cmbPlotOption.SelectedIndex == 0)
             {
-                _lineSeries.Points.Add(new DataPoint(timeElapised[i], _current[i]));
+                for (var i = 0; i < _component.CurrentElapised.Count; i++)
+                {
+                    _lineSeries.Points.Add(new DataPoint(timeElapised[i], _component.CurrentElapised[i]));
+                }
+            }
+            else
+            {
+                for (var i = 0; i < _component.DDPElapised.Count; i++)
+                {
+                    _lineSeries.Points.Add(new DataPoint(timeElapised[i], _component.DDPElapised[i]));
+                }
             }
 
+            /*
+            foreach (var axe in _model.Axes)
+            {
+                axe.Reset();
+                axe.Minimum = -0.5;
+                axe.Maximum = _circuit.time + 0.5;
+            }
+            pltView.InvalidatePlot(true);
+            */
+            
             pltView.Refresh();
         }
     }

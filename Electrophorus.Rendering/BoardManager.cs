@@ -60,7 +60,7 @@ namespace Electrophorus.Rendering
         {
             if (_component == null) return;
 
-            new About(Circuit, _component.CurrentElapised)
+            new About(Circuit, _component)
             {
                 Title = _component.GetType().Name,
                 Unity = _component.Unity,

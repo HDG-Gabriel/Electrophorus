@@ -52,7 +52,7 @@ namespace Electrophorus.Rendering
                 NodeOut.Location = End;
             }
         }
-        public SKPaint Paint { get; set; } = new SKPaint() { Color = SKColors.Gray, StrokeWidth = 4 };
+        public SKPaint Paint { get; set; } = new SKPaint() { Color = SKColors.Gray, StrokeWidth = 5 };
         public int MinimumWidth { get; }
         public Node NodeIn { get; set; } = new();
         public Node NodeOut { get; set; } = new();
@@ -71,6 +71,7 @@ namespace Electrophorus.Rendering
         } 
 
         public List<double> CurrentElapised { get; } = new();
+        public List<double> DDPElapised { get; } = new();
 
         public CircuitComponent(SKPoint start, int body, ElementType type, int initialWidth = Board.CellSize * 2, int height = 6)
         {
@@ -161,6 +162,7 @@ namespace Electrophorus.Rendering
         public virtual void SaveCurrent()
         {
             CurrentElapised.Add(Element.getCurrent());
+            DDPElapised.Add(Element.getVoltageDelta());
         }
     }
 }

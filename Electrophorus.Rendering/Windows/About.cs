@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 using SharpCircuit.src;
@@ -25,7 +24,7 @@ namespace Electrophorus.Rendering.Windows
             }
         }
         private readonly Circuit _circuit;
-        private readonly List<double> _currentElapised;
+        private CircuitComponent _component;
 
         public SKControl View { get; set; }
 
@@ -41,12 +40,12 @@ namespace Electrophorus.Rendering.Windows
             set => lblUnity.Text = value;
         }
 
-        public About(Circuit circuit, List<double> current)
+        public About(Circuit circuit, CircuitComponent component)
         {
             InitializeComponent();
 
             _circuit = circuit;
-            _currentElapised = current;
+            _component = component;
 
             // Default index
             cmbMagnitude.SelectedIndex = 4;
@@ -71,12 +70,12 @@ namespace Electrophorus.Rendering.Windows
             _timer.Start();
         }
 
-        private void BtnPlot_Click(object sender, System.EventArgs e)
+        private void BtnPlot_Click(object sender, EventArgs e)
         {
-            new PlotCkt(_circuit, _currentElapised).Show();
+            new PlotCkt(_circuit, _component).Show();
         }
 
-        private void ImgApply_Click(object sender, System.EventArgs e)
+        private void ImgApply_Click(object sender, EventArgs e)
         {
             if (txtValue.Text != string.Empty)
             {
@@ -154,7 +153,6 @@ namespace Electrophorus.Rendering.Windows
             }
             txtValue.Text = Math.Abs(_element.Value * k).ToString();
             cmbMagnitude.SelectedIndex = index;
-            //Debug.WriteLine($"SHOW: {_element.Value}");
         }
     }
 }
