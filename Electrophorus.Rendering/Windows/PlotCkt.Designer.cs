@@ -36,7 +36,7 @@
             this.pltView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pltView.BackColor = System.Drawing.Color.White;
+            this.pltView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(172)))), ((int)(((byte)(255)))));
             this.pltView.Location = new System.Drawing.Point(0, 0);
             this.pltView.Name = "pltView";
             this.pltView.PanCursor = System.Windows.Forms.Cursors.Hand;
