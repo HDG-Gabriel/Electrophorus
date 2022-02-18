@@ -7,10 +7,10 @@ namespace Electrophorus
     {
         public Form TelaInicial1 { get; set; }
         public StandardWindow JanelaSimulador { get; set; }
-        public Form JanelaResistor { get; set;  }
-        public Form GuiaDeAprendizagem { get; set; }
+        public Form JanelaResistor { get; set; }
+        //public Form GuiaDeAprendizagem { get; set; }
 
-        public Form JanelaArduino { get; set; }
+        //public Form JanelaArduino { get; set; }
 
         public MainWindow()
         {
@@ -25,7 +25,7 @@ namespace Electrophorus
             winResistor.Titulo = "Resistores";
             winResistor.Legenda = "Calcule a resistência inserindo as cores";
             winResistor.Imagem = Image.FromFile(@"..\..\..\..\imagens\MainWindow\resistor.png");
-
+            /*
             winGuiaAprendizado.Window = GuiaAprendizadoClicked;
             winGuiaAprendizado.Titulo = "Guia Aprendizado";
             winGuiaAprendizado.Legenda = "Teste seus conhecimentos";
@@ -34,6 +34,7 @@ namespace Electrophorus
             winArduino.Titulo = "Arduíno";
             winArduino.Legenda = "Veja e compreenda o arduíno";
             winArduino.Imagem = Image.FromFile(@"..\..\..\..\imagens\MainWindow\arduino.png");
+            */
 
         }
 
@@ -56,7 +57,7 @@ namespace Electrophorus
 
             Hide();
         }
-
+        /*
         private void GuiaAprendizadoClicked()
         {
             if (GuiaDeAprendizagem == null || GuiaDeAprendizagem.IsDisposed)
@@ -76,5 +77,6 @@ namespace Electrophorus
 
             Hide();
         }
+        */
     }
 }
