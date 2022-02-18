@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Electrophorus.Rendering", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpCircuit", "SharpCircuits\SharpCircuit.csproj", "{F2767806-65FF-4D81-A6BF-094BA12E34C7}"
 EndProject
+Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "Setup", "Setup\Setup.aiproj", "{7A418FB8-BC3D-41E6-8EFB-A02E90C1C4D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|Any CPU = All|Any CPU
@@ -55,6 +57,18 @@ Global
 		{F2767806-65FF-4D81-A6BF-094BA12E34C7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F2767806-65FF-4D81-A6BF-094BA12E34C7}.Release|x86.ActiveCfg = Release|Any CPU
 		{F2767806-65FF-4D81-A6BF-094BA12E34C7}.Release|x86.Build.0 = Release|Any CPU
+		{7A418FB8-BC3D-41E6-8EFB-A02E90C1C4D5}.All|Any CPU.ActiveCfg = All
+		{7A418FB8-BC3D-41E6-8EFB-A02E90C1C4D5}.All|Any CPU.Build.0 = All
+		{7A418FB8-BC3D-41E6-8EFB-A02E90C1C4D5}.All|x86.ActiveCfg = All
+		{7A418FB8-BC3D-41E6-8EFB-A02E90C1C4D5}.All|x86.Build.0 = All
+		{7A418FB8-BC3D-41E6-8EFB-A02E90C1C4D5}.Debug|Any CPU.ActiveCfg = All
+		{7A418FB8-BC3D-41E6-8EFB-A02E90C1C4D5}.Debug|Any CPU.Build.0 = All
+		{7A418FB8-BC3D-41E6-8EFB-A02E90C1C4D5}.Debug|x86.ActiveCfg = All
+		{7A418FB8-BC3D-41E6-8EFB-A02E90C1C4D5}.Debug|x86.Build.0 = All
+		{7A418FB8-BC3D-41E6-8EFB-A02E90C1C4D5}.Release|Any CPU.ActiveCfg = All
+		{7A418FB8-BC3D-41E6-8EFB-A02E90C1C4D5}.Release|Any CPU.Build.0 = All
+		{7A418FB8-BC3D-41E6-8EFB-A02E90C1C4D5}.Release|x86.ActiveCfg = All
+		{7A418FB8-BC3D-41E6-8EFB-A02E90C1C4D5}.Release|x86.Build.0 = All
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
