@@ -17,7 +17,7 @@ namespace Electrophorus.Windows
         {
             InitializeComponent();
 
-            imgGuia.Image = Image.FromFile(@"..\..\..\..\imagens\MainWindow\Imagens\{index}.png");
+            imgGuia.Image = Image.FromFile(@$"..\..\..\..\Imagens\Guia\Resistores\{index}.png");
         }
 
         private void GuiaResistores_Load(object sender, EventArgs e)
