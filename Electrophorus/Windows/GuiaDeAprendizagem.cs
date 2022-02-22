@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Electrophorus.Windows;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,7 @@ namespace Electrophorus
 
     {
         private readonly Form _dadScreen;
-        public Form FmCapacitor1 { get; set; }
+        public Form GuiaResistores { get; set; }
         public Form FmIndutor1 { get; set; }
         public GuiaDeAprendizagem(Form mainWindow)
         {
@@ -43,12 +44,12 @@ namespace Electrophorus
 
         private void WinCapacitores_Load()
         {
-            /*
-            if (FmCapacitor1 == null || FmCapacitor1.IsDisposed)
-                FmCapacitor1 = new FmCapacitor1(this);
-            */
+            
+            if (GuiaResistores == null || GuiaResistores.IsDisposed)
+                GuiaResistores = new GuiaResistores();
+            
 
-            FmCapacitor1.Show();
+            GuiaResistores.Show();
 
             Hide();
         }
@@ -63,6 +64,11 @@ namespace Electrophorus
             FmIndutor1.Show();
 
             Hide();
+        }
+
+        private void WinCapacitores_Load(object sender, EventArgs e)
+        {
+          
         }
     }
 }

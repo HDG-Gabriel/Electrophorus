@@ -81,6 +81,7 @@ namespace Electrophorus
             this.WinCapacitores.Size = new System.Drawing.Size(317, 103);
             this.WinCapacitores.TabIndex = 11;
             this.WinCapacitores.Window = null;
+            this.WinCapacitores.Load += new System.EventHandler(this.WinCapacitores_Load);
             // 
             // BtnBackTelaInicial
             // 
