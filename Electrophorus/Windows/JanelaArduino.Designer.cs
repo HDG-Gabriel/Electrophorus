@@ -39,6 +39,7 @@ namespace Electrophorus
             this.btReceber = new System.Windows.Forms.Button();
             this.btClear = new System.Windows.Forms.Button();
             this.Salvar = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panBody.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@ namespace Electrophorus
             // 
             this.btConectar.Location = new System.Drawing.Point(30, 28);
             this.btConectar.Name = "btConectar";
-            this.btConectar.Size = new System.Drawing.Size(72, 23);
+            this.btConectar.Size = new System.Drawing.Size(70, 25);
             this.btConectar.TabIndex = 0;
             this.btConectar.Text = "Conectar";
             this.btConectar.UseVisualStyleBackColor = true;
@@ -67,16 +68,16 @@ namespace Electrophorus
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(120, 28);
+            this.comboBox1.Location = new System.Drawing.Point(116, 30);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(129, 23);
+            this.comboBox1.Size = new System.Drawing.Size(157, 23);
             this.comboBox1.TabIndex = 1;
             // 
             // btEnviar
             // 
             this.btEnviar.Location = new System.Drawing.Point(30, 70);
             this.btEnviar.Name = "btEnviar";
-            this.btEnviar.Size = new System.Drawing.Size(72, 23);
+            this.btEnviar.Size = new System.Drawing.Size(70, 25);
             this.btEnviar.TabIndex = 2;
             this.btEnviar.Text = "Enviar";
             this.btEnviar.UseVisualStyleBackColor = true;
@@ -84,9 +85,9 @@ namespace Electrophorus
             // 
             // textBoxEnviar
             // 
-            this.textBoxEnviar.Location = new System.Drawing.Point(120, 70);
+            this.textBoxEnviar.Location = new System.Drawing.Point(116, 72);
             this.textBoxEnviar.Name = "textBoxEnviar";
-            this.textBoxEnviar.Size = new System.Drawing.Size(129, 23);
+            this.textBoxEnviar.Size = new System.Drawing.Size(157, 23);
             this.textBoxEnviar.TabIndex = 3;
             // 
             // textBoxReceber
@@ -95,7 +96,7 @@ namespace Electrophorus
             this.textBoxReceber.Multiline = true;
             this.textBoxReceber.Name = "textBoxReceber";
             this.textBoxReceber.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxReceber.Size = new System.Drawing.Size(217, 247);
+            this.textBoxReceber.Size = new System.Drawing.Size(242, 247);
             this.textBoxReceber.TabIndex = 4;
             // 
             // timerCOM
@@ -105,9 +106,9 @@ namespace Electrophorus
             // 
             // btReceber
             // 
-            this.btReceber.Location = new System.Drawing.Point(30, 112);
+            this.btReceber.Location = new System.Drawing.Point(30, 110);
             this.btReceber.Name = "btReceber";
-            this.btReceber.Size = new System.Drawing.Size(72, 23);
+            this.btReceber.Size = new System.Drawing.Size(70, 25);
             this.btReceber.TabIndex = 5;
             this.btReceber.Text = "Receber";
             this.btReceber.UseVisualStyleBackColor = true;
@@ -115,9 +116,9 @@ namespace Electrophorus
             // 
             // btClear
             // 
-            this.btClear.Location = new System.Drawing.Point(332, 109);
+            this.btClear.Location = new System.Drawing.Point(203, 110);
             this.btClear.Name = "btClear";
-            this.btClear.Size = new System.Drawing.Size(79, 25);
+            this.btClear.Size = new System.Drawing.Size(70, 25);
             this.btClear.TabIndex = 6;
             this.btClear.Text = "Clear";
             this.btClear.UseVisualStyleBackColor = true;
@@ -125,9 +126,9 @@ namespace Electrophorus
             // 
             // Salvar
             // 
-            this.Salvar.Location = new System.Drawing.Point(320, 274);
+            this.Salvar.Location = new System.Drawing.Point(116, 110);
             this.Salvar.Name = "Salvar";
-            this.Salvar.Size = new System.Drawing.Size(75, 23);
+            this.Salvar.Size = new System.Drawing.Size(70, 25);
             this.Salvar.TabIndex = 7;
             this.Salvar.Text = "Salvar";
             this.Salvar.UseVisualStyleBackColor = true;
@@ -157,5 +158,6 @@ namespace Electrophorus
         private System.Windows.Forms.Button btReceber;
         private System.Windows.Forms.Button btClear;
         private System.Windows.Forms.Button Salvar;
+        private System.Windows.Forms.Timer timer1;
     }
 }
