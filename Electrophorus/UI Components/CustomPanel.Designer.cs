@@ -42,6 +42,7 @@
             this.btn5 = new Electrophorus.UI_Components.ButtonComponent();
             this.btnMenu = new System.Windows.Forms.PictureBox();
             this.toolMenu = new System.Windows.Forms.ToolTip(this.components);
+            this.btn6 = new Electrophorus.UI_Components.ButtonComponent();
             this.panelSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgToolBox)).BeginInit();
             this.panel7.SuspendLayout();
@@ -86,7 +87,7 @@
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(107)))));
             this.panel7.Controls.Add(this.btnBack);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 485);
+            this.panel7.Location = new System.Drawing.Point(0, 556);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(217, 46);
             this.panel7.TabIndex = 7;
@@ -180,11 +181,25 @@
             this.btnMenu.TabStop = false;
             this.toolMenu.SetToolTip(this.btnMenu, "Contrair ou expandir menu");
             // 
+            // btn6
+            // 
+            this.btn6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(107)))));
+            this.btn6.BackHover = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(40)))), ((int)(((byte)(148)))));
+            this.btn6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn6.Image = ((System.Drawing.Image)(resources.GetObject("btn6.Image")));
+            this.btn6.Location = new System.Drawing.Point(8, 464);
+            this.btn6.Name = "btn6";
+            this.btn6.NewComponent = null;
+            this.btn6.Size = new System.Drawing.Size(192, 48);
+            this.btn6.TabIndex = 14;
+            this.btn6.Title = "Chave";
+            // 
             // CustomPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(17)))), ((int)(((byte)(66)))));
+            this.Controls.Add(this.btn6);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.btn5);
             this.Controls.Add(this.btn4);
@@ -194,7 +209,7 @@
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panelSettings);
             this.Name = "CustomPanel";
-            this.Size = new System.Drawing.Size(217, 531);
+            this.Size = new System.Drawing.Size(217, 602);
             this.panelSettings.ResumeLayout(false);
             this.panelSettings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgToolBox)).EndInit();
@@ -219,5 +234,6 @@
         private UI_Components.ButtonComponent btn5;
         private System.Windows.Forms.PictureBox btnMenu;
         private System.Windows.Forms.ToolTip toolMenu;
+        private UI_Components.ButtonComponent btn6;
     }
 }

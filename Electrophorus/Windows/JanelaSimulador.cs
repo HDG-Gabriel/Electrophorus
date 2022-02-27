@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 using Electrophorus.Rendering;
+using Electrophorus.Rendering.Elements;
 using SkiaSharp;
 using SkiaSharp.Views.Desktop;
 
@@ -114,6 +115,14 @@ namespace Electrophorus
                 var inductor = new Inductor(new SKPoint(64 * 2, 64 * 4), new lib.Inductor());
                 board.Components.Add(inductor);
                 manager.Circuit.AddElement(inductor.Element);
+                ViewBoard.Refresh();
+            };
+
+            LeftPanel.BtnAddSwitchSPST.NewComponent = () =>
+            {
+                var switchSPST = new SwitchSPST(new SKPoint(64 * 2, 64 * 4), new lib.SwitchSPST());
+                board.Components.Add(switchSPST);
+                manager.Circuit.AddElement(switchSPST.Element);
                 ViewBoard.Refresh();
             };
             // ==========================================================

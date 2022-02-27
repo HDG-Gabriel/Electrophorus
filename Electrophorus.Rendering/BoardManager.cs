@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 using lib = SharpCircuit.src;
 using Electrophorus.Rendering.Windows;
+using Electrophorus.Rendering.Elements;
 
 namespace Electrophorus.Rendering
 {
@@ -59,6 +60,13 @@ namespace Electrophorus.Rendering
         private void DoubleClick(object sender, EventArgs e)
         {
             if (_component == null) return;
+
+            if (_component.GetType().ToString().ToLower().Contains("switch"))
+            {
+                ((SwitchSPST)_component).Toggle();
+                _view.Refresh();
+                return;
+            }
 
             new About(Circuit, _component)
             {
