@@ -134,7 +134,7 @@ namespace Electrophorus
             if (_serialPort.IsOpen == true)
             {
                 message = _serialPort.ReadExisting();
-                textBoxReceber.Text = comboBox1.Items[comboBox1.SelectedIndex].ToString(); // Usado como exemplo para o botão Salvar
+                
                 _ = Invoke(new EventHandler(TrataDadoRecebido));
             }
             
@@ -150,7 +150,6 @@ namespace Electrophorus
             // Salva arquivo textBoxReceber em Texto
             ClassArqText arquivoTXT = new ClassArqText();
             arquivoTXT.FU_Salvar(textBoxReceber.Text);
-            textBoxReceber.Text = "";
         }
     }
 }
