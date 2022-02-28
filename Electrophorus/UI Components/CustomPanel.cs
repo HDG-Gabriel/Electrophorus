@@ -24,6 +24,7 @@ namespace Electrophorus
         public ButtonComponent BtnAddDCSource;
         public ButtonComponent BtnAddCapacitor;
         public ButtonComponent BtnAddInductor;
+        public ButtonComponent BtnAddSwitchSPST;
 
         public CustomPanel()
         {
@@ -41,6 +42,7 @@ namespace Electrophorus
             BtnAddDCSource = btn3;
             BtnAddCapacitor = btn4;
             BtnAddInductor = btn5;
+            BtnAddSwitchSPST = btn6;
         }
 
         public CustomPanel(bool isClosed) : this()

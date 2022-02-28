@@ -2,13 +2,14 @@
 using SkiaSharp;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 namespace Electrophorus.Rendering
 {
     public class Control
     {
         // FIXME: I really don't have time to improve this =/. All conect functions should be done using GENERICS.
-        public static void Connect(Dictionary<SKPoint, int> locations, List<CircuitComponent> elements, lib.Circuit circuit)
+        public static void Connect(Dictionary<SKPoint, int> locations, Stack<CircuitComponent> elements, lib.Circuit circuit)
         {
             foreach (var key in locations.Keys)
             {
@@ -129,6 +130,7 @@ namespace Electrophorus.Rendering
                 c2.IsRightLocked = true;
             }
         }
+
         // TODO: Disconect element
     }
 }

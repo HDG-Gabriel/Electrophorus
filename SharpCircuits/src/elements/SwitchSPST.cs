@@ -1,21 +1,15 @@
-using SharpCircuit.src;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-
 namespace SharpCircuit.src.elements
 {
-
-    public class SwitchSPST : CircuitElement
+    public class SwitchSPST : PassiveElement
     {
-
-        public Circuit.Lead leadA { get { return lead0; } }
-        public Circuit.Lead leadB { get { return lead1; } }
 
         // position 0 == closed, position 1 == open
         protected int position { get; private set; }
 
-        public bool IsOpen { get { return position == 1; } }
+        public bool IsOpen
+        {
+            get => position == 1;
+        }
 
         protected int posCount;
 
