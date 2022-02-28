@@ -19,19 +19,18 @@ namespace Electrophorus.Rendering.Elements
         {
             CalculateSides();
             Element = sw;
+            sw.toggle();
         }
 
         public override void Draw(SKCanvas canvas)
         {
-            Debug.WriteLine($"State: {IsOpen}");
-
             if (IsOpen)
             {
                 using var draw = new SKPath();
                 draw.MoveTo(Start);
                 draw.LineTo(Start.X + _leftWidth, Start.Y);
 
-                draw.LineTo(Start.X + Board.CellSize, Start.Y - Board.CellSize);
+                draw.LineTo(Start.X + _leftWidth + Board.CellSize, Start.Y - Board.CellSize);
 
                 draw.MoveTo(End);
                 draw.LineTo(End.X - _rightWidth, Start.Y);

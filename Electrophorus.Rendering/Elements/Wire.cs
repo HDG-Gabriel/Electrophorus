@@ -1,4 +1,5 @@
-﻿using SkiaSharp;
+﻿using SharpCircuit.src;
+using SkiaSharp;
 using SkiaSharp.Views.Desktop;
 using System.Windows.Forms;
 using lib = SharpCircuit.src.elements;
@@ -61,6 +62,11 @@ namespace Electrophorus.Rendering
                 Start = new SKPoint(x, y);
                 view.Refresh();
             }
+        }
+
+        public override void ShowPlot(SKControl view, Circuit circuit)
+        {
+            return;
         }
     }
 }

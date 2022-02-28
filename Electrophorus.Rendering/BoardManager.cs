@@ -16,7 +16,7 @@ namespace Electrophorus.Rendering
     {
         // Count how many elements are presents in a node
         private readonly Dictionary<SKPoint, int> _positions = new();
-        private readonly List<CircuitComponent> _components;
+        private readonly Stack<CircuitComponent> _components;
         private readonly Timer _timer;
         private readonly SKControl _view;
         private CircuitComponent _component;
@@ -40,7 +40,7 @@ namespace Electrophorus.Rendering
             // Temporizador
             _timer = new Timer()
             {
-                Interval = (int)(TimeStep * 1e3),
+                Interval = 1000,
             };
             _timer.Start();
             _timer.Tick += _timer_Tick;
@@ -61,20 +61,15 @@ namespace Electrophorus.Rendering
         {
             if (_component == null) return;
 
+            // If it's switch then it changes your state
             if (_component.GetType().ToString().ToLower().Contains("switch"))
             {
                 ((SwitchSPST)_component).Toggle();
                 _view.Refresh();
                 return;
             }
-
-            new About(Circuit, _component)
-            {
-                Title = _component.GetType().Name,
-                Unity = _component.Unity,
-                Element = _component.Element,
-                View = _view,
-            }.Show();
+            // Open Plot dialog
+            _component.ShowPlot(_view, Circuit);
         }
 
         private void MouseDown(object sender, MouseEventArgs e)
@@ -113,6 +108,16 @@ namespace Electrophorus.Rendering
 
         private void MouseMove(object sender, MouseEventArgs e)
         {
+            /*
+            foreach (var c in _components)
+            {
+                if (c.IsAbove(e))
+                {
+                    _view.Refresh();
+                }
+            }
+            */
+
             if (_component == null) return;
 
             if (_component.CanGrowUp)

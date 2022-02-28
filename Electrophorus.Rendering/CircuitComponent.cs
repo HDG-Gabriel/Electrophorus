@@ -6,6 +6,7 @@ using SharpCircuit.src;
 using lib = SharpCircuit.src;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Electrophorus.Rendering.Windows;
 
 namespace Electrophorus.Rendering
 {
@@ -164,5 +165,32 @@ namespace Electrophorus.Rendering
             CurrentElapised.Add(Element.getCurrent());
             DDPElapised.Add(Element.getVoltageDelta());
         }
+
+        public virtual void ShowPlot(SKControl view, Circuit circuit)
+        {
+            new About(circuit, this)
+            {
+                Title = GetType().Name,
+                Unity = Unity,
+                Element = Element,
+                View = view,
+            }.Show();
+        }
+
+        /*
+        public bool IsAbove(MouseEventArgs e)
+        {
+            if (IsInside(e))
+            {
+                Paint.Color = SKColors.Yellow;
+            }
+            else
+            {
+                Paint.Color = SKColors.Gray;
+            }
+
+            return (IsInside(e));
+        }
+        */
     }
 }
